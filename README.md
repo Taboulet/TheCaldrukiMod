@@ -7,7 +7,7 @@
 The Caldruki Mod is a Minecraft mod based on the "shitpost content" that Caldruki makes
 
 The Mod includes a new Block allowing you to access a new dimension that come with :
-- Special mobs
+- Special mobs meow
 - Special items 
 - Funny sound effect
 
