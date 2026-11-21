@@ -2,8 +2,7 @@
 
 # The Caldruki Mod 😂🎉
 [Add video or image of the mod here]
-
-[Get it on Curseforge] [Get it on Modrinth]
+<br /><picture><img src="https://cdn.simpleicons.org/modrinth" width="14" /></picture>&nbsp;[Modrinth](https://modrinth.com/mod/the-caldruki-mod)  <picture><img src="https://cdn.simpleicons.org/curseforge" width="14" /></picture>&nbsp;[CurseForge](https://www.curseforge.com/minecraft/mc-mods/the-caldruki-meowd)
 
 The Caldruki Mod is a Minecraft mod based on the "shitpost content" that Caldruki makes
 
