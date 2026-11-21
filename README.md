@@ -18,21 +18,12 @@ This mod has only been possible thanks to Mcreator (Scratch-like tool for Minecr
 
 You will need [MCreator](https://mcreator.net/download) (The current build needs [MCreator EAP 2026.3.44621](https://mcreator.net/download/eap-2026-3-44621))
 
-- Download the version of the Caldruki Mod of your choice in the [Release tab](https://github.com/Taboulet/TheCaldrukiMod/releases/new)
- 
-- Launch MCreator
+- Download the version of the Caldruki Mod of your choice in the [Release tab](https://github.com/Taboulet/TheCaldrukiMod/releases/new) or use :
+```bash
+git clone https://github.com/Taboulet/TheCaldrukiMod.git
+```
 
-- Choose "Open workspace"
-<img width="566" height="343" alt="image" src="https://github.com/user-attachments/assets/73263195-a005-4e6c-9474-706dee9db81c" />
-
-- Choose the downloaded source code folder, then "caldrukimod.mcreator"
-
-- Wait for the gradle task to run
-
-- When the gradle task finishes, choose the "Export the mod for distribution" button
-  <img width="202" height="130" alt="image" src="https://github.com/user-attachments/assets/afd58a21-d471-47fb-a853-a9c8036302cc" />
-- Choose the destination folder, and you should have the mod built from source!
-
+- Open the file named [Build.pdf](https://github.com/Taboulet/TheCaldrukiMod/blob/main/README.md) and follow the instructions
 
 
 ## License
