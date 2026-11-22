@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "caldrukimod:galaxy_note_temple",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 5,
+    "separation": 1,
+    "salt": 1605305367
+  }
+}

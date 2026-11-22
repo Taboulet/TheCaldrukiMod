@@ -1,0 +1,30 @@
+{
+  "display": {
+    "icon": {
+      "id": "caldrukimod:calzoski_dog_item"
+    },
+    "title": {
+      "translate": "advancements.nofurrygang.title"
+    },
+    "description": {
+      "translate": "advancements.nofurrygang.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "nofurrygang_0": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "caldrukimod:furry_wand"
+          }
+        ]
+      }
+    }
+  },
+  "parent": "caldrukimod:yesfurrygang"
+}

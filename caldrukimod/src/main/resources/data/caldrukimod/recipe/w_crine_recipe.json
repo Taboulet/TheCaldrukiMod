@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "caldrukimod:so_nana"
+    },
+    {
+      "item": "caldrukimod:so_nrange"
+    },
+    {
+      "item": "caldrukimod:weird_ahh_crying_face_item"
+    },
+    {
+      "item": "caldrukimod:so_nmelon"
+    },
+    {
+      "item": "caldrukimod:so_npple"
+    }
+  ],
+  "result": {
+    "id": "caldrukimod:w_crine",
+    "count": 1
+  }
+}
