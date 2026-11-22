@@ -1,5 +1,5 @@
 **The Caldruki Mod is not affiliated with the Content Creator Caldruki**
-
+# EVERYTHING IN THIS GITHUB IS CURRENTLY WIP, you can download the source code but all the instructions and stuff are not fully written yet, goodluck figuring the mess that is Build.pdf and the current readme for now🥀
 # The Caldruki Mod 😂🎉
 [Add video or image of the mod here]
 <br /><picture><img src="https://cdn.simpleicons.org/modrinth" width="14" /></picture>&nbsp;[Modrinth](https://modrinth.com/mod/the-caldruki-mod)  <picture><img src="https://cdn.simpleicons.org/curseforge" width="14" /></picture>&nbsp;[CurseForge](https://www.curseforge.com/minecraft/mc-mods/the-caldruki-meowd)
