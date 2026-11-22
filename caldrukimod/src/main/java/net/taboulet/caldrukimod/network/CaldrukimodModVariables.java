@@ -8,21 +8,24 @@ import net.neoforged.neoforge.network.handling.IPayloadContext;
 import net.neoforged.neoforge.network.PacketDistributor;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
-import net.neoforged.neoforge.common.util.INBTSerializable;
+import net.neoforged.neoforge.common.util.ValueIOSerializable;
 import net.neoforged.neoforge.attachment.AttachmentType;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.bus.api.SubscribeEvent;
 
+import net.minecraft.world.level.storage.ValueOutput;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.TagValueOutput;
+import net.minecraft.world.level.storage.TagValueInput;
+import net.minecraft.util.ProblemReporter;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.network.protocol.PacketFlow;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.RegistryFriendlyByteBuf;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.core.HolderLookup;
 
 import java.util.function.Supplier;
 
@@ -75,7 +78,7 @@ public class CaldrukimodModVariables {
 		event.getEntity().setData(PLAYER_VARIABLES, clone);
 	}
 
-	public static class PlayerVariables implements INBTSerializable<CompoundTag> {
+	public static class PlayerVariables implements ValueIOSerializable {
 		boolean _syncDirty = false;
 		public double LastInteractedPortalX = 0.0;
 		public double LastInteractedPortalY = 0.0;
@@ -83,21 +86,19 @@ public class CaldrukimodModVariables {
 		public double LastChosenOption = 0.0;
 
 		@Override
-		public CompoundTag serializeNBT(HolderLookup.Provider lookupProvider) {
-			CompoundTag nbt = new CompoundTag();
-			nbt.putDouble("LastInteractedPortalX", LastInteractedPortalX);
-			nbt.putDouble("LastInteractedPortalY", LastInteractedPortalY);
-			nbt.putDouble("LastInteractedPortalZ", LastInteractedPortalZ);
-			nbt.putDouble("LastChosenOption", LastChosenOption);
-			return nbt;
+		public void serialize(ValueOutput output) {
+			output.putDouble("LastInteractedPortalX", LastInteractedPortalX);
+			output.putDouble("LastInteractedPortalY", LastInteractedPortalY);
+			output.putDouble("LastInteractedPortalZ", LastInteractedPortalZ);
+			output.putDouble("LastChosenOption", LastChosenOption);
 		}
 
 		@Override
-		public void deserializeNBT(HolderLookup.Provider lookupProvider, CompoundTag nbt) {
-			LastInteractedPortalX = nbt.getDouble("LastInteractedPortalX");
-			LastInteractedPortalY = nbt.getDouble("LastInteractedPortalY");
-			LastInteractedPortalZ = nbt.getDouble("LastInteractedPortalZ");
-			LastChosenOption = nbt.getDouble("LastChosenOption");
+		public void deserialize(ValueInput input) {
+			LastInteractedPortalX = input.getDoubleOr("LastInteractedPortalX", 0);
+			LastInteractedPortalY = input.getDoubleOr("LastInteractedPortalY", 0);
+			LastInteractedPortalZ = input.getDoubleOr("LastInteractedPortalZ", 0);
+			LastChosenOption = input.getDoubleOr("LastChosenOption", 0);
 		}
 
 		public void markSyncDirty() {
@@ -106,13 +107,16 @@ public class CaldrukimodModVariables {
 	}
 
 	public record PlayerVariablesSyncMessage(PlayerVariables data) implements CustomPacketPayload {
-		public static final Type<PlayerVariablesSyncMessage> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(CaldrukimodMod.MODID, "player_variables_sync"));
-		public static final StreamCodec<RegistryFriendlyByteBuf, PlayerVariablesSyncMessage> STREAM_CODEC = StreamCodec
-				.of((RegistryFriendlyByteBuf buffer, PlayerVariablesSyncMessage message) -> buffer.writeNbt(message.data().serializeNBT(buffer.registryAccess())), (RegistryFriendlyByteBuf buffer) -> {
-					PlayerVariablesSyncMessage message = new PlayerVariablesSyncMessage(new PlayerVariables());
-					message.data.deserializeNBT(buffer.registryAccess(), buffer.readNbt());
-					return message;
-				});
+		public static final Type<PlayerVariablesSyncMessage> TYPE = new Type<>(Identifier.fromNamespaceAndPath(CaldrukimodMod.MODID, "player_variables_sync"));
+		public static final StreamCodec<RegistryFriendlyByteBuf, PlayerVariablesSyncMessage> STREAM_CODEC = StreamCodec.of((RegistryFriendlyByteBuf buffer, PlayerVariablesSyncMessage message) -> {
+			TagValueOutput output = TagValueOutput.createWithContext(ProblemReporter.DISCARDING, buffer.registryAccess());
+			message.data.serialize(output);
+			buffer.writeNbt(output.buildResult());
+		}, (RegistryFriendlyByteBuf buffer) -> {
+			PlayerVariablesSyncMessage message = new PlayerVariablesSyncMessage(new PlayerVariables());
+			message.data.deserialize(TagValueInput.create(ProblemReporter.DISCARDING, buffer.registryAccess(), buffer.readNbt()));
+			return message;
+		});
 
 		@Override
 		public Type<PlayerVariablesSyncMessage> type() {
@@ -121,7 +125,11 @@ public class CaldrukimodModVariables {
 
 		public static void handleData(final PlayerVariablesSyncMessage message, final IPayloadContext context) {
 			if (context.flow() == PacketFlow.CLIENTBOUND && message.data != null) {
-				context.enqueueWork(() -> context.player().getData(PLAYER_VARIABLES).deserializeNBT(context.player().registryAccess(), message.data.serializeNBT(context.player().registryAccess()))).exceptionally(e -> {
+				context.enqueueWork(() -> {
+					TagValueOutput output = TagValueOutput.createWithContext(ProblemReporter.DISCARDING, context.player().registryAccess());
+					message.data.serialize(output);
+					context.player().getData(PLAYER_VARIABLES).deserialize(TagValueInput.create(ProblemReporter.DISCARDING, context.player().registryAccess(), output.buildResult()));
+				}).exceptionally(e -> {
 					context.connection().disconnect(Component.literal(e.getMessage()));
 					return null;
 				});

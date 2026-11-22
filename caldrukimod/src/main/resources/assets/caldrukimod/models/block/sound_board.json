@@ -8,6 +8,5 @@
     "south": "minecraft:block/smithing_table_top",
     "west": "minecraft:block/smithing_table_top",
     "particle": "minecraft:block/smithing_table_bottom"
-  },
-  "render_type": "solid"
+  }
 }

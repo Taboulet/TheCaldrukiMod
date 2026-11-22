@@ -8,11 +8,17 @@
       "registry_name": "caldrukium_armor",
       "metadata": {
         "files": [
-          "src/main/resources/assets/caldrukimod/models/item/caldrukium_armor_boots.json",
-          "src/main/resources/assets/caldrukimod/models/item/caldrukium_armor_helmet.json",
           "src/main/java/net/taboulet/caldrukimod/item/CaldrukiumArmorItem.java",
+          "src/main/resources/assets/caldrukimod/items/caldrukium_armor_leggings.json",
+          "src/main/resources/assets/caldrukimod/models/item/caldrukium_armor_boots.json",
+          "src/main/resources/assets/caldrukimod/equipment/caldrukium_armor.json",
+          "src/main/resources/assets/caldrukimod/models/item/caldrukium_armor_chestplate.json",
+          "src/main/java/net/taboulet/caldrukimod/client/renderer/item/CaldrukiumArmorArmor.java",
           "src/main/resources/assets/caldrukimod/models/item/caldrukium_armor_leggings.json",
-          "src/main/resources/assets/caldrukimod/models/item/caldrukium_armor_chestplate.json"
+          "src/main/resources/assets/caldrukimod/items/caldrukium_armor_helmet.json",
+          "src/main/resources/assets/caldrukimod/items/caldrukium_armor_chestplate.json",
+          "src/main/resources/assets/caldrukimod/models/item/caldrukium_armor_helmet.json",
+          "src/main/resources/assets/caldrukimod/items/caldrukium_armor_boots.json"
         ]
       }
     },
@@ -24,11 +30,12 @@
       "registry_name": "jonklerium",
       "metadata": {
         "files": [
-          "src/main/resources/assets/caldrukimod/models/item/jonklerium.json",
           "src/main/resources/data/caldrukimod/loot_table/blocks/jonklerium.json",
-          "src/main/resources/assets/caldrukimod/blockstates/jonklerium.json",
+          "src/main/resources/assets/caldrukimod/models/item/jonklerium.json",
+          "src/main/resources/assets/caldrukimod/items/jonklerium.json",
+          "src/main/resources/assets/caldrukimod/models/block/jonklerium.json",
           "src/main/java/net/taboulet/caldrukimod/block/JonkleriumBlock.java",
-          "src/main/resources/assets/caldrukimod/models/block/jonklerium.json"
+          "src/main/resources/assets/caldrukimod/blockstates/jonklerium.json"
         ]
       }
     },
@@ -62,8 +69,8 @@
       "registry_name": "warning",
       "metadata": {
         "files": [
-          "src/main/resources/assets/caldrukimod/particles/warning.json",
-          "src/main/java/net/taboulet/caldrukimod/client/particle/WarningParticle.java"
+          "src/main/java/net/taboulet/caldrukimod/client/particle/WarningParticle.java",
+          "src/main/resources/assets/caldrukimod/particles/warning.json"
         ]
       }
     },
@@ -116,8 +123,8 @@
       "registry_name": "key_recipe",
       "metadata": {
         "files": [
-          "src/main/resources/data/caldrukimod/recipe/key_recipe.json",
-          "src/main/resources/data/caldrukimod/advancement/recipes/key_recipe.json"
+          "src/main/resources/data/caldrukimod/advancement/recipes/key_recipe.json",
+          "src/main/resources/data/caldrukimod/recipe/key_recipe.json"
         ]
       }
     },
@@ -130,6 +137,7 @@
       "metadata": {
         "files": [
           "src/main/java/net/taboulet/caldrukimod/item/KeyItem.java",
+          "src/main/resources/assets/caldrukimod/items/key.json",
           "src/main/resources/assets/caldrukimod/models/item/key.json"
         ]
       }
@@ -202,11 +210,12 @@
       "registry_name": "dirt_druki",
       "metadata": {
         "files": [
-          "src/main/java/net/taboulet/caldrukimod/block/DirtDrukiBlock.java",
-          "src/main/resources/assets/caldrukimod/models/item/dirt_druki.json",
           "src/main/resources/data/caldrukimod/loot_table/blocks/dirt_druki.json",
+          "src/main/resources/assets/caldrukimod/blockstates/dirt_druki.json",
+          "src/main/java/net/taboulet/caldrukimod/block/DirtDrukiBlock.java",
           "src/main/resources/assets/caldrukimod/models/block/dirt_druki.json",
-          "src/main/resources/assets/caldrukimod/blockstates/dirt_druki.json"
+          "src/main/resources/assets/caldrukimod/items/dirt_druki.json",
+          "src/main/resources/assets/caldrukimod/models/item/dirt_druki.json"
         ]
       }
     },
@@ -218,8 +227,8 @@
       "registry_name": "hamster_biome",
       "metadata": {
         "files": [
-          "src/main/resources/data/caldrukimod/worldgen/configured_feature/hamster_biome_tree.json",
           "src/main/resources/data/caldrukimod/worldgen/placed_feature/hamster_biome_tree.json",
+          "src/main/resources/data/caldrukimod/worldgen/configured_feature/hamster_biome_tree.json",
           "src/main/resources/data/caldrukimod/worldgen/biome/hamster_biome.json"
         ]
       }
@@ -232,17 +241,18 @@
       "registry_name": "caldrukia",
       "metadata": {
         "files": [
-          "src/main/java/net/taboulet/caldrukimod/item/CaldrukiaItem.java",
-          "src/main/resources/data/caldrukimod/dimension_type/caldrukia.json",
-          "src/main/resources/assets/caldrukimod/models/block/caldrukia_portal_ns.json",
+          "src/main/java/net/taboulet/caldrukimod/world/teleporter/CaldrukiaPortalShape.java",
           "src/main/resources/data/caldrukimod/dimension/caldrukia.json",
-          "src/main/java/net/taboulet/caldrukimod/world/dimension/CaldrukiaDimension.java",
-          "src/main/resources/assets/caldrukimod/models/item/caldrukia.json",
-          "src/main/java/net/taboulet/caldrukimod/block/CaldrukiaPortalBlock.java",
-          "src/main/resources/assets/caldrukimod/blockstates/caldrukia_portal.json",
-          "src/main/resources/assets/caldrukimod/models/block/caldrukia_portal_ew.json",
           "src/main/java/net/taboulet/caldrukimod/world/teleporter/CaldrukiaTeleporter.java",
-          "src/main/java/net/taboulet/caldrukimod/world/teleporter/CaldrukiaPortalShape.java"
+          "src/main/java/net/taboulet/caldrukimod/block/CaldrukiaPortalBlock.java",
+          "src/main/resources/assets/caldrukimod/models/item/caldrukia.json",
+          "src/main/resources/data/caldrukimod/timeline/caldrukia_fixed.json",
+          "src/main/resources/data/caldrukimod/dimension_type/caldrukia.json",
+          "src/main/resources/assets/caldrukimod/models/block/caldrukia_portal_ew.json",
+          "src/main/resources/assets/caldrukimod/models/block/caldrukia_portal_ns.json",
+          "src/main/resources/assets/caldrukimod/items/caldrukia.json",
+          "src/main/resources/assets/caldrukimod/blockstates/caldrukia_portal.json",
+          "src/main/java/net/taboulet/caldrukimod/item/CaldrukiaItem.java"
         ]
       }
     },
@@ -266,6 +276,7 @@
       "registry_name": "hamster_dam_item",
       "metadata": {
         "files": [
+          "src/main/resources/assets/caldrukimod/items/hamster_dam_item.json",
           "src/main/java/net/taboulet/caldrukimod/item/HamsterDamItemItem.java",
           "src/main/resources/assets/caldrukimod/models/item/hamster_dam_item.json"
         ]
@@ -279,6 +290,7 @@
       "registry_name": "hamsterdam",
       "metadata": {
         "files": [
+          "src/main/resources/assets/caldrukimod/items/hamsterdam_spawn_egg.json",
           "src/main/java/net/taboulet/caldrukimod/entity/HamsterdamEntity.java",
           "src/main/resources/assets/caldrukimod/models/item/hamsterdam_spawn_egg.json",
           "src/main/java/net/taboulet/caldrukimod/client/renderer/HamsterdamRenderer.java"
@@ -293,9 +305,10 @@
       "registry_name": "calzoski_dog",
       "metadata": {
         "files": [
+          "src/main/resources/assets/caldrukimod/models/item/calzoski_dog_spawn_egg.json",
           "src/main/java/net/taboulet/caldrukimod/entity/CalzoskiDogEntity.java",
           "src/main/java/net/taboulet/caldrukimod/client/renderer/CalzoskiDogRenderer.java",
-          "src/main/resources/assets/caldrukimod/models/item/calzoski_dog_spawn_egg.json"
+          "src/main/resources/assets/caldrukimod/items/calzoski_dog_spawn_egg.json"
         ]
       }
     },
@@ -308,7 +321,8 @@
       "metadata": {
         "files": [
           "src/main/resources/assets/caldrukimod/models/item/calzoski_dog_item.json",
-          "src/main/java/net/taboulet/caldrukimod/item/CalzoskiDogItemItem.java"
+          "src/main/java/net/taboulet/caldrukimod/item/CalzoskiDogItemItem.java",
+          "src/main/resources/assets/caldrukimod/items/calzoski_dog_item.json"
         ]
       }
     },
@@ -321,6 +335,7 @@
       "metadata": {
         "files": [
           "src/main/resources/assets/caldrukimod/models/item/adrian.json",
+          "src/main/resources/assets/caldrukimod/items/adrian.json",
           "src/main/java/net/taboulet/caldrukimod/item/AdrianItem.java"
         ]
       }
@@ -334,6 +349,7 @@
       "metadata": {
         "files": [
           "src/main/resources/assets/caldrukimod/models/item/enrique.json",
+          "src/main/resources/assets/caldrukimod/items/enrique.json",
           "src/main/java/net/taboulet/caldrukimod/item/EnriqueItem.java"
         ]
       }
@@ -346,14 +362,15 @@
       "registry_name": "adrian_ore",
       "metadata": {
         "files": [
-          "src/main/java/net/taboulet/caldrukimod/block/AdrianOreBlock.java",
-          "src/main/resources/assets/caldrukimod/models/block/adrian_ore.json",
           "src/main/resources/data/caldrukimod/worldgen/configured_feature/adrian_ore.json",
+          "src/main/resources/assets/caldrukimod/items/adrian_ore.json",
+          "src/main/resources/assets/caldrukimod/models/block/adrian_ore.json",
+          "src/main/resources/data/caldrukimod/worldgen/placed_feature/adrian_ore.json",
+          "src/main/resources/assets/caldrukimod/blockstates/adrian_ore.json",
+          "src/main/java/net/taboulet/caldrukimod/block/AdrianOreBlock.java",
           "src/main/resources/data/caldrukimod/neoforge/biome_modifier/adrian_ore_biome_modifier.json",
           "src/main/resources/data/caldrukimod/loot_table/blocks/adrian_ore.json",
-          "src/main/resources/data/caldrukimod/worldgen/placed_feature/adrian_ore.json",
-          "src/main/resources/assets/caldrukimod/models/item/adrian_ore.json",
-          "src/main/resources/assets/caldrukimod/blockstates/adrian_ore.json"
+          "src/main/resources/assets/caldrukimod/models/item/adrian_ore.json"
         ]
       }
     },
@@ -365,11 +382,12 @@
       "registry_name": "stone_druki",
       "metadata": {
         "files": [
-          "src/main/resources/assets/caldrukimod/blockstates/stone_druki.json",
-          "src/main/java/net/taboulet/caldrukimod/block/StoneDrukiBlock.java",
+          "src/main/resources/assets/caldrukimod/items/stone_druki.json",
           "src/main/resources/data/caldrukimod/loot_table/blocks/stone_druki.json",
+          "src/main/resources/assets/caldrukimod/blockstates/stone_druki.json",
+          "src/main/resources/assets/caldrukimod/models/item/stone_druki.json",
           "src/main/resources/assets/caldrukimod/models/block/stone_druki.json",
-          "src/main/resources/assets/caldrukimod/models/item/stone_druki.json"
+          "src/main/java/net/taboulet/caldrukimod/block/StoneDrukiBlock.java"
         ]
       }
     },
@@ -411,14 +429,15 @@
       "registry_name": "enrique_ore",
       "metadata": {
         "files": [
-          "src/main/resources/data/caldrukimod/worldgen/placed_feature/enrique_ore.json",
-          "src/main/resources/data/caldrukimod/neoforge/biome_modifier/enrique_ore_biome_modifier.json",
-          "src/main/resources/data/caldrukimod/worldgen/configured_feature/enrique_ore.json",
-          "src/main/resources/assets/caldrukimod/models/block/enrique_ore.json",
+          "src/main/resources/assets/caldrukimod/items/enrique_ore.json",
+          "src/main/java/net/taboulet/caldrukimod/block/EnriqueOreBlock.java",
           "src/main/resources/assets/caldrukimod/models/item/enrique_ore.json",
           "src/main/resources/assets/caldrukimod/blockstates/enrique_ore.json",
           "src/main/resources/data/caldrukimod/loot_table/blocks/enrique_ore.json",
-          "src/main/java/net/taboulet/caldrukimod/block/EnriqueOreBlock.java"
+          "src/main/resources/assets/caldrukimod/models/block/enrique_ore.json",
+          "src/main/resources/data/caldrukimod/worldgen/configured_feature/enrique_ore.json",
+          "src/main/resources/data/caldrukimod/worldgen/placed_feature/enrique_ore.json",
+          "src/main/resources/data/caldrukimod/neoforge/biome_modifier/enrique_ore_biome_modifier.json"
         ]
       }
     },
@@ -443,11 +462,12 @@
       "registry_name": "sound_board",
       "metadata": {
         "files": [
-          "src/main/resources/assets/caldrukimod/blockstates/sound_board.json",
-          "src/main/resources/assets/caldrukimod/models/item/sound_board.json",
+          "src/main/resources/assets/caldrukimod/items/sound_board.json",
+          "src/main/resources/data/caldrukimod/loot_table/blocks/sound_board.json",
           "src/main/java/net/taboulet/caldrukimod/block/SoundBoardBlock.java",
           "src/main/resources/assets/caldrukimod/models/block/sound_board.json",
-          "src/main/resources/data/caldrukimod/loot_table/blocks/sound_board.json"
+          "src/main/resources/assets/caldrukimod/blockstates/sound_board.json",
+          "src/main/resources/assets/caldrukimod/models/item/sound_board.json"
         ]
       }
     },
@@ -459,9 +479,9 @@
       "registry_name": "soundboard_normal",
       "metadata": {
         "files": [
+          "src/main/java/net/taboulet/caldrukimod/network/SoundboardNormalButtonMessage.java",
           "src/main/java/net/taboulet/caldrukimod/world/inventory/SoundboardNormalMenu.java",
-          "src/main/java/net/taboulet/caldrukimod/client/gui/SoundboardNormalScreen.java",
-          "src/main/java/net/taboulet/caldrukimod/network/SoundboardNormalButtonMessage.java"
+          "src/main/java/net/taboulet/caldrukimod/client/gui/SoundboardNormalScreen.java"
         ]
       }
     },
@@ -683,11 +703,12 @@
       "registry_name": "furry_summoner_block",
       "metadata": {
         "files": [
-          "src/main/resources/assets/caldrukimod/models/block/furry_summoner_block.json",
           "src/main/java/net/taboulet/caldrukimod/block/FurrySummonerBlockBlock.java",
-          "src/main/resources/data/caldrukimod/loot_table/blocks/furry_summoner_block.json",
+          "src/main/resources/assets/caldrukimod/models/block/furry_summoner_block.json",
+          "src/main/resources/assets/caldrukimod/blockstates/furry_summoner_block.json",
+          "src/main/resources/assets/caldrukimod/items/furry_summoner_block.json",
           "src/main/resources/assets/caldrukimod/models/item/furry_summoner_block.json",
-          "src/main/resources/assets/caldrukimod/blockstates/furry_summoner_block.json"
+          "src/main/resources/data/caldrukimod/loot_table/blocks/furry_summoner_block.json"
         ]
       }
     },
@@ -730,8 +751,8 @@
       "metadata": {
         "files": [
           "src/main/resources/data/caldrukimod/worldgen/structure_set/furry_temple.json",
-          "src/main/resources/data/caldrukimod/worldgen/template_pool/furry_temple.json",
-          "src/main/resources/data/caldrukimod/worldgen/structure/furry_temple.json"
+          "src/main/resources/data/caldrukimod/worldgen/structure/furry_temple.json",
+          "src/main/resources/data/caldrukimod/worldgen/template_pool/furry_temple.json"
         ]
       }
     },
@@ -744,8 +765,9 @@
       "metadata": {
         "files": [
           "src/main/java/net/taboulet/caldrukimod/entity/FurryBossEntity.java",
-          "src/main/java/net/taboulet/caldrukimod/client/renderer/FurryBossRenderer.java",
-          "src/main/resources/assets/caldrukimod/models/item/furry_boss_spawn_egg.json"
+          "src/main/resources/assets/caldrukimod/items/furry_boss_spawn_egg.json",
+          "src/main/resources/assets/caldrukimod/models/item/furry_boss_spawn_egg.json",
+          "src/main/java/net/taboulet/caldrukimod/client/renderer/FurryBossRenderer.java"
         ]
       }
     },
@@ -828,6 +850,7 @@
       "registry_name": "furry_wand",
       "metadata": {
         "files": [
+          "src/main/resources/assets/caldrukimod/items/furry_wand.json",
           "src/main/java/net/taboulet/caldrukimod/item/FurryWandItem.java",
           "src/main/resources/assets/caldrukimod/models/item/furry_wand.json"
         ]
@@ -841,9 +864,9 @@
       "registry_name": "galaxy_note_temple",
       "metadata": {
         "files": [
-          "src/main/resources/data/caldrukimod/worldgen/structure_set/galaxy_note_temple.json",
           "src/main/resources/data/caldrukimod/worldgen/structure/galaxy_note_temple.json",
-          "src/main/resources/data/caldrukimod/worldgen/template_pool/galaxy_note_temple.json"
+          "src/main/resources/data/caldrukimod/worldgen/template_pool/galaxy_note_temple.json",
+          "src/main/resources/data/caldrukimod/worldgen/structure_set/galaxy_note_temple.json"
         ]
       }
     },
@@ -855,8 +878,9 @@
       "registry_name": "hi_wand",
       "metadata": {
         "files": [
-          "src/main/java/net/taboulet/caldrukimod/item/HiWandItem.java",
-          "src/main/resources/assets/caldrukimod/models/item/hi_wand.json"
+          "src/main/resources/assets/caldrukimod/items/hi_wand.json",
+          "src/main/resources/assets/caldrukimod/models/item/hi_wand.json",
+          "src/main/java/net/taboulet/caldrukimod/item/HiWandItem.java"
         ]
       }
     },
@@ -887,8 +911,9 @@
       "metadata": {
         "files": [
           "src/main/java/net/taboulet/caldrukimod/entity/GalaxyNoteBossEntity.java",
-          "src/main/java/net/taboulet/caldrukimod/client/renderer/GalaxyNoteBossRenderer.java",
-          "src/main/resources/assets/caldrukimod/models/item/galaxy_note_boss_spawn_egg.json"
+          "src/main/resources/assets/caldrukimod/models/item/galaxy_note_boss_spawn_egg.json",
+          "src/main/resources/assets/caldrukimod/items/galaxy_note_boss_spawn_egg.json",
+          "src/main/java/net/taboulet/caldrukimod/client/renderer/GalaxyNoteBossRenderer.java"
         ]
       }
     },
@@ -900,11 +925,12 @@
       "registry_name": "galaxy_note_summoner_block",
       "metadata": {
         "files": [
+          "src/main/resources/data/caldrukimod/loot_table/blocks/galaxy_note_summoner_block.json",
+          "src/main/resources/assets/caldrukimod/models/block/galaxy_note_summoner_block.json",
+          "src/main/resources/assets/caldrukimod/models/item/galaxy_note_summoner_block.json",
           "src/main/resources/assets/caldrukimod/blockstates/galaxy_note_summoner_block.json",
           "src/main/java/net/taboulet/caldrukimod/block/GalaxyNoteSummonerBlockBlock.java",
-          "src/main/resources/assets/caldrukimod/models/item/galaxy_note_summoner_block.json",
-          "src/main/resources/assets/caldrukimod/models/block/galaxy_note_summoner_block.json",
-          "src/main/resources/data/caldrukimod/loot_table/blocks/galaxy_note_summoner_block.json"
+          "src/main/resources/assets/caldrukimod/items/galaxy_note_summoner_block.json"
         ]
       }
     },
@@ -946,8 +972,8 @@
       "registry_name": "jonklerium_recipe",
       "metadata": {
         "files": [
-          "src/main/resources/data/caldrukimod/advancement/recipes/jonklerium_recipe.json",
-          "src/main/resources/data/caldrukimod/recipe/jonklerium_recipe.json"
+          "src/main/resources/data/caldrukimod/recipe/jonklerium_recipe.json",
+          "src/main/resources/data/caldrukimod/advancement/recipes/jonklerium_recipe.json"
         ]
       }
     },
@@ -1013,8 +1039,9 @@
       "metadata": {
         "files": [
           "src/main/resources/assets/caldrukimod/models/item/weirdahhcryingfaceentity_spawn_egg.json",
-          "src/main/java/net/taboulet/caldrukimod/entity/WeirdahhcryingfaceentityEntity.java",
-          "src/main/java/net/taboulet/caldrukimod/client/renderer/WeirdahhcryingfaceentityRenderer.java"
+          "src/main/java/net/taboulet/caldrukimod/client/renderer/WeirdahhcryingfaceentityRenderer.java",
+          "src/main/resources/assets/caldrukimod/items/weirdahhcryingfaceentity_spawn_egg.json",
+          "src/main/java/net/taboulet/caldrukimod/entity/WeirdahhcryingfaceentityEntity.java"
         ]
       },
       "path": "~/WeirdAhhCryingFace"
@@ -1046,8 +1073,10 @@
       "registry_name": "weird_ahh_crying_face_item",
       "metadata": {
         "files": [
+          "src/main/resources/assets/caldrukimod/items/weird_ahh_crying_face_item.json",
+          "src/main/resources/assets/caldrukimod/models/item/weird_ahh_crying_face_item.json",
           "src/main/java/net/taboulet/caldrukimod/item/WeirdAhhCryingFaceItemItem.java",
-          "src/main/resources/assets/caldrukimod/models/item/weird_ahh_crying_face_item.json"
+          "src/main/resources/assets/caldrukimod/models/item/weird_ahh_crying_face_item_gui.json"
         ]
       },
       "path": "~/WeirdAhhCryingFace"
@@ -1079,8 +1108,10 @@
       "registry_name": "so_nana",
       "metadata": {
         "files": [
-          "src/main/java/net/taboulet/caldrukimod/item/SONanaItem.java",
-          "src/main/resources/assets/caldrukimod/models/item/so_nana.json"
+          "src/main/resources/assets/caldrukimod/models/item/so_nana.json",
+          "src/main/resources/assets/caldrukimod/models/item/so_nana_gui.json",
+          "src/main/resources/assets/caldrukimod/items/so_nana.json",
+          "src/main/java/net/taboulet/caldrukimod/item/SONanaItem.java"
         ]
       },
       "path": "~/WeirdAhhCryingFace"
@@ -1093,8 +1124,10 @@
       "registry_name": "so_nmelon",
       "metadata": {
         "files": [
+          "src/main/java/net/taboulet/caldrukimod/item/SONmelonItem.java",
           "src/main/resources/assets/caldrukimod/models/item/so_nmelon.json",
-          "src/main/java/net/taboulet/caldrukimod/item/SONmelonItem.java"
+          "src/main/resources/assets/caldrukimod/models/item/so_nmelon_gui.json",
+          "src/main/resources/assets/caldrukimod/items/so_nmelon.json"
         ]
       },
       "path": "~/WeirdAhhCryingFace"
@@ -1107,8 +1140,10 @@
       "registry_name": "so_npple",
       "metadata": {
         "files": [
+          "src/main/resources/assets/caldrukimod/items/so_npple.json",
+          "src/main/resources/assets/caldrukimod/models/item/so_npple.json",
           "src/main/java/net/taboulet/caldrukimod/item/SONppleItem.java",
-          "src/main/resources/assets/caldrukimod/models/item/so_npple.json"
+          "src/main/resources/assets/caldrukimod/models/item/so_npple_gui.json"
         ]
       },
       "path": "~/WeirdAhhCryingFace"
@@ -1121,6 +1156,8 @@
       "registry_name": "so_nrange",
       "metadata": {
         "files": [
+          "src/main/resources/assets/caldrukimod/models/item/so_nrange_gui.json",
+          "src/main/resources/assets/caldrukimod/items/so_nrange.json",
           "src/main/java/net/taboulet/caldrukimod/item/SONrangeItem.java",
           "src/main/resources/assets/caldrukimod/models/item/so_nrange.json"
         ]
@@ -1135,8 +1172,8 @@
       "registry_name": "so_nana_recipe",
       "metadata": {
         "files": [
-          "src/main/resources/data/caldrukimod/advancement/recipes/so_nana_recipe.json",
-          "src/main/resources/data/caldrukimod/recipe/so_nana_recipe.json"
+          "src/main/resources/data/caldrukimod/recipe/so_nana_recipe.json",
+          "src/main/resources/data/caldrukimod/advancement/recipes/so_nana_recipe.json"
         ]
       },
       "path": "~/WeirdAhhCryingFace"
@@ -1163,8 +1200,8 @@
       "registry_name": "so_npple_recipe",
       "metadata": {
         "files": [
-          "src/main/resources/data/caldrukimod/recipe/so_npple_recipe.json",
-          "src/main/resources/data/caldrukimod/advancement/recipes/so_npple_recipe.json"
+          "src/main/resources/data/caldrukimod/advancement/recipes/so_npple_recipe.json",
+          "src/main/resources/data/caldrukimod/recipe/so_npple_recipe.json"
         ]
       },
       "path": "~/WeirdAhhCryingFace"
@@ -1217,8 +1254,10 @@
       "registry_name": "caldrukium",
       "metadata": {
         "files": [
+          "src/main/java/net/taboulet/caldrukimod/item/CaldrukiumItem.java",
+          "src/main/resources/assets/caldrukimod/models/item/caldrukium_gui.json",
           "src/main/resources/assets/caldrukimod/models/item/caldrukium.json",
-          "src/main/java/net/taboulet/caldrukimod/item/CaldrukiumItem.java"
+          "src/main/resources/assets/caldrukimod/items/caldrukium.json"
         ]
       }
     },
@@ -1231,6 +1270,7 @@
       "metadata": {
         "files": [
           "src/main/java/net/taboulet/caldrukimod/entity/CaldrukiBossEntity.java",
+          "src/main/resources/assets/caldrukimod/items/caldruki_boss_spawn_egg.json",
           "src/main/java/net/taboulet/caldrukimod/client/renderer/CaldrukiBossRenderer.java",
           "src/main/resources/assets/caldrukimod/models/item/caldruki_boss_spawn_egg.json"
         ]
@@ -1244,8 +1284,8 @@
       "registry_name": "caldrukium_helmet_recipe",
       "metadata": {
         "files": [
-          "src/main/resources/data/caldrukimod/recipe/caldrukium_helmet_recipe.json",
-          "src/main/resources/data/caldrukimod/advancement/recipes/caldrukium_helmet_recipe.json"
+          "src/main/resources/data/caldrukimod/advancement/recipes/caldrukium_helmet_recipe.json",
+          "src/main/resources/data/caldrukimod/recipe/caldrukium_helmet_recipe.json"
         ]
       }
     },
@@ -1283,8 +1323,8 @@
       "registry_name": "caldrukium_boots_recipe",
       "metadata": {
         "files": [
-          "src/main/resources/data/caldrukimod/recipe/caldrukium_boots_recipe.json",
-          "src/main/resources/data/caldrukimod/advancement/recipes/caldrukium_boots_recipe.json"
+          "src/main/resources/data/caldrukimod/advancement/recipes/caldrukium_boots_recipe.json",
+          "src/main/resources/data/caldrukimod/recipe/caldrukium_boots_recipe.json"
         ]
       }
     },
@@ -1322,10 +1362,11 @@
       "metadata": {
         "files": [
           "src/main/resources/assets/caldrukimod/models/block/caldruki_summoner_block.json",
-          "src/main/resources/assets/caldrukimod/blockstates/caldruki_summoner_block.json",
-          "src/main/resources/data/caldrukimod/loot_table/blocks/caldruki_summoner_block.json",
           "src/main/resources/assets/caldrukimod/models/item/caldruki_summoner_block.json",
-          "src/main/java/net/taboulet/caldrukimod/block/CaldrukiSummonerBlockBlock.java"
+          "src/main/java/net/taboulet/caldrukimod/block/CaldrukiSummonerBlockBlock.java",
+          "src/main/resources/data/caldrukimod/loot_table/blocks/caldruki_summoner_block.json",
+          "src/main/resources/assets/caldrukimod/items/caldruki_summoner_block.json",
+          "src/main/resources/assets/caldrukimod/blockstates/caldruki_summoner_block.json"
         ]
       }
     },
@@ -1367,9 +1408,9 @@
       "registry_name": "caldruki_temple",
       "metadata": {
         "files": [
-          "src/main/resources/data/caldrukimod/worldgen/structure/caldruki_temple.json",
           "src/main/resources/data/caldrukimod/worldgen/structure_set/caldruki_temple.json",
-          "src/main/resources/data/caldrukimod/worldgen/template_pool/caldruki_temple.json"
+          "src/main/resources/data/caldrukimod/worldgen/template_pool/caldruki_temple.json",
+          "src/main/resources/data/caldrukimod/worldgen/structure/caldruki_temple.json"
         ]
       }
     },
@@ -1381,9 +1422,9 @@
       "registry_name": "crine_biome",
       "metadata": {
         "files": [
-          "src/main/resources/data/caldrukimod/worldgen/placed_feature/crine_biome_tree.json",
+          "src/main/resources/data/caldrukimod/worldgen/configured_feature/crine_biome_tree.json",
           "src/main/resources/data/caldrukimod/worldgen/biome/crine_biome.json",
-          "src/main/resources/data/caldrukimod/worldgen/configured_feature/crine_biome_tree.json"
+          "src/main/resources/data/caldrukimod/worldgen/placed_feature/crine_biome_tree.json"
         ]
       }
     },
@@ -1395,8 +1436,10 @@
       "registry_name": "the_freakler",
       "metadata": {
         "files": [
-          "src/main/resources/assets/caldrukimod/models/item/the_freakler.json",
-          "src/main/java/net/taboulet/caldrukimod/item/TheFreaklerItem.java"
+          "src/main/java/net/taboulet/caldrukimod/item/TheFreaklerItem.java",
+          "src/main/resources/assets/caldrukimod/models/item/the_freakler_gui.json",
+          "src/main/resources/assets/caldrukimod/items/the_freakler.json",
+          "src/main/resources/assets/caldrukimod/models/item/the_freakler.json"
         ]
       }
     },
@@ -1440,6 +1483,8 @@
       "metadata": {
         "files": [
           "src/main/java/net/taboulet/caldrukimod/item/CaldrukiskoItemItem.java",
+          "src/main/resources/assets/caldrukimod/models/item/caldrukisko_item_gui.json",
+          "src/main/resources/assets/caldrukimod/items/caldrukisko_item.json",
           "src/main/resources/assets/caldrukimod/models/item/caldrukisko_item.json"
         ]
       }
@@ -1535,7 +1580,9 @@
       "metadata": {
         "files": [
           "src/main/resources/assets/caldrukimod/models/item/map_druki.json",
-          "src/main/java/net/taboulet/caldrukimod/item/MapDrukiItem.java"
+          "src/main/java/net/taboulet/caldrukimod/item/MapDrukiItem.java",
+          "src/main/resources/assets/caldrukimod/models/item/map_druki_gui.json",
+          "src/main/resources/assets/caldrukimod/items/map_druki.json"
         ]
       }
     },
@@ -1547,8 +1594,8 @@
       "registry_name": "map_druki_recipe",
       "metadata": {
         "files": [
-          "src/main/resources/data/caldrukimod/advancement/recipes/map_druki_recipe.json",
-          "src/main/resources/data/caldrukimod/recipe/map_druki_recipe.json"
+          "src/main/resources/data/caldrukimod/recipe/map_druki_recipe.json",
+          "src/main/resources/data/caldrukimod/advancement/recipes/map_druki_recipe.json"
         ]
       }
     },
@@ -1591,8 +1638,9 @@
       "registry_name": "wheat_bread",
       "metadata": {
         "files": [
-          "src/main/resources/assets/caldrukimod/models/item/wheat_bread.json",
-          "src/main/java/net/taboulet/caldrukimod/item/WheatBreadItem.java"
+          "src/main/resources/assets/caldrukimod/items/wheat_bread.json",
+          "src/main/java/net/taboulet/caldrukimod/item/WheatBreadItem.java",
+          "src/main/resources/assets/caldrukimod/models/item/wheat_bread.json"
         ]
       }
     },
@@ -1622,8 +1670,8 @@
       "registry_name": "caldrukia_portal_opener_wheat_bread_recipe",
       "metadata": {
         "files": [
-          "src/main/resources/data/caldrukimod/recipe/caldrukia_portal_opener_wheat_bread_recipe.json",
-          "src/main/resources/data/caldrukimod/advancement/recipes/caldrukia_portal_opener_wheat_bread_recipe.json"
+          "src/main/resources/data/caldrukimod/advancement/recipes/caldrukia_portal_opener_wheat_bread_recipe.json",
+          "src/main/resources/data/caldrukimod/recipe/caldrukia_portal_opener_wheat_bread_recipe.json"
         ]
       }
     },
@@ -1648,9 +1696,10 @@
       "registry_name": "capt",
       "metadata": {
         "files": [
-          "src/main/resources/assets/caldrukimod/models/item/capt_spawn_egg.json",
+          "src/main/resources/assets/caldrukimod/items/capt_spawn_egg.json",
           "src/main/java/net/taboulet/caldrukimod/entity/CaptEntity.java",
-          "src/main/java/net/taboulet/caldrukimod/client/renderer/CaptRenderer.java"
+          "src/main/java/net/taboulet/caldrukimod/client/renderer/CaptRenderer.java",
+          "src/main/resources/assets/caldrukimod/models/item/capt_spawn_egg.json"
         ]
       }
     },
@@ -1662,8 +1711,9 @@
       "registry_name": "the_yap_druki",
       "metadata": {
         "files": [
-          "src/main/resources/assets/caldrukimod/models/item/the_yap_druki.json",
           "src/main/java/net/taboulet/caldrukimod/item/TheYapDrukiItem.java",
+          "src/main/resources/assets/caldrukimod/models/item/the_yap_druki.json",
+          "src/main/resources/assets/caldrukimod/items/the_yap_druki.json",
           "src/main/java/net/taboulet/caldrukimod/item/inventory/TheYapDrukiInventoryCapability.java"
         ]
       },
@@ -1706,14 +1756,15 @@
       "registry_name": "jonklanchor",
       "metadata": {
         "files": [
-          "src/main/java/net/taboulet/caldrukimod/item/JonklanchorItem.java",
-          "src/main/resources/assets/caldrukimod/models/item/jonklanchor_1.json",
-          "src/main/resources/assets/caldrukimod/models/item/jonklanchor_3.json",
           "src/main/java/net/taboulet/caldrukimod/item/inventory/JonklanchorInventoryCapability.java",
-          "src/main/resources/assets/caldrukimod/models/item/jonklanchor_2.json",
-          "src/main/resources/assets/caldrukimod/models/item/jonklanchor_0.json",
           "src/main/resources/assets/caldrukimod/models/item/jonklanchor_4.json",
-          "src/main/resources/assets/caldrukimod/models/item/jonklanchor.json"
+          "src/main/resources/assets/caldrukimod/models/item/jonklanchor_1.json",
+          "src/main/resources/assets/caldrukimod/models/item/jonklanchor.json",
+          "src/main/resources/assets/caldrukimod/models/item/jonklanchor_2.json",
+          "src/main/java/net/taboulet/caldrukimod/item/JonklanchorItem.java",
+          "src/main/resources/assets/caldrukimod/items/jonklanchor.json",
+          "src/main/resources/assets/caldrukimod/models/item/jonklanchor_0.json",
+          "src/main/resources/assets/caldrukimod/models/item/jonklanchor_3.json"
         ]
       }
     },
@@ -1789,9 +1840,9 @@
       "registry_name": "jonklanchortest",
       "metadata": {
         "files": [
-          "src/main/java/net/taboulet/caldrukimod/client/gui/JonklanchortestScreen.java",
           "src/main/java/net/taboulet/caldrukimod/network/JonklanchortestButtonMessage.java",
-          "src/main/java/net/taboulet/caldrukimod/world/inventory/JonklanchortestMenu.java"
+          "src/main/java/net/taboulet/caldrukimod/world/inventory/JonklanchortestMenu.java",
+          "src/main/java/net/taboulet/caldrukimod/client/gui/JonklanchortestScreen.java"
         ]
       }
     },
@@ -1848,15 +1899,16 @@
         "files": [
           "src/main/resources/assets/caldrukimod/models/block/jonkl_anchor_portal_1.json",
           "src/main/java/net/taboulet/caldrukimod/block/entity/JonklAnchorPortalBlockEntity.java",
-          "src/main/resources/assets/caldrukimod/models/block/jonkl_anchor_portal_4.json",
-          "src/main/resources/assets/caldrukimod/models/block/jonkl_anchor_portal_0.json",
           "src/main/resources/assets/caldrukimod/blockstates/jonkl_anchor_portal.json",
-          "src/main/resources/assets/caldrukimod/models/block/jonkl_anchor_portal_3.json",
-          "src/main/java/net/taboulet/caldrukimod/block/JonklAnchorPortalBlock.java",
-          "src/main/resources/data/caldrukimod/loot_table/blocks/jonkl_anchor_portal.json",
-          "src/main/resources/assets/caldrukimod/models/block/jonkl_anchor_portal.json",
           "src/main/resources/assets/caldrukimod/models/block/jonkl_anchor_portal_2.json",
-          "src/main/resources/assets/caldrukimod/models/item/jonkl_anchor_portal.json"
+          "src/main/java/net/taboulet/caldrukimod/block/JonklAnchorPortalBlock.java",
+          "src/main/resources/assets/caldrukimod/items/jonkl_anchor_portal.json",
+          "src/main/resources/assets/caldrukimod/models/block/jonkl_anchor_portal_3.json",
+          "src/main/resources/assets/caldrukimod/models/item/jonkl_anchor_portal.json",
+          "src/main/resources/assets/caldrukimod/models/block/jonkl_anchor_portal_0.json",
+          "src/main/resources/assets/caldrukimod/models/block/jonkl_anchor_portal_4.json",
+          "src/main/resources/assets/caldrukimod/models/block/jonkl_anchor_portal.json",
+          "src/main/resources/data/caldrukimod/loot_table/blocks/jonkl_anchor_portal.json"
         ]
       }
     },
@@ -1902,9 +1954,9 @@
       "registry_name": "jonklanchort_portal_gui",
       "metadata": {
         "files": [
+          "src/main/java/net/taboulet/caldrukimod/client/gui/JonklanchortPortalGUIScreen.java",
           "src/main/java/net/taboulet/caldrukimod/network/JonklanchortPortalGUISlotMessage.java",
-          "src/main/java/net/taboulet/caldrukimod/world/inventory/JonklanchortPortalGUIMenu.java",
-          "src/main/java/net/taboulet/caldrukimod/client/gui/JonklanchortPortalGUIScreen.java"
+          "src/main/java/net/taboulet/caldrukimod/world/inventory/JonklanchortPortalGUIMenu.java"
         ]
       }
     },
@@ -1951,8 +2003,8 @@
       "registry_name": "jonkl_anchor_portal_recipe",
       "metadata": {
         "files": [
-          "src/main/resources/data/caldrukimod/advancement/recipes/jonkl_anchor_portal_recipe.json",
-          "src/main/resources/data/caldrukimod/recipe/jonkl_anchor_portal_recipe.json"
+          "src/main/resources/data/caldrukimod/recipe/jonkl_anchor_portal_recipe.json",
+          "src/main/resources/data/caldrukimod/advancement/recipes/jonkl_anchor_portal_recipe.json"
         ]
       }
     },
@@ -2196,8 +2248,10 @@
       "registry_name": "w_crine",
       "metadata": {
         "files": [
+          "src/main/resources/assets/caldrukimod/models/item/w_crine.json",
+          "src/main/resources/assets/caldrukimod/items/w_crine.json",
           "src/main/java/net/taboulet/caldrukimod/item/WCrineItem.java",
-          "src/main/resources/assets/caldrukimod/models/item/w_crine.json"
+          "src/main/resources/assets/caldrukimod/models/item/w_crine_gui.json"
         ]
       },
       "path": "~/WeirdAhhCryingFace"
@@ -2289,10 +2343,11 @@
       "metadata": {
         "files": [
           "src/main/resources/assets/caldrukimod/blockstates/light_druki.json",
-          "src/main/java/net/taboulet/caldrukimod/block/LightDrukiBlock.java",
           "src/main/resources/data/caldrukimod/loot_table/blocks/light_druki.json",
           "src/main/resources/assets/caldrukimod/models/block/light_druki.json",
-          "src/main/resources/assets/caldrukimod/models/item/light_druki.json"
+          "src/main/resources/assets/caldrukimod/models/item/light_druki.json",
+          "src/main/resources/assets/caldrukimod/items/light_druki.json",
+          "src/main/java/net/taboulet/caldrukimod/block/LightDrukiBlock.java"
         ]
       },
       "path": "~/WeirdAhhCryingFace"
@@ -2395,8 +2450,8 @@
       "registry_name": "yap_druki_page_2",
       "metadata": {
         "files": [
-          "src/main/java/net/taboulet/caldrukimod/network/YapDrukiPage2ButtonMessage.java",
           "src/main/java/net/taboulet/caldrukimod/world/inventory/YapDrukiPage2Menu.java",
+          "src/main/java/net/taboulet/caldrukimod/network/YapDrukiPage2ButtonMessage.java",
           "src/main/java/net/taboulet/caldrukimod/client/gui/YapDrukiPage2Screen.java"
         ]
       },
@@ -2689,9 +2744,13 @@
     }
   ],
   "tag_elements": {
-    "ITEMS:caldrukimod:caldrukium_armor_repair_items": [],
+    "ITEMS:caldrukimod:caldrukium_armor_repair_items": [
+      "~CaldrukiumArmor@CUSTOM:Caldrukium"
+    ],
     "ITEMS:caldrukimod:the_jonkler_repair_items": [],
-    "ITEMS:caldrukimod:the_freakler_repair_items": [],
+    "ITEMS:caldrukimod:the_freakler_repair_items": [
+      "~TheFreakler@CUSTOM:Caldrukium"
+    ],
     "ITEMS:minecraft:head_armor": [
       "~CaldrukiumArmor@CUSTOM:CaldrukiumArmor.helmet"
     ],
@@ -2703,6 +2762,12 @@
     ],
     "ITEMS:minecraft:foot_armor": [
       "~CaldrukiumArmor@CUSTOM:CaldrukiumArmor.boots"
+    ],
+    "BLOCKS:minecraft:overworld_carver_replaceables": [
+      "~Caldrukia@CUSTOM:Jonklerium",
+      "~Caldrukia@Blocks.WOOL#6",
+      "~Caldrukia@CUSTOM:DirtDruki",
+      "~Caldrukia@CUSTOM:StoneDruki"
     ],
     "BLOCKS:minecraft:mineable/pickaxe": [
       "~SoundBoard@CUSTOM:SoundBoard",
@@ -2718,16 +2783,10 @@
       "~StoneDruki@CUSTOM:StoneDruki"
     ],
     "ENTITIES:minecraft:undead": [
-      "~FurryBoss@CUSTOM:FurryBoss",
       "~Capt@CUSTOM:Capt",
       "~CaldrukiBoss@CUSTOM:CaldrukiBoss",
-      "~GalaxyNoteBoss@CUSTOM:GalaxyNoteBoss"
-    ],
-    "BLOCKS:minecraft:overworld_carver_replaceables": [
-      "~Caldrukia@CUSTOM:Jonklerium",
-      "~Caldrukia@Blocks.WOOL#6",
-      "~Caldrukia@CUSTOM:DirtDruki",
-      "~Caldrukia@CUSTOM:StoneDruki"
+      "~GalaxyNoteBoss@CUSTOM:GalaxyNoteBoss",
+      "~FurryBoss@CUSTOM:FurryBoss"
     ],
     "ITEMS:minecraft:pickaxes": [
       "~TheFreakler@CUSTOM:TheFreakler"
@@ -2798,7 +2857,7 @@
       "item.caldrukimod.caldrukium_armor_leggings": "Caldrukium Leggings",
       "item.caldrukimod.caldrukium_armor_helmet": "Caldrukium Helmet",
       "item.caldrukimod.caldrukium_armor_chestplate": "Caldrukium Chestplate",
-      "item.caldrukimod.jonklerium": "JonklerFromTemu Ore",
+      "item.caldrukimod.jonklerium": "JonklerFromTemu",
       "subtitles.enrique-long": "",
       "item_group.caldrukimod.the_caldruki_mod": "The Caldruki Mod",
       "effect.caldrukimod.hicurse": "Hi Curse",
@@ -2964,32 +3023,36 @@
       "gui.caldrukimod.yap_druki_page_1.button_empty": "",
       "gui.caldrukimod.yap_druki_page_2.button_empty": "",
       "gui.caldrukimod.yap_druki_page_2.button_empty1": "",
-      "gui.caldrukimod.yap_druki_page_2.label_page_1": "Page 1"
+      "gui.caldrukimod.yap_druki_page_2.label_page_1": "Page 1",
+      "item.caldrukimod.jonkl_anchor_portal": "JonklAnchor Portal",
+      "item.caldrukimod.light_druki": "LightDruki"
     }
   },
   "metadata": {
     "files": [
       "src/main/java/net/taboulet/caldrukimod/init/CaldrukimodModMobEffects.java",
-      "src/main/java/net/taboulet/caldrukimod/init/CaldrukimodModParticles.java",
       "src/main/java/net/taboulet/caldrukimod/init/CaldrukimodModParticleTypes.java",
+      "src/main/java/net/taboulet/caldrukimod/init/CaldrukimodModParticles.java",
       "src/main/java/net/taboulet/caldrukimod/init/CaldrukimodModPotions.java",
+      "src/main/java/net/taboulet/caldrukimod/client/renderer/item/LegacyOverrideSelectItemModel.java",
       "src/main/java/net/taboulet/caldrukimod/client/CaldrukimodModSkyboxRenderer.java",
-      "src/main/java/net/taboulet/caldrukimod/init/CaldrukimodModScreens.java",
-      "src/main/java/net/taboulet/caldrukimod/init/CaldrukimodModMenus.java",
       "src/main/java/net/taboulet/caldrukimod/network/MenuStateUpdateMessage.java",
+      "src/main/java/net/taboulet/caldrukimod/init/CaldrukimodModMenus.java",
+      "src/main/java/net/taboulet/caldrukimod/init/CaldrukimodModScreens.java",
       "src/main/java/net/taboulet/caldrukimod/init/CaldrukimodModItems.java",
       "src/main/java/net/taboulet/caldrukimod/init/CaldrukimodModBlocks.java",
-      "src/main/java/net/taboulet/caldrukimod/init/CaldrukimodModEntities.java",
       "src/main/java/net/taboulet/caldrukimod/init/CaldrukimodModEntityRenderers.java",
+      "src/main/java/net/taboulet/caldrukimod/init/CaldrukimodModEntities.java",
       "src/main/java/net/taboulet/caldrukimod/init/CaldrukimodModBlockEntities.java",
-      "src/main/java/net/taboulet/caldrukimod/network/CaldrukimodModVariables.java",
+      "src/main/resources/META-INF/accesstransformer.cfg",
       "src/main/java/net/taboulet/caldrukimod/CaldrukimodMod.java",
-      "src/main/java/net/taboulet/caldrukimod/init/CaldrukimodModSounds.java",
-      "src/main/java/net/taboulet/caldrukimod/init/CaldrukimodModTabs.java",
       "src/main/resources/assets/caldrukimod/sounds.json",
+      "src/main/java/net/taboulet/caldrukimod/init/CaldrukimodModSounds.java",
+      "src/main/java/net/taboulet/caldrukimod/network/CaldrukimodModVariables.java",
+      "src/main/java/net/taboulet/caldrukimod/init/CaldrukimodModTabs.java",
       "src/main/resources/pack.mcmeta",
-      "src/main/resources/META-INF/neoforge.mods.toml",
-      "src/main/java/net/taboulet/caldrukimod/init/CaldrukimodModModels.java"
+      "src/main/java/net/taboulet/caldrukimod/init/CaldrukimodModModels.java",
+      "src/main/resources/META-INF/neoforge.mods.toml"
     ]
   },
   "foldersRoot": {
@@ -3031,7 +3094,7 @@
     "dependencies": [],
     "dependants": [],
     "mcreatorDependencies": [],
-    "currentGenerator": "neoforge-1.21.1",
+    "currentGenerator": "neoforge-26.1.2",
     "credits": "Fandrukis \u003c3",
     "modElementsPackage": "net.taboulet.caldrukimod"
   },

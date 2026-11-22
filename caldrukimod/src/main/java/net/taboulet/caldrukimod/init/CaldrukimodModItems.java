@@ -3,7 +3,6 @@
  */
 package net.taboulet.caldrukimod.init;
 
-import net.taboulet.caldrukimod.procedures.JonklanchorPropertyValueProviderProcedure;
 import net.taboulet.caldrukimod.item.inventory.TheYapDrukiInventoryCapability;
 import net.taboulet.caldrukimod.item.inventory.JonklanchorInventoryCapability;
 import net.taboulet.caldrukimod.item.*;
@@ -12,20 +11,20 @@ import net.taboulet.caldrukimod.CaldrukimodMod;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredHolder;
-import net.neoforged.neoforge.common.DeferredSpawnEggItem;
+import net.neoforged.neoforge.client.event.RegisterRangeSelectItemModelPropertyEvent;
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 import net.neoforged.neoforge.capabilities.Capabilities;
-import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.api.distmarker.OnlyIn;
 import net.neoforged.api.distmarker.Dist;
 
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.BlockItem;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.client.renderer.item.ItemProperties;
+import net.minecraft.resources.Identifier;
+
+import java.util.function.Function;
 
 @EventBusSubscriber
 public class CaldrukimodModItems {
@@ -74,57 +73,55 @@ public class CaldrukimodModItems {
 	public static final DeferredItem<Item> W_CRINE;
 	public static final DeferredItem<Item> LIGHT_DRUKI;
 	static {
-		CALDRUKIUM_ARMOR_HELMET = REGISTRY.register("caldrukium_armor_helmet", CaldrukiumArmorItem.Helmet::new);
-		CALDRUKIUM_ARMOR_CHESTPLATE = REGISTRY.register("caldrukium_armor_chestplate", CaldrukiumArmorItem.Chestplate::new);
-		CALDRUKIUM_ARMOR_LEGGINGS = REGISTRY.register("caldrukium_armor_leggings", CaldrukiumArmorItem.Leggings::new);
-		CALDRUKIUM_ARMOR_BOOTS = REGISTRY.register("caldrukium_armor_boots", CaldrukiumArmorItem.Boots::new);
+		CALDRUKIUM_ARMOR_HELMET = register("caldrukium_armor_helmet", CaldrukiumArmorItem.Helmet::new);
+		CALDRUKIUM_ARMOR_CHESTPLATE = register("caldrukium_armor_chestplate", CaldrukiumArmorItem.Chestplate::new);
+		CALDRUKIUM_ARMOR_LEGGINGS = register("caldrukium_armor_leggings", CaldrukiumArmorItem.Leggings::new);
+		CALDRUKIUM_ARMOR_BOOTS = register("caldrukium_armor_boots", CaldrukiumArmorItem.Boots::new);
 		JONKLERIUM = block(CaldrukimodModBlocks.JONKLERIUM);
-		KEY = REGISTRY.register("key", KeyItem::new);
+		KEY = register("key", KeyItem::new);
 		DIRT_DRUKI = block(CaldrukimodModBlocks.DIRT_DRUKI);
-		CALDRUKIA = REGISTRY.register("caldrukia", CaldrukiaItem::new);
-		HAMSTER_DAM_ITEM = REGISTRY.register("hamster_dam_item", HamsterDamItemItem::new);
-		HAMSTERDAM_SPAWN_EGG = REGISTRY.register("hamsterdam_spawn_egg", () -> new DeferredSpawnEggItem(CaldrukimodModEntities.HAMSTERDAM, -1, -1, new Item.Properties()));
-		CALZOSKI_DOG_SPAWN_EGG = REGISTRY.register("calzoski_dog_spawn_egg", () -> new DeferredSpawnEggItem(CaldrukimodModEntities.CALZOSKI_DOG, -1, -1, new Item.Properties()));
-		CALZOSKI_DOG_ITEM = REGISTRY.register("calzoski_dog_item", CalzoskiDogItemItem::new);
-		ADRIAN = REGISTRY.register("adrian", AdrianItem::new);
-		ENRIQUE = REGISTRY.register("enrique", EnriqueItem::new);
+		CALDRUKIA = register("caldrukia", CaldrukiaItem::new);
+		HAMSTER_DAM_ITEM = register("hamster_dam_item", HamsterDamItemItem::new);
+		HAMSTERDAM_SPAWN_EGG = register("hamsterdam_spawn_egg", properties -> new SpawnEggItem(properties.spawnEgg(CaldrukimodModEntities.HAMSTERDAM.get())));
+		CALZOSKI_DOG_SPAWN_EGG = register("calzoski_dog_spawn_egg", properties -> new SpawnEggItem(properties.spawnEgg(CaldrukimodModEntities.CALZOSKI_DOG.get())));
+		CALZOSKI_DOG_ITEM = register("calzoski_dog_item", CalzoskiDogItemItem::new);
+		ADRIAN = register("adrian", AdrianItem::new);
+		ENRIQUE = register("enrique", EnriqueItem::new);
 		ADRIAN_ORE = block(CaldrukimodModBlocks.ADRIAN_ORE);
 		STONE_DRUKI = block(CaldrukimodModBlocks.STONE_DRUKI);
 		ENRIQUE_ORE = block(CaldrukimodModBlocks.ENRIQUE_ORE);
 		SOUND_BOARD = block(CaldrukimodModBlocks.SOUND_BOARD);
 		FURRY_SUMMONER_BLOCK = block(CaldrukimodModBlocks.FURRY_SUMMONER_BLOCK);
-		FURRY_BOSS_SPAWN_EGG = REGISTRY.register("furry_boss_spawn_egg", () -> new DeferredSpawnEggItem(CaldrukimodModEntities.FURRY_BOSS, -1, -1, new Item.Properties()));
-		FURRY_WAND = REGISTRY.register("furry_wand", FurryWandItem::new);
-		HI_WAND = REGISTRY.register("hi_wand", HiWandItem::new);
-		GALAXY_NOTE_BOSS_SPAWN_EGG = REGISTRY.register("galaxy_note_boss_spawn_egg", () -> new DeferredSpawnEggItem(CaldrukimodModEntities.GALAXY_NOTE_BOSS, -1, -1, new Item.Properties()));
+		FURRY_BOSS_SPAWN_EGG = register("furry_boss_spawn_egg", properties -> new SpawnEggItem(properties.spawnEgg(CaldrukimodModEntities.FURRY_BOSS.get())));
+		FURRY_WAND = register("furry_wand", FurryWandItem::new);
+		HI_WAND = register("hi_wand", HiWandItem::new);
+		GALAXY_NOTE_BOSS_SPAWN_EGG = register("galaxy_note_boss_spawn_egg", properties -> new SpawnEggItem(properties.spawnEgg(CaldrukimodModEntities.GALAXY_NOTE_BOSS.get())));
 		GALAXY_NOTE_SUMMONER_BLOCK = block(CaldrukimodModBlocks.GALAXY_NOTE_SUMMONER_BLOCK);
-		WEIRDAHHCRYINGFACEENTITY_SPAWN_EGG = REGISTRY.register("weirdahhcryingfaceentity_spawn_egg", () -> new DeferredSpawnEggItem(CaldrukimodModEntities.WEIRDAHHCRYINGFACEENTITY, -1, -1, new Item.Properties()));
-		WEIRD_AHH_CRYING_FACE_ITEM = REGISTRY.register("weird_ahh_crying_face_item", WeirdAhhCryingFaceItemItem::new);
-		SO_NANA = REGISTRY.register("so_nana", SONanaItem::new);
-		SO_NMELON = REGISTRY.register("so_nmelon", SONmelonItem::new);
-		SO_NPPLE = REGISTRY.register("so_npple", SONppleItem::new);
-		SO_NRANGE = REGISTRY.register("so_nrange", SONrangeItem::new);
-		CALDRUKIUM = REGISTRY.register("caldrukium", CaldrukiumItem::new);
-		CALDRUKI_BOSS_SPAWN_EGG = REGISTRY.register("caldruki_boss_spawn_egg", () -> new DeferredSpawnEggItem(CaldrukimodModEntities.CALDRUKI_BOSS, -1, -1, new Item.Properties()));
+		WEIRDAHHCRYINGFACEENTITY_SPAWN_EGG = register("weirdahhcryingfaceentity_spawn_egg", properties -> new SpawnEggItem(properties.spawnEgg(CaldrukimodModEntities.WEIRDAHHCRYINGFACEENTITY.get())));
+		WEIRD_AHH_CRYING_FACE_ITEM = register("weird_ahh_crying_face_item", WeirdAhhCryingFaceItemItem::new);
+		SO_NANA = register("so_nana", SONanaItem::new);
+		SO_NMELON = register("so_nmelon", SONmelonItem::new);
+		SO_NPPLE = register("so_npple", SONppleItem::new);
+		SO_NRANGE = register("so_nrange", SONrangeItem::new);
+		CALDRUKIUM = register("caldrukium", CaldrukiumItem::new);
+		CALDRUKI_BOSS_SPAWN_EGG = register("caldruki_boss_spawn_egg", properties -> new SpawnEggItem(properties.spawnEgg(CaldrukimodModEntities.CALDRUKI_BOSS.get())));
 		CALDRUKI_SUMMONER_BLOCK = block(CaldrukimodModBlocks.CALDRUKI_SUMMONER_BLOCK);
-		THE_FREAKLER = REGISTRY.register("the_freakler", TheFreaklerItem::new);
-		CALDRUKISKO_ITEM = REGISTRY.register("caldrukisko_item", CaldrukiskoItemItem::new);
-		MAP_DRUKI = REGISTRY.register("map_druki", MapDrukiItem::new);
-		WHEAT_BREAD = REGISTRY.register("wheat_bread", WheatBreadItem::new);
-		CAPT_SPAWN_EGG = REGISTRY.register("capt_spawn_egg", () -> new DeferredSpawnEggItem(CaldrukimodModEntities.CAPT, -52276, -1, new Item.Properties()));
-		THE_YAP_DRUKI = REGISTRY.register("the_yap_druki", TheYapDrukiItem::new);
-		JONKLANCHOR = REGISTRY.register("jonklanchor", JonklanchorItem::new);
+		THE_FREAKLER = register("the_freakler", TheFreaklerItem::new);
+		CALDRUKISKO_ITEM = register("caldrukisko_item", CaldrukiskoItemItem::new);
+		MAP_DRUKI = register("map_druki", MapDrukiItem::new);
+		WHEAT_BREAD = register("wheat_bread", WheatBreadItem::new);
+		CAPT_SPAWN_EGG = register("capt_spawn_egg", properties -> new SpawnEggItem(properties.spawnEgg(CaldrukimodModEntities.CAPT.get())));
+		THE_YAP_DRUKI = register("the_yap_druki", TheYapDrukiItem::new);
+		JONKLANCHOR = register("jonklanchor", JonklanchorItem::new);
 		JONKL_ANCHOR_PORTAL = block(CaldrukimodModBlocks.JONKL_ANCHOR_PORTAL);
-		W_CRINE = REGISTRY.register("w_crine", WCrineItem::new);
+		W_CRINE = register("w_crine", WCrineItem::new);
 		LIGHT_DRUKI = block(CaldrukimodModBlocks.LIGHT_DRUKI);
 	}
 
 	// Start of user code block custom items
 	// End of user code block custom items
-	@SubscribeEvent
-	public static void registerCapabilities(RegisterCapabilitiesEvent event) {
-		event.registerItem(Capabilities.ItemHandler.ITEM, (stack, context) -> new TheYapDrukiInventoryCapability(stack), THE_YAP_DRUKI.get());
-		event.registerItem(Capabilities.ItemHandler.ITEM, (stack, context) -> new JonklanchorInventoryCapability(stack), JONKLANCHOR.get());
+	private static <I extends Item> DeferredItem<I> register(String name, Function<Item.Properties, ? extends I> supplier) {
+		return REGISTRY.registerItem(name, supplier, Item.Properties::new);
 	}
 
 	private static DeferredItem<Item> block(DeferredHolder<Block, Block> block) {
@@ -132,18 +129,20 @@ public class CaldrukimodModItems {
 	}
 
 	private static DeferredItem<Item> block(DeferredHolder<Block, Block> block, Item.Properties properties) {
-		return REGISTRY.register(block.getId().getPath(), () -> new BlockItem(block.get(), properties));
+		return REGISTRY.registerItem(block.getId().getPath(), prop -> new BlockItem(block.get(), prop), () -> properties);
+	}
+
+	@SubscribeEvent
+	public static void registerCapabilities(RegisterCapabilitiesEvent event) {
+		event.registerItem(Capabilities.Item.ITEM, (stack, access) -> new TheYapDrukiInventoryCapability(access), THE_YAP_DRUKI.get());
+		event.registerItem(Capabilities.Item.ITEM, (stack, access) -> new JonklanchorInventoryCapability(access), JONKLANCHOR.get());
 	}
 
 	@EventBusSubscriber(Dist.CLIENT)
 	public static class ItemsClientSideHandler {
 		@SubscribeEvent
-		@OnlyIn(Dist.CLIENT)
-		public static void clientLoad(FMLClientSetupEvent event) {
-			event.enqueueWork(() -> {
-				ItemProperties.register(JONKLANCHOR.get(), ResourceLocation.parse("caldrukimod:jonklanchor_anchoredthingy"),
-						(itemStackToRender, clientWorld, entity, itemEntityId) -> (float) JonklanchorPropertyValueProviderProcedure.execute(itemStackToRender));
-			});
+		public static void registerItemModelProperties(RegisterRangeSelectItemModelPropertyEvent event) {
+			event.register(Identifier.parse("caldrukimod:jonklanchor/anchoredthingy"), JonklanchorItem.AnchoredthingyProperty.MAP_CODEC);
 		}
 	}
 }

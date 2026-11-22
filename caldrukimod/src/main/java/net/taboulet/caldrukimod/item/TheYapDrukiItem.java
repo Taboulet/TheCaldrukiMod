@@ -4,13 +4,12 @@ import net.taboulet.caldrukimod.world.inventory.YapDrukiPage1Menu;
 
 import net.minecraft.world.level.Level;
 import net.minecraft.world.item.Rarity;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.MenuProvider;
-import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.network.chat.Component;
@@ -19,13 +18,13 @@ import net.minecraft.network.FriendlyByteBuf;
 import io.netty.buffer.Unpooled;
 
 public class TheYapDrukiItem extends Item {
-	public TheYapDrukiItem() {
-		super(new Item.Properties().stacksTo(1).rarity(Rarity.RARE));
+	public TheYapDrukiItem(Item.Properties properties) {
+		super(properties.rarity(Rarity.RARE).stacksTo(1));
 	}
 
 	@Override
-	public InteractionResultHolder<ItemStack> use(Level world, Player entity, InteractionHand hand) {
-		InteractionResultHolder<ItemStack> ar = super.use(world, entity, hand);
+	public InteractionResult use(Level world, Player entity, InteractionHand hand) {
+		InteractionResult ar = super.use(world, entity, hand);
 		if (entity instanceof ServerPlayer serverPlayer) {
 			serverPlayer.openMenu(new MenuProvider() {
 				@Override

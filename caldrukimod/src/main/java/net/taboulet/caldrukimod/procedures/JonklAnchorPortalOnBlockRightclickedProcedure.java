@@ -14,8 +14,8 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.Identifier;
 import net.minecraft.network.protocol.game.ClientboundUpdateMobEffectPacket;
 import net.minecraft.network.protocol.game.ClientboundPlayerAbilitiesPacket;
 import net.minecraft.network.protocol.game.ClientboundLevelEventPacket;
@@ -24,6 +24,8 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.core.BlockPos;
+
+import java.util.Set;
 
 import io.netty.buffer.Unpooled;
 
@@ -72,14 +74,14 @@ public class JonklAnchorPortalOnBlockRightclickedProcedure {
 					}
 				} else {
 					if ((getBlockNBTString(world, BlockPos.containing(x, y, z), "PortalAnchorDimension")).equals("ResourceKey[minecraft:dimension / caldrukimod:caldrukia]")) {
-						if (entity instanceof ServerPlayer _player && !_player.level().isClientSide()) {
-							ResourceKey<Level> destinationType = ResourceKey.create(Registries.DIMENSION, ResourceLocation.parse("caldrukimod:caldrukia"));
+						if (entity instanceof ServerPlayer _player && _player.level() instanceof ServerLevel _serverLevel) {
+							ResourceKey<Level> destinationType = ResourceKey.create(Registries.DIMENSION, Identifier.parse("caldrukimod:caldrukia"));
 							if (_player.level().dimension() == destinationType)
 								return;
-							ServerLevel nextLevel = _player.server.getLevel(destinationType);
+							ServerLevel nextLevel = _serverLevel.getServer().getLevel(destinationType);
 							if (nextLevel != null) {
 								_player.connection.send(new ClientboundGameEventPacket(ClientboundGameEventPacket.WIN_GAME, 0));
-								_player.teleportTo(nextLevel, _player.getX(), _player.getY(), _player.getZ(), _player.getYRot(), _player.getXRot());
+								_player.teleportTo(nextLevel, _player.getX(), _player.getY(), _player.getZ(), Set.of(), _player.getYRot(), _player.getXRot(), true);
 								_player.connection.send(new ClientboundPlayerAbilitiesPacket(_player.getAbilities()));
 								for (MobEffectInstance _effectinstance : _player.getActiveEffects())
 									_player.connection.send(new ClientboundUpdateMobEffectPacket(_player.getId(), _effectinstance, false));
@@ -88,14 +90,14 @@ public class JonklAnchorPortalOnBlockRightclickedProcedure {
 						}
 					} else {
 						if ((getBlockNBTString(world, BlockPos.containing(x, y, z), "PortalAnchorDimension")).equals("ResourceKey[minecraft:dimension / minecraft:overworld]")) {
-							if (entity instanceof ServerPlayer _player && !_player.level().isClientSide()) {
+							if (entity instanceof ServerPlayer _player && _player.level() instanceof ServerLevel _serverLevel) {
 								ResourceKey<Level> destinationType = Level.OVERWORLD;
 								if (_player.level().dimension() == destinationType)
 									return;
-								ServerLevel nextLevel = _player.server.getLevel(destinationType);
+								ServerLevel nextLevel = _serverLevel.getServer().getLevel(destinationType);
 								if (nextLevel != null) {
 									_player.connection.send(new ClientboundGameEventPacket(ClientboundGameEventPacket.WIN_GAME, 0));
-									_player.teleportTo(nextLevel, _player.getX(), _player.getY(), _player.getZ(), _player.getYRot(), _player.getXRot());
+									_player.teleportTo(nextLevel, _player.getX(), _player.getY(), _player.getZ(), Set.of(), _player.getYRot(), _player.getXRot(), true);
 									_player.connection.send(new ClientboundPlayerAbilitiesPacket(_player.getAbilities()));
 									for (MobEffectInstance _effectinstance : _player.getActiveEffects())
 										_player.connection.send(new ClientboundUpdateMobEffectPacket(_player.getId(), _effectinstance, false));
@@ -104,14 +106,14 @@ public class JonklAnchorPortalOnBlockRightclickedProcedure {
 							}
 						} else {
 							if ((getBlockNBTString(world, BlockPos.containing(x, y, z), "PortalAnchorDimension")).equals("ResourceKey[minecraft:dimension / minecraft:the_nether]")) {
-								if (entity instanceof ServerPlayer _player && !_player.level().isClientSide()) {
+								if (entity instanceof ServerPlayer _player && _player.level() instanceof ServerLevel _serverLevel) {
 									ResourceKey<Level> destinationType = Level.NETHER;
 									if (_player.level().dimension() == destinationType)
 										return;
-									ServerLevel nextLevel = _player.server.getLevel(destinationType);
+									ServerLevel nextLevel = _serverLevel.getServer().getLevel(destinationType);
 									if (nextLevel != null) {
 										_player.connection.send(new ClientboundGameEventPacket(ClientboundGameEventPacket.WIN_GAME, 0));
-										_player.teleportTo(nextLevel, _player.getX(), _player.getY(), _player.getZ(), _player.getYRot(), _player.getXRot());
+										_player.teleportTo(nextLevel, _player.getX(), _player.getY(), _player.getZ(), Set.of(), _player.getYRot(), _player.getXRot(), true);
 										_player.connection.send(new ClientboundPlayerAbilitiesPacket(_player.getAbilities()));
 										for (MobEffectInstance _effectinstance : _player.getActiveEffects())
 											_player.connection.send(new ClientboundUpdateMobEffectPacket(_player.getId(), _effectinstance, false));
@@ -120,14 +122,14 @@ public class JonklAnchorPortalOnBlockRightclickedProcedure {
 								}
 							} else {
 								if ((getBlockNBTString(world, BlockPos.containing(x, y, z), "PortalAnchorDimension")).equals("ResourceKey[minecraft:dimension / minecraft:the_end]")) {
-									if (entity instanceof ServerPlayer _player && !_player.level().isClientSide()) {
+									if (entity instanceof ServerPlayer _player && _player.level() instanceof ServerLevel _serverLevel) {
 										ResourceKey<Level> destinationType = Level.END;
 										if (_player.level().dimension() == destinationType)
 											return;
-										ServerLevel nextLevel = _player.server.getLevel(destinationType);
+										ServerLevel nextLevel = _serverLevel.getServer().getLevel(destinationType);
 										if (nextLevel != null) {
 											_player.connection.send(new ClientboundGameEventPacket(ClientboundGameEventPacket.WIN_GAME, 0));
-											_player.teleportTo(nextLevel, _player.getX(), _player.getY(), _player.getZ(), _player.getYRot(), _player.getXRot());
+											_player.teleportTo(nextLevel, _player.getX(), _player.getY(), _player.getZ(), Set.of(), _player.getYRot(), _player.getXRot(), true);
 											_player.connection.send(new ClientboundPlayerAbilitiesPacket(_player.getAbilities()));
 											for (MobEffectInstance _effectinstance : _player.getActiveEffects())
 												_player.connection.send(new ClientboundUpdateMobEffectPacket(_player.getId(), _effectinstance, false));
@@ -135,8 +137,8 @@ public class JonklAnchorPortalOnBlockRightclickedProcedure {
 										}
 									}
 								} else {
-									if (entity instanceof Player _player && !_player.level().isClientSide())
-										_player.displayClientMessage(Component.literal("\u00A7cThe JonklAnchor only works with Vanilla Dimensions"), false);
+									if (entity instanceof ServerPlayer _player)
+										_player.sendSystemMessage(Component.literal("\u00A7cThe JonklAnchor only works with Vanilla Dimensions"), false);
 								}
 							}
 						}
@@ -152,8 +154,8 @@ public class JonklAnchorPortalOnBlockRightclickedProcedure {
 					}
 				}
 			} else {
-				if (entity instanceof Player _player && !_player.level().isClientSide())
-					_player.displayClientMessage(Component.literal("\u00A7cThis JonklAnchor Portal has not been configured yet, shift click on it to configure it"), false);
+				if (entity instanceof ServerPlayer _player)
+					_player.sendSystemMessage(Component.literal("\u00A7cThis JonklAnchor Portal has not been configured yet, shift click on it to configure it"), false);
 			}
 		}
 	}
@@ -161,21 +163,21 @@ public class JonklAnchorPortalOnBlockRightclickedProcedure {
 	private static boolean getBlockNBTLogic(LevelAccessor world, BlockPos pos, String tag) {
 		BlockEntity blockEntity = world.getBlockEntity(pos);
 		if (blockEntity != null)
-			return blockEntity.getPersistentData().getBoolean(tag);
+			return blockEntity.getPersistentData().getBooleanOr(tag, false);
 		return false;
 	}
 
 	private static String getBlockNBTString(LevelAccessor world, BlockPos pos, String tag) {
 		BlockEntity blockEntity = world.getBlockEntity(pos);
 		if (blockEntity != null)
-			return blockEntity.getPersistentData().getString(tag);
+			return blockEntity.getPersistentData().getStringOr(tag, "");
 		return "";
 	}
 
 	private static double getBlockNBTNumber(LevelAccessor world, BlockPos pos, String tag) {
 		BlockEntity blockEntity = world.getBlockEntity(pos);
 		if (blockEntity != null)
-			return blockEntity.getPersistentData().getDouble(tag);
+			return blockEntity.getPersistentData().getDoubleOr(tag, 0);
 		return -1;
 	}
 }

@@ -8,6 +8,5 @@
     "south": "caldrukimod:block/enrique",
     "west": "caldrukimod:block/enrique",
     "particle": "caldrukimod:block/enrique"
-  },
-  "render_type": "solid"
+  }
 }

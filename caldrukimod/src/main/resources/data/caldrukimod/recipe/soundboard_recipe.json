@@ -2,21 +2,11 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "caldrukimod:adrian"
-    },
-    {
-      "item": "caldrukimod:calzoski_dog_item"
-    },
-    {
-      "item": "caldrukimod:stone_druki"
-    },
-    {
-      "item": "caldrukimod:enrique"
-    },
-    {
-      "item": "caldrukimod:hamster_dam_item"
-    }
+    "caldrukimod:adrian",
+    "caldrukimod:calzoski_dog_item",
+    "caldrukimod:stone_druki",
+    "caldrukimod:enrique",
+    "caldrukimod:hamster_dam_item"
   ],
   "result": {
     "id": "caldrukimod:sound_board",

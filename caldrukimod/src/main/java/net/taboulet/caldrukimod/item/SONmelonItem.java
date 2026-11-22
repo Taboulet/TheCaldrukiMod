@@ -10,13 +10,12 @@ import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.entity.LivingEntity;
 
 public class SONmelonItem extends Item {
-	public SONmelonItem() {
-		super(new Item.Properties().rarity(Rarity.RARE).food((new FoodProperties.Builder()).nutrition(0).saturationModifier(15f).alwaysEdible().build()));
+	public SONmelonItem(Item.Properties properties) {
+		super(properties.rarity(Rarity.RARE).food((new FoodProperties.Builder()).nutrition(0).saturationModifier(15f).alwaysEdible().build()));
 	}
 
 	@Override
 	public ItemStack finishUsingItem(ItemStack itemstack, Level world, LivingEntity entity) {
-		ItemStack usedItemstack = itemstack.copy();
 		ItemStack retval = super.finishUsingItem(itemstack, world, entity);
 		WeirdAhhCryingFaceSpecialItemPlayerFinishesUsingItemProcedure.execute(entity);
 		return retval;

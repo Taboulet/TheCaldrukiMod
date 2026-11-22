@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "caldrukimod:caldrukium_armor"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "caldrukimod:caldrukium_armor"
+      }
+    ]
+  }
+}

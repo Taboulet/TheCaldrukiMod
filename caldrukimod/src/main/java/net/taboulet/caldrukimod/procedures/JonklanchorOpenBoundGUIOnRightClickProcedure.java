@@ -9,7 +9,7 @@ public class JonklanchorOpenBoundGUIOnRightClickProcedure {
 	public static boolean execute(Entity entity, ItemStack itemstack) {
 		if (entity == null)
 			return false;
-		if (itemstack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getBoolean("IsAnchored")) {
+		if (itemstack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getBooleanOr("IsAnchored", false)) {
 			return entity.isShiftKeyDown();
 		} else {
 			return true;

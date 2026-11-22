@@ -8,6 +8,5 @@
     "south": "minecraft:block/creaking_heart_dormant",
     "west": "caldrukimod:block/screenshot_20261020_150542",
     "particle": "minecraft:block/cherry_log_top"
-  },
-  "render_type": "solid"
+  }
 }
