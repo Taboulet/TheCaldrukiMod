@@ -1,9 +1,0 @@
-{
-  "_fv": 92,
-  "_type": "function",
-  "definition": {
-    "code": "give @s caldrukimod:jonklanchor",
-    "name": "caldruki_anchor",
-    "namespace": "mod"
-  }
-}
