@@ -1,0 +1,235 @@
+{
+  "_fv": 92,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 176,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "button",
+        "data": {
+          "name": "button_override_position",
+          "text": "Override Position",
+          "isUndecorated": false,
+          "onClick": "JonklanchorReset",
+          "width": 110,
+          "height": 20,
+          "x": 155,
+          "y": 132,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "jonklanchornormal.png",
+          "use1Xscale": true,
+          "x": 195,
+          "y": 164,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_icon",
+          "text": {
+            "fixedValue": "Color"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 201,
+          "y": 50,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_name",
+          "text": {
+            "fixedValue": "Name (leave blank for default)"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 132,
+          "y": 89,
+          "locked": false
+        }
+      },
+      {
+        "type": "textfield",
+        "data": {
+          "placeholder": "",
+          "name": "AnchorNameTextField",
+          "width": 120,
+          "height": 20,
+          "x": 153,
+          "y": 103,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_empty",
+          "text": "",
+          "isUndecorated": true,
+          "onClick": "JonklanchorButtonSet0",
+          "width": 25,
+          "height": 20,
+          "x": 135,
+          "y": 63,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "buttonpurple.png",
+          "use1Xscale": true,
+          "displayCondition": "JonklanchorButton0",
+          "x": 135,
+          "y": 63,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_empty1",
+          "text": "",
+          "isUndecorated": true,
+          "onClick": "JonklanchorButtonSet1",
+          "width": 25,
+          "height": 20,
+          "x": 167,
+          "y": 63,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "buttonblue.png",
+          "use1Xscale": true,
+          "displayCondition": "JonklanchorButton1",
+          "x": 167,
+          "y": 63,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_empty2",
+          "text": "",
+          "isUndecorated": true,
+          "onClick": "JonklanchorButtonSet2",
+          "displayCondition": "JonklanchorButton2",
+          "width": 25,
+          "height": 20,
+          "x": 201,
+          "y": 63,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_empty3",
+          "text": "",
+          "isUndecorated": true,
+          "onClick": "JonklanchorButtonSet3",
+          "displayCondition": "JonklanchorButton3",
+          "width": 25,
+          "height": 20,
+          "x": 235,
+          "y": 63,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_empty4",
+          "text": "",
+          "isUndecorated": true,
+          "onClick": "JonklanchorButtonSet4",
+          "displayCondition": "JonklanchorButton4",
+          "width": 25,
+          "height": 20,
+          "x": 268,
+          "y": 63,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "buttongreen.png",
+          "use1Xscale": true,
+          "displayCondition": "JonklanchorButton2",
+          "x": 201,
+          "y": 63,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "buttonyellow.png",
+          "use1Xscale": true,
+          "displayCondition": "JonklanchorButton3",
+          "x": 235,
+          "y": 63,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "buttonwhite.png",
+          "use1Xscale": true,
+          "displayCondition": "JonklanchorButton4",
+          "x": 268,
+          "y": 63,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_reset",
+          "text": "Reset",
+          "isUndecorated": false,
+          "onClick": "JonklanchorResetButton",
+          "displayCondition": "JonklAnchorResetButtonCondition",
+          "width": 50,
+          "height": 20,
+          "x": 132,
+          "y": 173,
+          "locked": false
+        }
+      }
+    ],
+    "gridSettings": {
+      "spacingX": 9,
+      "spacingY": 9,
+      "offsetX": 0,
+      "offsetY": 0,
+      "snapOnGrid": false
+    }
+  }
+}

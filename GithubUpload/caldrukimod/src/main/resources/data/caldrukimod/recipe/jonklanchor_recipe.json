@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "  a",
+    "bc ",
+    "cd "
+  ],
+  "key": {
+    "a": {
+      "item": "caldrukimod:hamster_dam_item"
+    },
+    "b": {
+      "item": "caldrukimod:enrique"
+    },
+    "c": {
+      "item": "caldrukimod:adrian"
+    },
+    "d": {
+      "item": "caldrukimod:calzoski_dog_item"
+    }
+  },
+  "result": {
+    "id": "caldrukimod:jonklanchor",
+    "count": 1
+  }
+}

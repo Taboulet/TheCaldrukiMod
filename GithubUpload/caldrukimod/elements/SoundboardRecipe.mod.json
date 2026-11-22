@@ -1,0 +1,34 @@
+{
+  "_fv": 92,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "unlockingItems": [
+      "CUSTOM:HamsterDamItem",
+      "CUSTOM:CalzoskiDogItem",
+      "CUSTOM:Enrique",
+      "CUSTOM:Adrian"
+    ],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": true,
+    "recipeSlots": [
+      "",
+      "CUSTOM:Adrian",
+      "",
+      "CUSTOM:CalzoskiDogItem",
+      "CUSTOM:StoneDruki",
+      "CUSTOM:Enrique",
+      "",
+      "CUSTOM:HamsterDamItem",
+      ""
+    ],
+    "recipeReturnStack": "CUSTOM:SoundBoard",
+    "name": "soundboard_recipe",
+    "namespace": "mod"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "caldrukimod:block/warning_26a0-fe0f",
+    "up": "caldrukimod:block/g",
+    "north": "caldrukimod:block/warning_26a0-fe0f",
+    "east": "caldrukimod:block/warning_26a0-fe0f",
+    "south": "caldrukimod:block/warning_26a0-fe0f",
+    "west": "caldrukimod:block/warning_26a0-fe0f",
+    "particle": "caldrukimod:block/warning_26a0-fe0f"
+  },
+  "render_type": "solid"
+}

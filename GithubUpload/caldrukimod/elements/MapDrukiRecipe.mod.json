@@ -1,0 +1,31 @@
+{
+  "_fv": 92,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "unlockingItems": [
+      "CUSTOM:DirtDruki"
+    ],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      "CUSTOM:DirtDruki",
+      "CUSTOM:DirtDruki",
+      "CUSTOM:DirtDruki",
+      "CUSTOM:DirtDruki",
+      "",
+      "CUSTOM:DirtDruki",
+      "CUSTOM:DirtDruki",
+      "CUSTOM:DirtDruki",
+      "CUSTOM:DirtDruki"
+    ],
+    "recipeReturnStack": "CUSTOM:MapDruki",
+    "name": "map_druki_recipe",
+    "namespace": "mod"
+  }
+}

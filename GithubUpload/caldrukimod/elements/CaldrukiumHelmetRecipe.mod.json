@@ -1,0 +1,31 @@
+{
+  "_fv": 92,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "unlockingItems": [
+      "CUSTOM:Caldrukium"
+    ],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      "",
+      "",
+      "",
+      "CUSTOM:Caldrukium",
+      "CUSTOM:Caldrukium",
+      "CUSTOM:Caldrukium",
+      "CUSTOM:Caldrukium",
+      "",
+      "CUSTOM:Caldrukium"
+    ],
+    "recipeReturnStack": "CUSTOM:CaldrukiumArmor.helmet",
+    "name": "caldrukium_helmet_recipe",
+    "namespace": "mod"
+  }
+}

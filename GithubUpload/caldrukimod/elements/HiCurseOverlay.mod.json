@@ -1,0 +1,18 @@
+{
+  "_fv": 92,
+  "_type": "overlay",
+  "definition": {
+    "priority": "NORMAL",
+    "components": [],
+    "baseTexture": "warning_26a0-fe0f.png",
+    "overlayTarget": "Ingame",
+    "displayCondition": "HiCurseOverlayDisplay",
+    "gridSettings": {
+      "spacingX": 9,
+      "spacingY": 9,
+      "offsetX": 0,
+      "offsetY": 0,
+      "snapOnGrid": false
+    }
+  }
+}

@@ -1,0 +1,198 @@
+{
+  "enrique-long": {
+    "sounds": [
+      {
+        "name": "caldrukimod:enrique-long",
+        "stream": false
+      }
+    ]
+  },
+  "enrique-full": {
+    "sounds": [
+      {
+        "name": "caldrukimod:enriquefull",
+        "stream": false
+      }
+    ]
+  },
+  "enrique-que": {
+    "sounds": [
+      {
+        "name": "caldrukimod:enrique3",
+        "stream": false
+      }
+    ]
+  },
+  "anglegrinder-part": {
+    "sounds": [
+      {
+        "name": "caldrukimod:anglegrinderpart",
+        "stream": false
+      }
+    ]
+  },
+  "anglegrinder-full": {
+    "sounds": [
+      {
+        "name": "caldrukimod:anglegrinder-full",
+        "stream": false
+      }
+    ]
+  },
+  "calzoskidog-full": {
+    "sounds": [
+      {
+        "name": "caldrukimod:calzoskidog-full",
+        "stream": false
+      }
+    ]
+  },
+  "calzoskidog-small": {
+    "sounds": [
+      {
+        "name": "caldrukimod:calzoskidog-small",
+        "stream": false
+      }
+    ]
+  },
+  "adrian-block-break": {
+    "sounds": [
+      {
+        "name": "caldrukimod:adrian-block-break",
+        "stream": false
+      }
+    ]
+  },
+  "adrian-sb": {
+    "sounds": [
+      {
+        "name": "caldrukimod:soundboard_adrian",
+        "stream": false
+      }
+    ]
+  },
+  "adrian-sb-a": {
+    "sounds": [
+      {
+        "name": "caldrukimod:soundboard_adrian_autotune",
+        "stream": false
+      }
+    ]
+  },
+  "enrique-sb": {
+    "sounds": [
+      {
+        "name": "caldrukimod:soundboard_enrique",
+        "stream": false
+      }
+    ]
+  },
+  "enrique-sb-a": {
+    "sounds": [
+      {
+        "name": "caldrukimod:soundboard_enrique_autotune",
+        "stream": false
+      }
+    ]
+  },
+  "far-sb": {
+    "sounds": [
+      {
+        "name": "caldrukimod:soundboard_far",
+        "stream": false
+      }
+    ]
+  },
+  "far-sb-a": {
+    "sounds": [
+      {
+        "name": "caldrukimod:soundboard_far_autotune",
+        "stream": false
+      }
+    ]
+  },
+  "grinder-sb": {
+    "sounds": [
+      {
+        "name": "caldrukimod:soundboard_grinder",
+        "stream": false
+      }
+    ]
+  },
+  "grinder-sb-a": {
+    "sounds": [
+      {
+        "name": "caldrukimod:soundboard_grinder_autotune",
+        "stream": false
+      }
+    ]
+  },
+  "salte-sb": {
+    "sounds": [
+      {
+        "name": "caldrukimod:soundboard_salte",
+        "stream": false
+      }
+    ]
+  },
+  "salte-sb-a": {
+    "sounds": [
+      {
+        "name": "caldrukimod:soundboard_salte_autotune",
+        "stream": false
+      }
+    ]
+  },
+  "syfm-sb": {
+    "sounds": [
+      {
+        "name": "caldrukimod:soundboard-syfm",
+        "stream": false
+      }
+    ]
+  },
+  "syfm-sb-a": {
+    "sounds": [
+      {
+        "name": "caldrukimod:soundboard_syfm_autotune",
+        "stream": false
+      }
+    ]
+  },
+  "ayyy": {
+    "sounds": [
+      {
+        "name": "caldrukimod:ayy",
+        "stream": false
+      }
+    ]
+  },
+  "ayy-full": {
+    "sounds": [
+      {
+        "name": "caldrukimod:ayy-full",
+        "stream": false
+      }
+    ]
+  },
+  "caldruki-vibe": {
+    "sounds": [
+      {
+        "name": "caldrukimod:chopin_-_nocturne_op.9_no.2",
+        "stream": true
+      },
+      {
+        "name": "caldrukimod:fluffing_a_duck",
+        "stream": true
+      },
+      {
+        "name": "caldrukimod:kevin_macleod_meatball_parade",
+        "stream": true
+      },
+      {
+        "name": "caldrukimod:sneaky_snitch",
+        "stream": true
+      }
+    ]
+  }
+}

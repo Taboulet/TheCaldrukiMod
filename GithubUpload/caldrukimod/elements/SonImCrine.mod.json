@@ -1,0 +1,20 @@
+{
+  "_fv": 92,
+  "_type": "achievement",
+  "definition": {
+    "achievementName": "SON, IM CRINE",
+    "achievementDescription": "Get all the Son Food",
+    "achievementIcon": "CUSTOM:WeirdAhhCryingFaceItem",
+    "background": "Default",
+    "disableDisplay": false,
+    "showPopup": true,
+    "announceToChat": true,
+    "hideIfNotCompleted": false,
+    "rewardLoot": [],
+    "rewardRecipes": [],
+    "rewardXP": 0,
+    "achievementType": "task",
+    "parent": "CUSTOM:CaldrukiaAchivement",
+    "triggerxml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><block type=\"advancement_trigger\" deletable=\"false\" x=\"40\" y=\"80\"><next><block type=\"item_in_inventory\"><value name=\"item\"><block type=\"mcitem_all\"><field name=\"value\">CUSTOM:WeirdAhhCryingFaceItem</field></block></value><next><block type=\"item_in_inventory\"><value name=\"item\"><block type=\"mcitem_all\"><field name=\"value\">CUSTOM:SONana</field></block></value><next><block type=\"item_in_inventory\"><value name=\"item\"><block type=\"mcitem_all\"><field name=\"value\">CUSTOM:SONmelon</field></block></value><next><block type=\"item_in_inventory\"><value name=\"item\"><block type=\"mcitem_all\"><field name=\"value\">CUSTOM:SONpple</field></block></value><next><block type=\"item_in_inventory\"><value name=\"item\"><block type=\"mcitem_all\"><field name=\"value\">CUSTOM:SONrange</field></block></value></block></next></block></next></block></next></block></next></block><shadow type=\"custom_trigger\"></shadow></next></block></xml>"
+  }
+}

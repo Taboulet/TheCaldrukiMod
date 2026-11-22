@@ -1,0 +1,20 @@
+{
+  "_fv": 92,
+  "_type": "potioneffect",
+  "definition": {
+    "effectName": "Hi Curse",
+    "icon": "warning_26a0-fe0f",
+    "color": {
+      "value": -256,
+      "falpha": 0.0
+    },
+    "particle": "CUSTOM:Warning",
+    "onAddedSound": "",
+    "isInstant": false,
+    "mobEffectCategory": "HARMFUL",
+    "renderStatusInInventory": true,
+    "renderStatusInHUD": true,
+    "isCuredbyHoney": false,
+    "modifiers": []
+  }
+}

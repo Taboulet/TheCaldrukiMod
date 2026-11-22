@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:block",
+  "random_sequence": "caldrukimod:blocks/jonkl_anchor_portal",
+  "pools": [
+    {
+      "rolls": 1.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "caldrukimod:jonkl_anchor_portal"
+        }
+      ]
+    }
+  ]
+}
