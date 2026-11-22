@@ -72,6 +72,7 @@ public class CaldrukimodModItems {
 	public static final DeferredItem<Item> JONKL_ANCHOR_PORTAL;
 	public static final DeferredItem<Item> W_CRINE;
 	public static final DeferredItem<Item> LIGHT_DRUKI;
+	public static final DeferredItem<Item> MEOW;
 	static {
 		CALDRUKIUM_ARMOR_HELMET = register("caldrukium_armor_helmet", CaldrukiumArmorItem.Helmet::new);
 		CALDRUKIUM_ARMOR_CHESTPLATE = register("caldrukium_armor_chestplate", CaldrukiumArmorItem.Chestplate::new);
@@ -116,6 +117,7 @@ public class CaldrukimodModItems {
 		JONKL_ANCHOR_PORTAL = block(CaldrukimodModBlocks.JONKL_ANCHOR_PORTAL);
 		W_CRINE = register("w_crine", WCrineItem::new);
 		LIGHT_DRUKI = block(CaldrukimodModBlocks.LIGHT_DRUKI);
+		MEOW = register("meow", MeowItem::new);
 	}
 
 	// Start of user code block custom items

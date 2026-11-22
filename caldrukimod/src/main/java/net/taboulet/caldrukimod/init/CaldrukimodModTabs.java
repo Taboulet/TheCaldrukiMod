@@ -71,6 +71,8 @@ public class CaldrukimodModTabs {
 	public static void buildTabContentsVanilla(BuildCreativeModeTabContentsEvent tabData) {
 		if (tabData.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
 			tabData.accept(CaldrukimodModItems.THE_FREAKLER.get());
+		} else if (tabData.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+			tabData.accept(CaldrukimodModItems.MEOW.get());
 		} else if (tabData.getTabKey() == CreativeModeTabs.SPAWN_EGGS) {
 			tabData.accept(CaldrukimodModItems.HAMSTERDAM_SPAWN_EGG.get());
 			tabData.accept(CaldrukimodModItems.CALZOSKI_DOG_SPAWN_EGG.get());
