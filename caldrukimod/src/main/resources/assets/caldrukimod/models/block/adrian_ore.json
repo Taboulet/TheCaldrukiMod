@@ -8,5 +8,6 @@
     "south": "caldrukimod:block/adrianitem",
     "west": "caldrukimod:block/adrianitem",
     "particle": "caldrukimod:block/adrianitem"
-  }
+  },
+  "render_type": "solid"
 }

@@ -2,8 +2,12 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    "caldrukimod:key",
-    "minecraft:bread"
+    {
+      "item": "caldrukimod:key"
+    },
+    {
+      "item": "minecraft:bread"
+    }
   ],
   "result": {
     "id": "caldrukimod:caldrukia",

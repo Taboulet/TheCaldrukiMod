@@ -2,5 +2,37 @@
   "parent": "item/generated",
   "textures": {
     "layer0": "caldrukimod:item/jonklanchornormal"
-  }
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "caldrukimod:jonklanchor_anchoredthingy": 1
+      },
+      "model": "caldrukimod:item/jonklanchor_0"
+    },
+    {
+      "predicate": {
+        "caldrukimod:jonklanchor_anchoredthingy": 2
+      },
+      "model": "caldrukimod:item/jonklanchor_1"
+    },
+    {
+      "predicate": {
+        "caldrukimod:jonklanchor_anchoredthingy": 3
+      },
+      "model": "caldrukimod:item/jonklanchor_2"
+    },
+    {
+      "predicate": {
+        "caldrukimod:jonklanchor_anchoredthingy": 4
+      },
+      "model": "caldrukimod:item/jonklanchor_3"
+    },
+    {
+      "predicate": {
+        "caldrukimod:jonklanchor_anchoredthingy": 5
+      },
+      "model": "caldrukimod:item/jonklanchor_4"
+    }
+  ]
 }

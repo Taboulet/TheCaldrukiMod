@@ -1,6 +1,30 @@
 {
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "caldrukimod:item/sonmelon"
+  "loader": "neoforge:separate_transforms",
+  "gui_light": "front",
+  "base": {
+    "parent": "item/generated",
+    "textures": {
+      "layer0": "caldrukimod:item/sonmelon"
+    }
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "item/generated",
+      "textures": {
+        "layer0": "caldrukimod:item/sonmelon"
+      }
+    },
+    "fixed": {
+      "parent": "item/generated",
+      "textures": {
+        "layer0": "caldrukimod:item/sonmelon"
+      }
+    },
+    "ground": {
+      "parent": "item/generated",
+      "textures": {
+        "layer0": "caldrukimod:item/sonmelon"
+      }
+    }
   }
 }

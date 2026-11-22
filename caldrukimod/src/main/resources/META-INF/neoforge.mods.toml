@@ -22,14 +22,14 @@ description="This mod adds random memes and jokes related to the Youtuber Caldru
 [[dependencies.caldrukimod]]
     modId="neoforge"
     type="required"
-    versionRange="[26.1.2.100,)"
+    versionRange="[21.1.265,)"
     ordering="AFTER"
     side="BOTH"
 
 [[dependencies.caldrukimod]]
     modId="minecraft"
     type="required"
-    versionRange="[26.1.2]"
+    versionRange="[1.21.1]"
     ordering="AFTER"
     side="BOTH"
 

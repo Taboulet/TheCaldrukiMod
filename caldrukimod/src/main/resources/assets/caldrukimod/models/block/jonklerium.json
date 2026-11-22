@@ -8,5 +8,6 @@
     "south": "caldrukimod:block/jonklerfromtmu",
     "west": "caldrukimod:block/jonklerfromtmu",
     "particle": "caldrukimod:block/jonklerfromtmu"
-  }
+  },
+  "render_type": "solid"
 }

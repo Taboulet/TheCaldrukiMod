@@ -5,7 +5,9 @@
     "aaa"
   ],
   "key": {
-    "a": "caldrukimod:jonklerium"
+    "a": {
+      "item": "caldrukimod:jonklerium"
+    }
   },
   "result": {
     "id": "caldrukimod:the_yap_druki",

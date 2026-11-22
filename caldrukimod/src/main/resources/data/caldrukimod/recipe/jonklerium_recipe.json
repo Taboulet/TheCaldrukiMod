@@ -6,8 +6,12 @@
     " b "
   ],
   "key": {
-    "a": "minecraft:copper_ingot",
-    "b": "minecraft:iron_ingot"
+    "a": {
+      "item": "minecraft:copper_ingot"
+    },
+    "b": {
+      "item": "minecraft:iron_ingot"
+    }
   },
   "result": {
     "id": "caldrukimod:jonklerium",

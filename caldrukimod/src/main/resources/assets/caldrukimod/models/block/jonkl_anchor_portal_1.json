@@ -5,5 +5,6 @@
     "particle": "caldrukimod:block/jonklerportaltexture",
     "0": "caldrukimod:block/jonklanchorportalv2blue_animated",
     "missing": "caldrukimod:block/jonklanchorportalv2blue_animated"
-  }
+  },
+  "render_type": "solid"
 }

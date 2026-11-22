@@ -1,6 +1,30 @@
 {
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "caldrukimod:item/wcrinepng"
+  "loader": "neoforge:separate_transforms",
+  "gui_light": "front",
+  "base": {
+    "parent": "item/generated",
+    "textures": {
+      "layer0": "caldrukimod:item/wcrinepng"
+    }
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "item/generated",
+      "textures": {
+        "layer0": "caldrukimod:item/wcrinepng"
+      }
+    },
+    "fixed": {
+      "parent": "item/generated",
+      "textures": {
+        "layer0": "caldrukimod:item/wcrinepng"
+      }
+    },
+    "ground": {
+      "parent": "item/generated",
+      "textures": {
+        "layer0": "caldrukimod:item/wcrinepng"
+      }
+    }
   }
 }

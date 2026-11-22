@@ -8,5 +8,6 @@
     "south": "caldrukimod:block/lightdruki",
     "west": "caldrukimod:block/lightdruki",
     "particle": "caldrukimod:block/lightdruki"
-  }
+  },
+  "render_type": "solid"
 }

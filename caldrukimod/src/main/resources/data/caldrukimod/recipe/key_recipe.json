@@ -7,7 +7,9 @@
     "a  "
   ],
   "key": {
-    "a": "minecraft:copper_ingot"
+    "a": {
+      "item": "minecraft:copper_ingot"
+    }
   },
   "result": {
     "id": "caldrukimod:key",

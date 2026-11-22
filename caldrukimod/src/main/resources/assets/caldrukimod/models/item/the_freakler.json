@@ -1,6 +1,30 @@
 {
-  "parent": "item/handheld",
-  "textures": {
-    "layer0": "caldrukimod:item/freakler"
+  "loader": "neoforge:separate_transforms",
+  "gui_light": "front",
+  "base": {
+    "parent": "item/handheld",
+    "textures": {
+      "layer0": "caldrukimod:item/freakler"
+    }
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "item/generated",
+      "textures": {
+        "layer0": "caldrukimod:item/freakler"
+      }
+    },
+    "fixed": {
+      "parent": "item/generated",
+      "textures": {
+        "layer0": "caldrukimod:item/freakler"
+      }
+    },
+    "ground": {
+      "parent": "item/generated",
+      "textures": {
+        "layer0": "caldrukimod:item/freakler"
+      }
+    }
   }
 }

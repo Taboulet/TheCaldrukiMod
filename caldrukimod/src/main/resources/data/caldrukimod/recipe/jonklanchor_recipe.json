@@ -7,10 +7,18 @@
     "cd "
   ],
   "key": {
-    "a": "caldrukimod:hamster_dam_item",
-    "b": "caldrukimod:enrique",
-    "c": "caldrukimod:adrian",
-    "d": "caldrukimod:calzoski_dog_item"
+    "a": {
+      "item": "caldrukimod:hamster_dam_item"
+    },
+    "b": {
+      "item": "caldrukimod:enrique"
+    },
+    "c": {
+      "item": "caldrukimod:adrian"
+    },
+    "d": {
+      "item": "caldrukimod:calzoski_dog_item"
+    }
   },
   "result": {
     "id": "caldrukimod:jonklanchor",

@@ -8,5 +8,6 @@
     "south": "caldrukimod:block/dirtdrukiside",
     "west": "caldrukimod:block/dirtdrukiside",
     "particle": "minecraft:block/coarse_dirt"
-  }
+  },
+  "render_type": "solid"
 }

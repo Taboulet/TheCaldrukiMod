@@ -7,7 +7,9 @@
     "aaa"
   ],
   "key": {
-    "a": "caldrukimod:dirt_druki"
+    "a": {
+      "item": "caldrukimod:dirt_druki"
+    }
   },
   "result": {
     "id": "caldrukimod:map_druki",

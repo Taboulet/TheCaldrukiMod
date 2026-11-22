@@ -8,5 +8,6 @@
     "south": "minecraft:block/cherry_planks",
     "west": "minecraft:block/cherry_planks",
     "particle": "minecraft:block/cherry_log_top"
-  }
+  },
+  "render_type": "solid"
 }

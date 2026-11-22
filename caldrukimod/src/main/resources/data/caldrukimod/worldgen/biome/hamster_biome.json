@@ -3,20 +3,18 @@
   "temperature": 1,
   "downfall": 0,
   "effects": {
+    "music": {
+      "sound": "caldrukimod:caldruki-vibe",
+      "min_delay": 12000,
+      "max_delay": 24000,
+      "replace_current_music": true
+    },
     "foliage_color": 10387789,
     "grass_color": 9470285,
-    "water_color": 4159204
-  },
-  "attributes": {
-    "minecraft:audio/background_music": {
-      "default": {
-        "sound": "caldrukimod:caldruki-vibe",
-        "min_delay": 12000,
-        "max_delay": 24000,
-        "replace_current_music": true
-      }
-    },
-    "minecraft:visual/water_fog_color": 329011
+    "sky_color": 7972607,
+    "fog_color": 12638463,
+    "water_color": 4159204,
+    "water_fog_color": 329011
   },
   "spawners": {
     "monster": [],
@@ -42,11 +40,13 @@
     "misc": []
   },
   "spawn_costs": {},
-  "carvers": [
-    "minecraft:cave",
-    "minecraft:cave_extra_underground",
-    "minecraft:canyon"
-  ],
+  "carvers": {
+    "air": [
+      "minecraft:cave",
+      "minecraft:cave_extra_underground",
+      "minecraft:canyon"
+    ]
+  },
   "features": [
     [],
     [

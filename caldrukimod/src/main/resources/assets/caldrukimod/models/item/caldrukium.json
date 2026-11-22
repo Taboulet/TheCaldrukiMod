@@ -1,6 +1,30 @@
 {
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "caldrukimod:item/caldrukiumingot"
+  "loader": "neoforge:separate_transforms",
+  "gui_light": "front",
+  "base": {
+    "parent": "item/generated",
+    "textures": {
+      "layer0": "caldrukimod:item/caldrukiumingot"
+    }
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "item/generated",
+      "textures": {
+        "layer0": "caldrukimod:item/caldrukiumingot"
+      }
+    },
+    "fixed": {
+      "parent": "item/generated",
+      "textures": {
+        "layer0": "caldrukimod:item/caldrukiumingot"
+      }
+    },
+    "ground": {
+      "parent": "item/generated",
+      "textures": {
+        "layer0": "caldrukimod:item/caldrukiumingot"
+      }
+    }
   }
 }
