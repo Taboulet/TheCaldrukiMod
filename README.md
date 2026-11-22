@@ -15,14 +15,7 @@ This mod has only been possible thanks to Mcreator (Scratch-like tool for Minecr
 
 ## Build
 
-You will need [MCreator](https://mcreator.net/download) (The current build needs [MCreator EAP 2026.3.44621](https://mcreator.net/download/eap-2026-3-44621))
-
-- Download the version of the Caldruki Mod of your choice in the [Release tab](https://github.com/Taboulet/TheCaldrukiMod/releases/new) or use :
-```bash
-git clone https://github.com/Taboulet/TheCaldrukiMod.git
-```
-
-- Open the file named [Build.pdf](https://github.com/Taboulet/TheCaldrukiMod/blob/main/README.md) and follow the instructions
+This is a WIP version, you can run the mod but i had to remove a LOT of features to do so (jonklanchor, jonklanchor portal), it removed the soundboard feature too which i need to fix later so don't use this for now
 
 
 ## License
