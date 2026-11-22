@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "caldrukimod:jonklerium_recipe"
+        "recipes": "caldrukimod:jonklerium_recipe"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

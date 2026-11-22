@@ -1,9 +1,9 @@
 package net.taboulet.caldrukimod.procedures;
 
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.resources.Identifier;
 import net.minecraft.network.chat.Component;
 import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
@@ -30,7 +30,7 @@ public class MapDrukiLocatingProcedureProcedure {
 			while (LocationBiomeX == 0) {
 				for (int _i1 = 0; _i1 < (int) DoubleArgumentType.getDouble(arguments, "SearchAmount"); _i1++) {
 					ActionAmount = ActionAmount + DoubleArgumentType.getDouble(arguments, "SearchDifference");
-					if (world.getBiome(BlockPos.containing(x, y, z - ActionAmount)).is(ResourceLocation.parse("caldrukimod:crine_biome")) == true) {
+					if (world.getBiome(BlockPos.containing(x, y, z - ActionAmount)).is(Identifier.parse("caldrukimod:crine_biome")) == true) {
 						LocationBiomeX = x;
 						LocationBiomeY = y;
 						LocationBiomeZ = z - ActionAmount;
@@ -41,7 +41,7 @@ public class MapDrukiLocatingProcedureProcedure {
 			while (LocationBiomeX == 0) {
 				for (int _i1 = 0; _i1 < (int) DoubleArgumentType.getDouble(arguments, "SearchAmount"); _i1++) {
 					ActionAmount = ActionAmount + DoubleArgumentType.getDouble(arguments, "SearchDifference");
-					if (world.getBiome(BlockPos.containing(x, y, z + ActionAmount)).is(ResourceLocation.parse("caldrukimod:crine_biome")) == true) {
+					if (world.getBiome(BlockPos.containing(x, y, z + ActionAmount)).is(Identifier.parse("caldrukimod:crine_biome")) == true) {
 						LocationBiomeX = x;
 						LocationBiomeY = y;
 						LocationBiomeZ = z + ActionAmount;
@@ -53,7 +53,7 @@ public class MapDrukiLocatingProcedureProcedure {
 			while (LocationBiomeX == 0) {
 				for (int _i1 = 0; _i1 < (int) DoubleArgumentType.getDouble(arguments, "SearchAmount"); _i1++) {
 					ActionAmount = ActionAmount + DoubleArgumentType.getDouble(arguments, "SearchDifference");
-					if (world.getBiome(BlockPos.containing(x + ActionAmount, y, z)).is(ResourceLocation.parse("caldrukimod:crine_biome")) == true) {
+					if (world.getBiome(BlockPos.containing(x + ActionAmount, y, z)).is(Identifier.parse("caldrukimod:crine_biome")) == true) {
 						LocationBiomeX = x + ActionAmount;
 						LocationBiomeY = y;
 						LocationBiomeZ = z;
@@ -64,7 +64,7 @@ public class MapDrukiLocatingProcedureProcedure {
 			while (LocationBiomeX == 0) {
 				for (int _i1 = 0; _i1 < (int) DoubleArgumentType.getDouble(arguments, "SearchAmount"); _i1++) {
 					ActionAmount = ActionAmount + DoubleArgumentType.getDouble(arguments, "SearchDifference");
-					if (world.getBiome(BlockPos.containing(x - ActionAmount, y, z)).is(ResourceLocation.parse("caldrukimod:furry_biome")) == true) {
+					if (world.getBiome(BlockPos.containing(x - ActionAmount, y, z)).is(Identifier.parse("caldrukimod:furry_biome")) == true) {
 						LocationBiomeX = x - ActionAmount;
 						LocationBiomeY = y;
 						LocationBiomeZ = z;
@@ -73,11 +73,11 @@ public class MapDrukiLocatingProcedureProcedure {
 			}
 		}
 		if (LocationBiomeX == 0) {
-			if ((commandParameterEntity(arguments, "player")) instanceof Player _player && !_player.level().isClientSide())
-				_player.displayClientMessage(Component.literal("No furry biome was found"), false);
+			if ((commandParameterEntity(arguments, "player")) instanceof ServerPlayer _player)
+				_player.sendSystemMessage(Component.literal("No furry biome was found"), false);
 		} else {
-			if ((commandParameterEntity(arguments, "player")) instanceof Player _player && !_player.level().isClientSide())
-				_player.displayClientMessage(Component.literal(("The nearest furry biome is at" + (LocationBiomeX + "" + (LocationBiomeY + "" + LocationBiomeZ)))), false);
+			if ((commandParameterEntity(arguments, "player")) instanceof ServerPlayer _player)
+				_player.sendSystemMessage(Component.literal(("The nearest furry biome is at" + (LocationBiomeX + "" + (LocationBiomeY + "" + LocationBiomeZ)))), false);
 		}
 	}
 

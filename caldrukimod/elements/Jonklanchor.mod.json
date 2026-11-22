@@ -6,91 +6,8 @@
     "texture": "jonklanchornormal",
     "customModelName": "Normal",
     "guiTexture": "",
-    "customProperties": {
-      "anchoredthingy": "JonklanchorPropertyValueProvider"
-    },
-    "states": [
-      {
-        "renderType": 0,
-        "texture": "jonklanchorused",
-        "customModelName": "Normal",
-        "stateMap": [
-          {
-            "property": {
-              "min": -1.7976931348623157E308,
-              "max": 1.7976931348623157E308,
-              "name": "CUSTOM:anchoredthingy",
-              "type": "number"
-            },
-            "value": 1.0
-          }
-        ]
-      },
-      {
-        "renderType": 0,
-        "texture": "jonklanchorblue",
-        "customModelName": "Normal",
-        "stateMap": [
-          {
-            "property": {
-              "min": -1.7976931348623157E308,
-              "max": 1.7976931348623157E308,
-              "name": "CUSTOM:anchoredthingy",
-              "type": "number"
-            },
-            "value": 2.0
-          }
-        ]
-      },
-      {
-        "renderType": 0,
-        "texture": "jonklanchorgreen",
-        "customModelName": "Normal",
-        "stateMap": [
-          {
-            "property": {
-              "min": -1.7976931348623157E308,
-              "max": 1.7976931348623157E308,
-              "name": "CUSTOM:anchoredthingy",
-              "type": "number"
-            },
-            "value": 3.0
-          }
-        ]
-      },
-      {
-        "renderType": 0,
-        "texture": "jonklanchoryellow",
-        "customModelName": "Normal",
-        "stateMap": [
-          {
-            "property": {
-              "min": -1.7976931348623157E308,
-              "max": 1.7976931348623157E308,
-              "name": "CUSTOM:anchoredthingy",
-              "type": "number"
-            },
-            "value": 4.0
-          }
-        ]
-      },
-      {
-        "renderType": 0,
-        "texture": "jonklanchorwhite",
-        "customModelName": "Normal",
-        "stateMap": [
-          {
-            "property": {
-              "min": -1.7976931348623157E308,
-              "max": 1.7976931348623157E308,
-              "name": "CUSTOM:anchoredthingy",
-              "type": "number"
-            },
-            "value": 5.0
-          }
-        ]
-      }
-    ],
+    "customProperties": {},
+    "states": [],
     "animations": [],
     "name": "JonklAnchor",
     "rarity": "COMMON",
@@ -116,17 +33,13 @@
       "fixedValue": []
     },
     "glowCondition": {
-      "fixedValue": false,
-      "name": "JonklanchorGlow"
+      "fixedValue": false
     },
-    "guiBoundTo": "Jonklanchortest",
     "openGUIOnRightClick": {
-      "fixedValue": false,
-      "name": "JonklanchorOpenBoundGUIOnRightClick"
+      "fixedValue": false
     },
     "inventorySize": 9,
     "inventoryStackSize": 99,
-    "onRightClickedInAir": "JonklanchorRightclicked",
     "enableRanged": false,
     "shootConstantly": false,
     "rangedItemChargesPower": false,

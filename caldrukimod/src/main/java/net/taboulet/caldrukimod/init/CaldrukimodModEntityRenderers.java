@@ -1,25 +1,23 @@
 /*
- *    MCreator note: This file will be REGENERATED on each build.
+ *	MCreator note: This file will be REGENERATED on each build.
  */
 package net.taboulet.caldrukimod.init;
 
 import net.taboulet.caldrukimod.client.renderer.*;
 
-import net.neoforged.neoforge.client.event.EntityRenderersEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.api.distmarker.Dist;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+import net.fabricmc.api.Environment;
+import net.fabricmc.api.EnvType;
 
-@EventBusSubscriber(Dist.CLIENT)
+@Environment(EnvType.CLIENT)
 public class CaldrukimodModEntityRenderers {
-	@SubscribeEvent
-	public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
-		event.registerEntityRenderer(CaldrukimodModEntities.HAMSTERDAM.get(), HamsterdamRenderer::new);
-		event.registerEntityRenderer(CaldrukimodModEntities.CALZOSKI_DOG.get(), CalzoskiDogRenderer::new);
-		event.registerEntityRenderer(CaldrukimodModEntities.FURRY_BOSS.get(), FurryBossRenderer::new);
-		event.registerEntityRenderer(CaldrukimodModEntities.GALAXY_NOTE_BOSS.get(), GalaxyNoteBossRenderer::new);
-		event.registerEntityRenderer(CaldrukimodModEntities.WEIRDAHHCRYINGFACEENTITY.get(), WeirdahhcryingfaceentityRenderer::new);
-		event.registerEntityRenderer(CaldrukimodModEntities.CALDRUKI_BOSS.get(), CaldrukiBossRenderer::new);
-		event.registerEntityRenderer(CaldrukimodModEntities.CAPT.get(), CaptRenderer::new);
+	public static void clientLoad() {
+		EntityRendererRegistry.register(CaldrukimodModEntities.HAMSTERDAM, HamsterdamRenderer::new);
+		EntityRendererRegistry.register(CaldrukimodModEntities.CALZOSKI_DOG, CalzoskiDogRenderer::new);
+		EntityRendererRegistry.register(CaldrukimodModEntities.FURRY_BOSS, FurryBossRenderer::new);
+		EntityRendererRegistry.register(CaldrukimodModEntities.GALAXY_NOTE_BOSS, GalaxyNoteBossRenderer::new);
+		EntityRendererRegistry.register(CaldrukimodModEntities.WEIRDAHHCRYINGFACEENTITY, WeirdahhcryingfaceentityRenderer::new);
+		EntityRendererRegistry.register(CaldrukimodModEntities.CALDRUKI_BOSS, CaldrukiBossRenderer::new);
+		EntityRendererRegistry.register(CaldrukimodModEntities.CAPT, CaptRenderer::new);
 	}
 }

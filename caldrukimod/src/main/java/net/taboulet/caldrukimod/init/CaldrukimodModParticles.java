@@ -1,19 +1,17 @@
 /*
- *    MCreator note: This file will be REGENERATED on each build.
+ *	MCreator note: This file will be REGENERATED on each build.
  */
 package net.taboulet.caldrukimod.init;
 
 import net.taboulet.caldrukimod.client.particle.WarningParticle;
 
-import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.api.distmarker.Dist;
+import net.fabricmc.fabric.api.client.particle.v1.ParticleProviderRegistry;
+import net.fabricmc.api.Environment;
+import net.fabricmc.api.EnvType;
 
-@EventBusSubscriber(Dist.CLIENT)
+@Environment(EnvType.CLIENT)
 public class CaldrukimodModParticles {
-	@SubscribeEvent
-	public static void registerParticles(RegisterParticleProvidersEvent event) {
-		event.registerSpriteSet(CaldrukimodModParticleTypes.WARNING.get(), WarningParticle::provider);
+	public static void clientLoad() {
+		ParticleProviderRegistry.getInstance().register(CaldrukimodModParticleTypes.WARNING, WarningParticle::provider);
 	}
 }

@@ -49,7 +49,7 @@
     "isFood": true,
     "nutritionalValue": 0,
     "saturation": 15.0,
-    "eatResultItem": "CUSTOM:WCrine",
+    "eatResultItem": "CUSTOM:WeirdAhhCryingFaceItem",
     "isMeat": false,
     "isAlwaysEdible": true,
     "animation": "eat",

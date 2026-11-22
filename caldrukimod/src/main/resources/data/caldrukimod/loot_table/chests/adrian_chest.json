@@ -3,6 +3,7 @@
   "pools": [
     {
       "rolls": {
+        "type": "minecraft:uniform",
         "min": 1,
         "max": 5
       },
@@ -11,10 +12,11 @@
           "type": "minecraft:item",
           "name": "caldrukimod:adrian",
           "weight": 14,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
+                "type": "minecraft:uniform",
                 "min": 1,
                 "max": 5
               }
@@ -25,10 +27,11 @@
           "type": "minecraft:item",
           "name": "caldrukimod:enrique",
           "weight": 14,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
+                "type": "minecraft:uniform",
                 "min": 1,
                 "max": 5
               }
@@ -39,13 +42,10 @@
           "type": "minecraft:item",
           "name": "caldrukimod:jonklanchor",
           "weight": 2,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
+              "type": "minecraft:set_count",
+              "count": 1
             }
           ]
         }
@@ -53,6 +53,7 @@
     },
     {
       "rolls": {
+        "type": "minecraft:uniform",
         "min": 1,
         "max": 5
       },
@@ -61,10 +62,11 @@
           "type": "minecraft:item",
           "name": "caldrukimod:hamster_dam_item",
           "weight": 15,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
+                "type": "minecraft:uniform",
                 "min": 1,
                 "max": 5
               }
@@ -75,10 +77,11 @@
           "type": "minecraft:item",
           "name": "caldrukimod:calzoski_dog_item",
           "weight": 14,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
+                "type": "minecraft:uniform",
                 "min": 1,
                 "max": 5
               }
@@ -89,13 +92,10 @@
           "type": "minecraft:item",
           "name": "caldrukimod:w_crine",
           "weight": 1,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
+              "type": "minecraft:set_count",
+              "count": 1
             }
           ]
         }

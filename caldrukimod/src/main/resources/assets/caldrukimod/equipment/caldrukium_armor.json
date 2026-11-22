@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "caldrukimod:diamond_layer_1"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "caldrukimod:diamond_layer_2"
+      }
+    ]
+  }
+}

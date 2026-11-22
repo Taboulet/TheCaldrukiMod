@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "caldrukimod:key_recipe"
+        "recipes": "caldrukimod:key_recipe"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

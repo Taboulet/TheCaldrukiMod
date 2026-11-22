@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "caldrukimod:so_nrange_recipe"
+        "recipes": "caldrukimod:so_nrange_recipe"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

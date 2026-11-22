@@ -8,6 +8,6 @@ public class JonklanchorButton1Procedure {
 	public static boolean execute(Entity entity) {
 		if (entity == null)
 			return false;
-		return !(entity.getData(CaldrukimodModVariables.PLAYER_VARIABLES).LastChosenOption == 2);
+		return !(entity.getAttachedOrCreate(CaldrukimodModVariables.PLAYER_VARIABLES).LastChosenOption == 2);
 	}
 }

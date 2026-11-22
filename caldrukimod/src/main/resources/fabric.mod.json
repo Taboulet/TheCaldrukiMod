@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "caldrukimod",
+  "version": "1.1.0",
+  "name": "TheCaldrukiMod",
+  "description": "This mod adds random memes and jokes related to the Youtuber Caldruki",
+  "authors": [
+    "Taboulet"
+  ],
+  "contact": {
+    "homepage": "https://modrinth.com/user/Taboulet",
+    "sources": ""
+  },
+  "license": "Not specified",
+  "icon": "logo.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.taboulet.caldrukimod.CaldrukimodMod"
+    ],
+    "client": [
+      "net.taboulet.caldrukimod.CaldrukimodModClient"
+    ]
+  },
+  "mixins": [
+    "caldrukimod.mixins.json"
+  ],
+  "accessWidener": "META-INF/caldrukimod.classtweaker",
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "~26.3",
+    "java": ">=25",
+    "fabric-api": "*"
+  }
+}

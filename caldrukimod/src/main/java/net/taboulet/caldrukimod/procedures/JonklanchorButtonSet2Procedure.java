@@ -9,7 +9,7 @@ public class JonklanchorButtonSet2Procedure {
 		if (entity == null)
 			return;
 		{
-			CaldrukimodModVariables.PlayerVariables _vars = entity.getData(CaldrukimodModVariables.PLAYER_VARIABLES);
+			CaldrukimodModVariables.PlayerVariables _vars = entity.getAttachedOrCreate(CaldrukimodModVariables.PLAYER_VARIABLES);
 			_vars.LastChosenOption = 3;
 			_vars.markSyncDirty();
 		}

@@ -7,14 +7,24 @@ import net.taboulet.caldrukimod.potion.HicurseMobEffect;
 import net.taboulet.caldrukimod.potion.FurryEffectMobEffect;
 import net.taboulet.caldrukimod.CaldrukimodMod;
 
-import net.neoforged.neoforge.registries.DeferredRegister;
-import net.neoforged.neoforge.registries.DeferredHolder;
-
 import net.minecraft.world.effect.MobEffect;
-import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.Identifier;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.Registry;
+import net.minecraft.core.Holder;
+
+import java.util.function.Supplier;
 
 public class CaldrukimodModMobEffects {
-	public static final DeferredRegister<MobEffect> REGISTRY = DeferredRegister.create(Registries.MOB_EFFECT, CaldrukimodMod.MODID);
-	public static final DeferredHolder<MobEffect, MobEffect> HICURSE = REGISTRY.register("hicurse", HicurseMobEffect::new);
-	public static final DeferredHolder<MobEffect, MobEffect> FURRY_EFFECT = REGISTRY.register("furry_effect", FurryEffectMobEffect::new);
+	public static Holder<MobEffect> HICURSE;
+	public static Holder<MobEffect> FURRY_EFFECT;
+
+	public static void load() {
+		HICURSE = register("hicurse", HicurseMobEffect::new);
+		FURRY_EFFECT = register("furry_effect", FurryEffectMobEffect::new);
+	}
+
+	private static Holder<MobEffect> register(String registryname, Supplier<MobEffect> element) {
+		return Holder.direct(Registry.register(BuiltInRegistries.MOB_EFFECT, Identifier.fromNamespaceAndPath(CaldrukimodMod.MODID, registryname), element.get()));
+	}
 }

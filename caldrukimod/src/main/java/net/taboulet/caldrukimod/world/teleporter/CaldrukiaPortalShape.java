@@ -1,5 +1,9 @@
 package net.taboulet.caldrukimod.world.teleporter;
 
+import org.jetbrains.annotations.Nullable;
+
+import org.apache.commons.lang3.mutable.MutableInt;
+
 import net.taboulet.caldrukimod.init.CaldrukimodModBlocks;
 
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -7,18 +11,16 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.NetherPortalBlock;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.entity.EntityDimensions;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.util.Mth;
+import net.minecraft.util.BlockUtil;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
-import net.minecraft.BlockUtil;
-
-import javax.annotation.Nullable;
 
 import java.util.function.Predicate;
 import java.util.Optional;
@@ -28,174 +30,183 @@ public class CaldrukiaPortalShape {
 	public static final int MAX_WIDTH = 21;
 	private static final int MIN_HEIGHT = 3;
 	public static final int MAX_HEIGHT = 21;
-	private static final BlockBehaviour.StatePredicate FRAME = (state, level, pos) -> state.getBlock() == CaldrukimodModBlocks.JONKLERIUM.get();
-	private static final float SAFE_TRAVEL_MAX_ENTITY_XY = 4.0F;
+	public static final Predicate<BlockState> FRAME = state -> state.is(CaldrukimodModBlocks.JONKLERIUM);
+	private static final float SAFE_TRAVEL_MAX_ENTITY_XY = 4.0f;
 	private static final double SAFE_TRAVEL_MAX_VERTICAL_DELTA = 1.0;
-	private final LevelAccessor level;
 	private final Direction.Axis axis;
 	private final Direction rightDir;
-	private int numPortalBlocks;
-	@Nullable
-	private BlockPos bottomLeft;
-	private int height;
+	private final int numPortalBlocks;
+	private final BlockPos bottomLeft;
+	private final int height;
 	private final int width;
 
-	public static Optional<CaldrukiaPortalShape> findEmptyPortalShape(LevelAccessor p_77709_, BlockPos p_77710_, Direction.Axis p_77711_) {
-		return findPortalShape(p_77709_, p_77710_, p_77727_ -> p_77727_.isValid() && p_77727_.numPortalBlocks == 0, p_77711_);
+	public CaldrukiaPortalShape(Direction.Axis axis, int portalBlockCount, Direction rightDir, BlockPos bottomLeft, int width, int height) {
+		this.axis = axis;
+		this.numPortalBlocks = portalBlockCount;
+		this.rightDir = rightDir;
+		this.bottomLeft = bottomLeft;
+		this.width = width;
+		this.height = height;
 	}
 
-	public static Optional<CaldrukiaPortalShape> findPortalShape(LevelAccessor p_77713_, BlockPos p_77714_, Predicate<CaldrukiaPortalShape> p_77715_, Direction.Axis p_77716_) {
-		Optional<CaldrukiaPortalShape> optional = Optional.of(new CaldrukiaPortalShape(p_77713_, p_77714_, p_77716_)).filter(p_77715_);
-		if (optional.isPresent()) {
-			return optional;
-		} else {
-			Direction.Axis direction$axis = p_77716_ == Direction.Axis.X ? Direction.Axis.Z : Direction.Axis.X;
-			return Optional.of(new CaldrukiaPortalShape(p_77713_, p_77714_, direction$axis)).filter(p_77715_);
+	public static Optional<CaldrukiaPortalShape> findEmptyPortalShape(LevelAccessor level, BlockPos pos, Direction.Axis preferredAxis) {
+		return findPortalShape(level, pos, shape -> shape.isValid() && shape.numPortalBlocks == 0, preferredAxis);
+	}
+
+	public static Optional<CaldrukiaPortalShape> findPortalShape(LevelAccessor level, BlockPos pos, Predicate<CaldrukiaPortalShape> isValid, Direction.Axis preferredAxis) {
+		Optional<CaldrukiaPortalShape> firstAxis = Optional.of(findAnyShape(level, pos, preferredAxis)).filter(isValid);
+		if (firstAxis.isPresent()) {
+			return firstAxis;
 		}
+		Direction.Axis otherAxis = preferredAxis == Direction.Axis.X ? Direction.Axis.Z : Direction.Axis.X;
+		return Optional.of(findAnyShape(level, pos, otherAxis)).filter(isValid);
 	}
 
-	public CaldrukiaPortalShape(LevelAccessor p_77695_, BlockPos p_77696_, Direction.Axis p_77697_) {
-		this.level = p_77695_;
-		this.axis = p_77697_;
-		this.rightDir = p_77697_ == Direction.Axis.X ? Direction.WEST : Direction.SOUTH;
-		this.bottomLeft = this.calculateBottomLeft(p_77696_);
-		if (this.bottomLeft == null) {
-			this.bottomLeft = p_77696_;
-			this.width = 1;
-			this.height = 1;
-		} else {
-			this.width = this.calculateWidth();
-			if (this.width > 0) {
-				this.height = this.calculateHeight();
+	public static CaldrukiaPortalShape findAnyShape(BlockGetter level, BlockPos pos, Direction.Axis axis) {
+		Direction rightDir = axis == Direction.Axis.X ? Direction.WEST : Direction.SOUTH;
+		BlockPos bottomLeft = calculateBottomLeft(level, rightDir, pos);
+		if (bottomLeft == null) {
+			return new CaldrukiaPortalShape(axis, 0, rightDir, pos, 0, 0);
+		}
+		int width = calculateWidth(level, bottomLeft, rightDir);
+		if (width == 0) {
+			return new CaldrukiaPortalShape(axis, 0, rightDir, bottomLeft, 0, 0);
+		}
+		MutableInt portalBlockCountOutput = new MutableInt();
+		int height = calculateHeight(level, bottomLeft, rightDir, width, portalBlockCountOutput);
+		return new CaldrukiaPortalShape(axis, portalBlockCountOutput.intValue(), rightDir, bottomLeft, width, height);
+	}
+
+	private static @Nullable BlockPos calculateBottomLeft(BlockGetter level, Direction rightDir, BlockPos pos) {
+		int minY = Math.max(level.getMinY(), pos.getY() - 21);
+		while (pos.getY() > minY && isEmpty(level.getBlockState(pos.below()))) {
+			pos = pos.below();
+		}
+		Direction leftDir = rightDir.getOpposite();
+		int edge = getDistanceUntilEdgeAboveFrame(level, pos, leftDir) - 1;
+		if (edge < 0) {
+			return null;
+		}
+		return pos.relative(leftDir, edge);
+	}
+
+	private static int calculateWidth(BlockGetter level, BlockPos bottomLeft, Direction rightDir) {
+		int width = getDistanceUntilEdgeAboveFrame(level, bottomLeft, rightDir);
+		if (width < 2 || width > 21) {
+			return 0;
+		}
+		return width;
+	}
+
+	private static int getDistanceUntilEdgeAboveFrame(BlockGetter level, BlockPos pos, Direction direction) {
+		BlockPos.MutableBlockPos blockPos = new BlockPos.MutableBlockPos();
+		for (int width = 0; width <= 21; ++width) {
+			blockPos.set(pos).move(direction, width);
+			BlockState blockState = level.getBlockState(blockPos);
+			if (!isEmpty(blockState)) {
+				if (!FRAME.test(blockState))
+					break;
+				return width;
 			}
-		}
-	}
-
-	@Nullable
-	private BlockPos calculateBottomLeft(BlockPos p_77734_) {
-		int i = Math.max(this.level.getMinBuildHeight(), p_77734_.getY() - 21);
-		while (p_77734_.getY() > i && isEmpty(this.level.getBlockState(p_77734_.below()))) {
-			p_77734_ = p_77734_.below();
-		}
-		Direction direction = this.rightDir.getOpposite();
-		int j = this.getDistanceUntilEdgeAboveFrame(p_77734_, direction) - 1;
-		return j < 0 ? null : p_77734_.relative(direction, j);
-	}
-
-	private int calculateWidth() {
-		int i = this.getDistanceUntilEdgeAboveFrame(this.bottomLeft, this.rightDir);
-		return i >= 2 && i <= 21 ? i : 0;
-	}
-
-	private int getDistanceUntilEdgeAboveFrame(BlockPos p_77736_, Direction p_77737_) {
-		BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos();
-		for (int i = 0; i <= 21; i++) {
-			blockpos$mutableblockpos.set(p_77736_).move(p_77737_, i);
-			BlockState blockstate = this.level.getBlockState(blockpos$mutableblockpos);
-			if (!isEmpty(blockstate)) {
-				if (FRAME.test(blockstate, this.level, blockpos$mutableblockpos)) {
-					return i;
-				}
+			BlockState belowState = level.getBlockState(blockPos.move(Direction.DOWN));
+			if (!FRAME.test(belowState))
 				break;
-			}
-			BlockState blockstate1 = this.level.getBlockState(blockpos$mutableblockpos.move(Direction.DOWN));
-			if (!FRAME.test(blockstate1, this.level, blockpos$mutableblockpos)) {
-				break;
-			}
 		}
 		return 0;
 	}
 
-	private int calculateHeight() {
-		BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos();
-		int i = this.getDistanceUntilTop(blockpos$mutableblockpos);
-		return i >= 3 && i <= 21 && this.hasTopFrame(blockpos$mutableblockpos, i) ? i : 0;
+	private static int calculateHeight(BlockGetter level, BlockPos bottomLeft, Direction rightDir, int width, MutableInt portalBlockCount) {
+		BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos();
+		int height = getDistanceUntilTop(level, bottomLeft, rightDir, pos, width, portalBlockCount);
+		if (height < 3 || height > 21 || !hasTopFrame(level, bottomLeft, rightDir, pos, width, height)) {
+			return 0;
+		}
+		return height;
 	}
 
-	private boolean hasTopFrame(BlockPos.MutableBlockPos p_77731_, int p_77732_) {
-		for (int i = 0; i < this.width; i++) {
-			BlockPos.MutableBlockPos blockpos$mutableblockpos = p_77731_.set(this.bottomLeft).move(Direction.UP, p_77732_).move(this.rightDir, i);
-			if (!FRAME.test(this.level.getBlockState(blockpos$mutableblockpos), this.level, blockpos$mutableblockpos)) {
-				return false;
-			}
+	private static boolean hasTopFrame(BlockGetter level, BlockPos bottomLeft, Direction rightDir, BlockPos.MutableBlockPos pos, int width, int height) {
+		for (int i = 0; i < width; ++i) {
+			BlockPos.MutableBlockPos framePos = pos.set(bottomLeft).move(Direction.UP, height).move(rightDir, i);
+			if (FRAME.test(level.getBlockState(framePos)))
+				continue;
+			return false;
 		}
 		return true;
 	}
 
-	private int getDistanceUntilTop(BlockPos.MutableBlockPos p_77729_) {
-		for (int i = 0; i < 21; i++) {
-			p_77729_.set(this.bottomLeft).move(Direction.UP, i).move(this.rightDir, -1);
-			if (!FRAME.test(this.level.getBlockState(p_77729_), this.level, p_77729_)) {
-				return i;
+	private static int getDistanceUntilTop(BlockGetter level, BlockPos bottomLeft, Direction rightDir, BlockPos.MutableBlockPos pos, int width, MutableInt portalBlockCount) {
+		for (int height = 0; height < 21; ++height) {
+			pos.set(bottomLeft).move(Direction.UP, height).move(rightDir, -1);
+			if (!FRAME.test(level.getBlockState(pos))) {
+				return height;
 			}
-			p_77729_.set(this.bottomLeft).move(Direction.UP, i).move(this.rightDir, this.width);
-			if (!FRAME.test(this.level.getBlockState(p_77729_), this.level, p_77729_)) {
-				return i;
+			pos.set(bottomLeft).move(Direction.UP, height).move(rightDir, width);
+			if (!FRAME.test(level.getBlockState(pos))) {
+				return height;
 			}
-			for (int j = 0; j < this.width; j++) {
-				p_77729_.set(this.bottomLeft).move(Direction.UP, i).move(this.rightDir, j);
-				BlockState blockstate = this.level.getBlockState(p_77729_);
-				if (!isEmpty(blockstate)) {
-					return i;
+			for (int i = 0; i < width; ++i) {
+				pos.set(bottomLeft).move(Direction.UP, height).move(rightDir, i);
+				BlockState state = level.getBlockState(pos);
+				if (!isEmpty(state)) {
+					return height;
 				}
-				if (blockstate.getBlock() == CaldrukimodModBlocks.CALDRUKIA_PORTAL.get()) {
-					this.numPortalBlocks++;
-				}
+				if (!state.is(CaldrukimodModBlocks.CALDRUKIA_PORTAL))
+					continue;
+				portalBlockCount.increment();
 			}
 		}
 		return 21;
 	}
 
-	private static boolean isEmpty(BlockState p_77718_) {
-		return p_77718_.isAir() || p_77718_.getBlock() == CaldrukimodModBlocks.CALDRUKIA_PORTAL.get();
+	private static boolean isEmpty(BlockState state) {
+		return state.isAir() || state.is(CaldrukimodModBlocks.CALDRUKIA_PORTAL);
 	}
 
 	public boolean isValid() {
-		return this.bottomLeft != null && this.width >= 2 && this.width <= 21 && this.height >= 3 && this.height <= 21;
+		return this.width >= 2 && this.width <= 21 && this.height >= 3 && this.height <= 21;
 	}
 
-	public void createPortalBlocks() {
-		BlockState blockstate = CaldrukimodModBlocks.CALDRUKIA_PORTAL.get().defaultBlockState().setValue(NetherPortalBlock.AXIS, this.axis);
-		BlockPos.betweenClosed(this.bottomLeft, this.bottomLeft.relative(Direction.UP, this.height - 1).relative(this.rightDir, this.width - 1)).forEach(p_77725_ -> this.level.setBlock(p_77725_, blockstate, 18));
+	public void createPortalBlocks(LevelAccessor level) {
+		BlockState portalState = (BlockState) CaldrukimodModBlocks.CALDRUKIA_PORTAL.defaultBlockState().setValue(NetherPortalBlock.AXIS, this.axis);
+		BlockPos.betweenClosed(this.bottomLeft, this.bottomLeft.relative(Direction.UP, this.height - 1).relative(this.rightDir, this.width - 1)).forEach(pos -> level.setBlock((BlockPos) pos, portalState, 18));
 	}
 
 	public boolean isComplete() {
 		return this.isValid() && this.numPortalBlocks == this.width * this.height;
 	}
 
-	public static Vec3 getRelativePosition(BlockUtil.FoundRectangle p_77739_, Direction.Axis p_77740_, Vec3 p_77741_, EntityDimensions p_77742_) {
-		double d0 = (double) p_77739_.axis1Size - (double) p_77742_.width();
-		double d1 = (double) p_77739_.axis2Size - (double) p_77742_.height();
-		BlockPos blockpos = p_77739_.minCorner;
-		double d2;
-		if (d0 > 0.0) {
-			double d3 = (double) blockpos.get(p_77740_) + (double) p_77742_.width() / 2.0;
-			d2 = Mth.clamp(Mth.inverseLerp(p_77741_.get(p_77740_) - d3, 0.0, d0), 0.0, 1.0);
+	public static Vec3 getRelativePosition(BlockUtil.FoundRectangle largestRectangleAround, Direction.Axis axis, Vec3 position, EntityDimensions dimensions) {
+		double relativeUp;
+		double relativeRight;
+		double width = (double) largestRectangleAround.axis1Size - (double) dimensions.width();
+		double height = (double) largestRectangleAround.axis2Size - (double) dimensions.height();
+		BlockPos bottomMin = largestRectangleAround.minCorner;
+		if (width > 0.0) {
+			double bottomStart = (double) bottomMin.get(axis) + (double) dimensions.width() / 2.0;
+			relativeRight = Mth.clamp(Mth.inverseLerp(position.get(axis) - bottomStart, 0.0, width), 0.0, 1.0);
 		} else {
-			d2 = 0.5;
+			relativeRight = 0.5;
 		}
-		double d5;
-		if (d1 > 0.0) {
-			Direction.Axis direction$axis = Direction.Axis.Y;
-			d5 = Mth.clamp(Mth.inverseLerp(p_77741_.get(direction$axis) - (double) blockpos.get(direction$axis), 0.0, d1), 0.0, 1.0);
+		if (height > 0.0) {
+			Direction.Axis heightAxis = Direction.Axis.Y;
+			relativeUp = Mth.clamp(Mth.inverseLerp(position.get(heightAxis) - (double) bottomMin.get(heightAxis), 0.0, height), 0.0, 1.0);
 		} else {
-			d5 = 0.0;
+			relativeUp = 0.0;
 		}
-		Direction.Axis direction$axis1 = p_77740_ == Direction.Axis.X ? Direction.Axis.Z : Direction.Axis.X;
-		double d4 = p_77741_.get(direction$axis1) - ((double) blockpos.get(direction$axis1) + 0.5);
-		return new Vec3(d2, d5, d4);
+		Direction.Axis forwardAxis = axis == Direction.Axis.X ? Direction.Axis.Z : Direction.Axis.X;
+		double relativeForward = position.get(forwardAxis) - ((double) bottomMin.get(forwardAxis) + 0.5);
+		return new Vec3(relativeRight, relativeUp, relativeForward);
 	}
 
-	public static Vec3 findCollisionFreePosition(Vec3 p_260315_, ServerLevel p_259704_, Entity p_259626_, EntityDimensions p_259816_) {
-		if (!(p_259816_.width() > 4.0F) && !(p_259816_.height() > 4.0F)) {
-			double d0 = (double) p_259816_.height() / 2.0;
-			Vec3 vec3 = p_260315_.add(0.0, d0, 0.0);
-			VoxelShape voxelshape = Shapes.create(AABB.ofSize(vec3, (double) p_259816_.width(), 0.0, (double) p_259816_.width()).expandTowards(0.0, 1.0, 0.0).inflate(1.0E-6));
-			Optional<Vec3> optional = p_259704_.findFreePosition(p_259626_, voxelshape, vec3, (double) p_259816_.width(), (double) p_259816_.height(), (double) p_259816_.width());
-			Optional<Vec3> optional1 = optional.map(p_259019_ -> p_259019_.subtract(0.0, d0, 0.0));
-			return optional1.orElse(p_260315_);
-		} else {
-			return p_260315_;
+	public static Vec3 findCollisionFreePosition(Vec3 bottomCenter, ServerLevel serverLevel, Entity entity, EntityDimensions dimensions) {
+		if (dimensions.width() > 4.0f || dimensions.height() > 4.0f) {
+			return bottomCenter;
 		}
+		double halfHeight = (double) dimensions.height() / 2.0;
+		Vec3 center = bottomCenter.add(0.0, halfHeight, 0.0);
+		VoxelShape allowedCenters = Shapes.create(AABB.ofSize(center, dimensions.width(), 0.0, dimensions.width()).expandTowards(0.0, 1.0, 0.0).inflate(1.0E-6));
+		Optional<Vec3> collisionFreePosition = serverLevel.findFreePosition(entity, allowedCenters, center, dimensions.width(), dimensions.height(), dimensions.width());
+		Optional<Vec3> collisionFreeBottomCenter = collisionFreePosition.map(vec -> vec.subtract(0.0, halfHeight, 0.0));
+		return collisionFreeBottomCenter.orElse(bottomCenter);
 	}
 }

@@ -1,80 +1,68 @@
 /*
- *    MCreator note: This file will be REGENERATED on each build.
+ *	MCreator note: This file will be REGENERATED on each build.
  */
 package net.taboulet.caldrukimod.init;
 
 import net.taboulet.caldrukimod.entity.*;
 import net.taboulet.caldrukimod.CaldrukimodMod;
 
-import net.neoforged.neoforge.registries.DeferredRegister;
-import net.neoforged.neoforge.registries.DeferredHolder;
-import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
-import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.bus.api.SubscribeEvent;
-
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.Identifier;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.Registry;
 
-@EventBusSubscriber
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
+
 public class CaldrukimodModEntities {
-	public static final DeferredRegister<EntityType<?>> REGISTRY = DeferredRegister.create(Registries.ENTITY_TYPE, CaldrukimodMod.MODID);
-	public static final DeferredHolder<EntityType<?>, EntityType<HamsterdamEntity>> HAMSTERDAM = register("hamsterdam",
-			EntityType.Builder.<HamsterdamEntity>of(HamsterdamEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3)
+	public static EntityType<HamsterdamEntity> HAMSTERDAM = register("hamsterdam", EntityType.Builder.<HamsterdamEntity>of(HamsterdamEntity::new, MobCategory.MONSTER).clientTrackingRange(64).updateInterval(3)
+
+			.sized(0.6f, 1.8f));
+	public static EntityType<CalzoskiDogEntity> CALZOSKI_DOG = register("calzoski_dog", EntityType.Builder.<CalzoskiDogEntity>of(CalzoskiDogEntity::new, MobCategory.MONSTER).clientTrackingRange(64).updateInterval(3)
+
+			.sized(0.6f, 1.8f));
+	public static EntityType<FurryBossEntity> FURRY_BOSS = register("furry_boss", EntityType.Builder.<FurryBossEntity>of(FurryBossEntity::new, MobCategory.MONSTER).clientTrackingRange(64).updateInterval(3)
+
+			.sized(0.6f, 1.95f));
+	public static EntityType<GalaxyNoteBossEntity> GALAXY_NOTE_BOSS = register("galaxy_note_boss", EntityType.Builder.<GalaxyNoteBossEntity>of(GalaxyNoteBossEntity::new, MobCategory.MONSTER).clientTrackingRange(64).updateInterval(3)
+
+			.notInPeaceful().sized(0.6f, 1.95f));
+	public static EntityType<WeirdahhcryingfaceentityEntity> WEIRDAHHCRYINGFACEENTITY = register("weirdahhcryingfaceentity",
+			EntityType.Builder.<WeirdahhcryingfaceentityEntity>of(WeirdahhcryingfaceentityEntity::new, MobCategory.MONSTER).clientTrackingRange(64).updateInterval(3)
 
 					.sized(0.6f, 1.8f));
-	public static final DeferredHolder<EntityType<?>, EntityType<CalzoskiDogEntity>> CALZOSKI_DOG = register("calzoski_dog",
-			EntityType.Builder.<CalzoskiDogEntity>of(CalzoskiDogEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3)
+	public static EntityType<CaldrukiBossEntity> CALDRUKI_BOSS = register("caldruki_boss", EntityType.Builder.<CaldrukiBossEntity>of(CaldrukiBossEntity::new, MobCategory.MONSTER).clientTrackingRange(64).updateInterval(3)
 
-					.sized(0.6f, 1.8f));
-	public static final DeferredHolder<EntityType<?>, EntityType<FurryBossEntity>> FURRY_BOSS = register("furry_boss",
-			EntityType.Builder.<FurryBossEntity>of(FurryBossEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3)
+			.ridingOffset(-0.6f).notInPeaceful().sized(0.6f, 1.8f));
+	public static EntityType<CaptEntity> CAPT = register("capt", EntityType.Builder.<CaptEntity>of(CaptEntity::new, MobCategory.MONSTER).clientTrackingRange(64).updateInterval(3)
 
-					.sized(0.6f, 1.95f));
-	public static final DeferredHolder<EntityType<?>, EntityType<GalaxyNoteBossEntity>> GALAXY_NOTE_BOSS = register("galaxy_note_boss",
-			EntityType.Builder.<GalaxyNoteBossEntity>of(GalaxyNoteBossEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3)
+			.sized(0.6f, 1.95f));
 
-					.sized(0.6f, 1.95f));
-	public static final DeferredHolder<EntityType<?>, EntityType<WeirdahhcryingfaceentityEntity>> WEIRDAHHCRYINGFACEENTITY = register("weirdahhcryingfaceentity",
-			EntityType.Builder.<WeirdahhcryingfaceentityEntity>of(WeirdahhcryingfaceentityEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3)
-
-					.sized(0.6f, 1.8f));
-	public static final DeferredHolder<EntityType<?>, EntityType<CaldrukiBossEntity>> CALDRUKI_BOSS = register("caldruki_boss",
-			EntityType.Builder.<CaldrukiBossEntity>of(CaldrukiBossEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3)
-
-					.ridingOffset(-0.6f).sized(0.6f, 1.8f));
-	public static final DeferredHolder<EntityType<?>, EntityType<CaptEntity>> CAPT = register("capt",
-			EntityType.Builder.<CaptEntity>of(CaptEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3)
-
-					.sized(0.6f, 1.95f));
+	public static void load() {
+		init();
+		registerAttributes();
+	}
 
 	// Start of user code block custom entities
 	// End of user code block custom entities
-	private static <T extends Entity> DeferredHolder<EntityType<?>, EntityType<T>> register(String registryname, EntityType.Builder<T> entityTypeBuilder) {
-		return REGISTRY.register(registryname, () -> (EntityType<T>) entityTypeBuilder.build(registryname));
+	private static <T extends Entity> EntityType<T> register(String registryname, EntityType.Builder<T> entityTypeBuilder) {
+		return Registry.register(BuiltInRegistries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(CaldrukimodMod.MODID, registryname),
+				(EntityType<T>) entityTypeBuilder.build(ResourceKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(CaldrukimodMod.MODID, registryname))));
 	}
 
-	@SubscribeEvent
-	public static void init(RegisterSpawnPlacementsEvent event) {
-		HamsterdamEntity.init(event);
-		CalzoskiDogEntity.init(event);
-		FurryBossEntity.init(event);
-		GalaxyNoteBossEntity.init(event);
-		WeirdahhcryingfaceentityEntity.init(event);
-		CaldrukiBossEntity.init(event);
-		CaptEntity.init(event);
+	public static void init() {
 	}
 
-	@SubscribeEvent
-	public static void registerAttributes(EntityAttributeCreationEvent event) {
-		event.put(HAMSTERDAM.get(), HamsterdamEntity.createAttributes().build());
-		event.put(CALZOSKI_DOG.get(), CalzoskiDogEntity.createAttributes().build());
-		event.put(FURRY_BOSS.get(), FurryBossEntity.createAttributes().build());
-		event.put(GALAXY_NOTE_BOSS.get(), GalaxyNoteBossEntity.createAttributes().build());
-		event.put(WEIRDAHHCRYINGFACEENTITY.get(), WeirdahhcryingfaceentityEntity.createAttributes().build());
-		event.put(CALDRUKI_BOSS.get(), CaldrukiBossEntity.createAttributes().build());
-		event.put(CAPT.get(), CaptEntity.createAttributes().build());
+	public static void registerAttributes() {
+		FabricDefaultAttributeRegistry.register(HAMSTERDAM, HamsterdamEntity.createAttributes());
+		FabricDefaultAttributeRegistry.register(CALZOSKI_DOG, CalzoskiDogEntity.createAttributes());
+		FabricDefaultAttributeRegistry.register(FURRY_BOSS, FurryBossEntity.createAttributes());
+		FabricDefaultAttributeRegistry.register(GALAXY_NOTE_BOSS, GalaxyNoteBossEntity.createAttributes());
+		FabricDefaultAttributeRegistry.register(WEIRDAHHCRYINGFACEENTITY, WeirdahhcryingfaceentityEntity.createAttributes());
+		FabricDefaultAttributeRegistry.register(CALDRUKI_BOSS, CaldrukiBossEntity.createAttributes());
+		FabricDefaultAttributeRegistry.register(CAPT, CaptEntity.createAttributes());
 	}
 }

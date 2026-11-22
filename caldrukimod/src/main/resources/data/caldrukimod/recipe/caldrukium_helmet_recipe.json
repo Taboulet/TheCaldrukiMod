@@ -6,9 +6,7 @@
     "a a"
   ],
   "key": {
-    "a": {
-      "item": "caldrukimod:caldrukium"
-    }
+    "a": "caldrukimod:caldrukium"
   },
   "result": {
     "id": "caldrukimod:caldrukium_armor_helmet",

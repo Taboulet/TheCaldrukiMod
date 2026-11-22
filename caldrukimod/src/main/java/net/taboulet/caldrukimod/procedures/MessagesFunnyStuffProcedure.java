@@ -2,29 +2,25 @@ package net.taboulet.caldrukimod.procedures;
 
 import net.taboulet.caldrukimod.init.CaldrukimodModMobEffects;
 
-import net.neoforged.neoforge.event.ServerChatEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.bus.api.Event;
-
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.effect.MobEffectInstance;
 
-import javax.annotation.Nullable;
+import net.fabricmc.fabric.api.message.v1.ServerMessageEvents;
 
-@EventBusSubscriber
 public class MessagesFunnyStuffProcedure {
-	@SubscribeEvent
-	public static void onChat(ServerChatEvent event) {
-		execute(event, event.getPlayer(), event.getRawText());
+	public static boolean eventResult = true;
+
+	public MessagesFunnyStuffProcedure() {
+		ServerMessageEvents.ALLOW_CHAT_MESSAGE.register((message, sender, params) -> {
+			execute(sender, message.decoratedContent().getString());
+			boolean result = eventResult;
+			eventResult = true;
+			return result;
+		});
 	}
 
 	public static void execute(Entity entity, String text) {
-		execute(null, entity, text);
-	}
-
-	private static void execute(@Nullable Event event, Entity entity, String text) {
 		if (entity == null || text == null)
 			return;
 		if (text.contains("hi ") || text.endsWith("hi")) {

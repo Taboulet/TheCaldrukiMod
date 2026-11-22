@@ -2,8 +2,6 @@ package net.taboulet.caldrukimod.entity;
 
 import net.taboulet.caldrukimod.init.CaldrukimodModItems;
 
-import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
-
 import net.minecraft.world.level.Level;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
@@ -21,7 +19,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.network.chat.Component;
 import net.minecraft.core.registries.BuiltInRegistries;
 
@@ -33,7 +31,7 @@ public class FurryBossEntity extends PathfinderMob {
 		setCustomName(Component.literal("Evi"));
 		setCustomNameVisible(true);
 		setPersistenceRequired();
-		this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(CaldrukimodModItems.FURRY_WAND.get()));
+		this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(CaldrukimodModItems.FURRY_WAND));
 	}
 
 	@Override
@@ -58,20 +56,17 @@ public class FurryBossEntity extends PathfinderMob {
 
 	protected void dropCustomDeathLoot(ServerLevel serverLevel, DamageSource source, boolean recentlyHitIn) {
 		super.dropCustomDeathLoot(serverLevel, source, recentlyHitIn);
-		this.spawnAtLocation(new ItemStack(CaldrukimodModItems.FURRY_WAND.get()));
+		this.spawnAtLocation(serverLevel, new ItemStack(CaldrukimodModItems.FURRY_WAND));
 	}
 
 	@Override
 	public SoundEvent getHurtSound(DamageSource ds) {
-		return BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("entity.generic.hurt"));
+		return BuiltInRegistries.SOUND_EVENT.getValue(Identifier.parse("entity.generic.hurt"));
 	}
 
 	@Override
 	public SoundEvent getDeathSound() {
-		return BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("entity.generic.death"));
-	}
-
-	public static void init(RegisterSpawnPlacementsEvent event) {
+		return BuiltInRegistries.SOUND_EVENT.getValue(Identifier.parse("entity.generic.death"));
 	}
 
 	public static AttributeSupplier.Builder createAttributes() {

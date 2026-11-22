@@ -2,29 +2,24 @@ package net.taboulet.caldrukimod.client.screens;
 
 import net.taboulet.caldrukimod.procedures.HiCurseOverlayDisplayProcedure;
 
-import net.neoforged.neoforge.client.event.RenderGuiEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.bus.api.EventPriority;
-import net.neoforged.api.distmarker.Dist;
-
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.client.renderer.GameRenderer;
+import net.minecraft.resources.Identifier;
+import net.minecraft.client.renderer.RenderPipelines;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.DeltaTracker;
 
-import com.mojang.blaze3d.systems.RenderSystem;
-import com.mojang.blaze3d.platform.GlStateManager;
+import net.fabricmc.api.Environment;
+import net.fabricmc.api.EnvType;
 
-@EventBusSubscriber(Dist.CLIENT)
+@Environment(EnvType.CLIENT)
 public class HiCurseOverlayOverlay {
-	private static final ResourceLocation BACKGROUND = ResourceLocation.parse("caldrukimod:textures/screens/warning_26a0-fe0f.png");
+	private static final Identifier BACKGROUND = Identifier.parse("caldrukimod:textures/screens/warning_26a0-fe0f.png");
 
-	@SubscribeEvent(priority = EventPriority.NORMAL)
-	public static void eventHandler(RenderGuiEvent.Pre event) {
-		int w = event.getGuiGraphics().guiWidth();
-		int h = event.getGuiGraphics().guiHeight();
+	public static void render(GuiGraphicsExtractor guiGraphics, DeltaTracker deltaTracker) {
+		int w = guiGraphics.guiWidth();
+		int h = guiGraphics.guiHeight();
 		Level world = null;
 		double x = 0;
 		double y = 0;
@@ -36,19 +31,8 @@ public class HiCurseOverlayOverlay {
 			y = entity.getY();
 			z = entity.getZ();
 		}
-		RenderSystem.disableDepthTest();
-		RenderSystem.depthMask(false);
-		RenderSystem.enableBlend();
-		RenderSystem.setShader(GameRenderer::getPositionTexShader);
-		RenderSystem.blendFuncSeparate(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA, GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ZERO);
-		RenderSystem.setShaderColor(1, 1, 1, 1);
 		if (HiCurseOverlayDisplayProcedure.execute(entity)) {
-			event.getGuiGraphics().blit(BACKGROUND, 0, 0, 0, 0, w, h, w, h);
+			guiGraphics.blit(RenderPipelines.GUI_TEXTURED, BACKGROUND, 0, 0, 0, 0, w, h, w, h);
 		}
-		RenderSystem.depthMask(true);
-		RenderSystem.defaultBlendFunc();
-		RenderSystem.enableDepthTest();
-		RenderSystem.disableBlend();
-		RenderSystem.setShaderColor(1, 1, 1, 1);
 	}
 }

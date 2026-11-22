@@ -30,7 +30,7 @@ public class YapDrukiPageNextProcedure {
 					}
 
 					@Override
-					public boolean shouldTriggerClientSideContainerClosingOnOpen() {
+					public boolean shouldCloseCurrentScreen() {
 						return false;
 					}
 
@@ -38,7 +38,7 @@ public class YapDrukiPageNextProcedure {
 					public AbstractContainerMenu createMenu(int id, Inventory inventory, Player player) {
 						return new YapDrukiPage2Menu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(_bpos));
 					}
-				}, _bpos);
+				});
 			}
 		}
 		if (entity instanceof Player _plr2 && _plr2.containerMenu instanceof YapDrukiPage2Menu) {
@@ -51,7 +51,7 @@ public class YapDrukiPageNextProcedure {
 					}
 
 					@Override
-					public boolean shouldTriggerClientSideContainerClosingOnOpen() {
+					public boolean shouldCloseCurrentScreen() {
 						return false;
 					}
 
@@ -59,7 +59,7 @@ public class YapDrukiPageNextProcedure {
 					public AbstractContainerMenu createMenu(int id, Inventory inventory, Player player) {
 						return new YapDrukiPage2Menu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(_bpos));
 					}
-				}, _bpos);
+				});
 			}
 		}
 	}

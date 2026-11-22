@@ -30,7 +30,7 @@ public class YapDrukiPagePreviousProcedure {
 					}
 
 					@Override
-					public boolean shouldTriggerClientSideContainerClosingOnOpen() {
+					public boolean shouldCloseCurrentScreen() {
 						return false;
 					}
 
@@ -38,7 +38,7 @@ public class YapDrukiPagePreviousProcedure {
 					public AbstractContainerMenu createMenu(int id, Inventory inventory, Player player) {
 						return new YapDrukiPage1Menu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(_bpos));
 					}
-				}, _bpos);
+				});
 			}
 		}
 	}

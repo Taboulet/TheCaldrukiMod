@@ -1,24 +1,23 @@
 /*
- *    MCreator note: This file will be REGENERATED on each build.
+ *	MCreator note: This file will be REGENERATED on each build.
  */
 package net.taboulet.caldrukimod.init;
 
 import net.taboulet.caldrukimod.client.model.*;
 
-import net.neoforged.neoforge.client.event.EntityRenderersEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.api.distmarker.Dist;
+import net.fabricmc.fabric.api.client.rendering.v1.ModelLayerRegistry;
+import net.fabricmc.api.Environment;
+import net.fabricmc.api.EnvType;
 
-@EventBusSubscriber(Dist.CLIENT)
+@Environment(EnvType.CLIENT)
 public class CaldrukimodModModels {
-	@SubscribeEvent
-	public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
-		event.registerLayerDefinition(Modeleviskintruly.LAYER_LOCATION, Modeleviskintruly::createBodyLayer);
-		event.registerLayerDefinition(Modelweirdahhcryingface.LAYER_LOCATION, Modelweirdahhcryingface::createBodyLayer);
-		event.registerLayerDefinition(ModelHamsterdam.LAYER_LOCATION, ModelHamsterdam::createBodyLayer);
-		event.registerLayerDefinition(ModelNew.LAYER_LOCATION, ModelNew::createBodyLayer);
-		event.registerLayerDefinition(Modelgalaxynote.LAYER_LOCATION, Modelgalaxynote::createBodyLayer);
-		event.registerLayerDefinition(Modelcapt.LAYER_LOCATION, Modelcapt::createBodyLayer);
+	public static void clientLoad() {
+		ModelLayerRegistry.registerModelLayer(Modeleviskintruly.LAYER_LOCATION, Modeleviskintruly::createBodyLayer);
+		ModelLayerRegistry.registerModelLayer(Modelweirdahhcryingface.LAYER_LOCATION, Modelweirdahhcryingface::createBodyLayer);
+		ModelLayerRegistry.registerModelLayer(ModelHamsterdam.LAYER_LOCATION, ModelHamsterdam::createBodyLayer);
+		ModelLayerRegistry.registerModelLayer(Modelfurry.LAYER_LOCATION, Modelfurry::createBodyLayer);
+		ModelLayerRegistry.registerModelLayer(ModelNew.LAYER_LOCATION, ModelNew::createBodyLayer);
+		ModelLayerRegistry.registerModelLayer(Modelgalaxynote.LAYER_LOCATION, Modelgalaxynote::createBodyLayer);
+		ModelLayerRegistry.registerModelLayer(Modelcapt.LAYER_LOCATION, Modelcapt::createBodyLayer);
 	}
 }

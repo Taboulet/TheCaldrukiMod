@@ -1,9 +1,7 @@
 package net.taboulet.caldrukimod.world.inventory;
 
+import net.taboulet.caldrukimod.network.YapDrukiPage2ButtonMessage;
 import net.taboulet.caldrukimod.init.CaldrukimodModMenus;
-
-import net.neoforged.neoforge.items.ItemStackHandler;
-import net.neoforged.neoforge.items.IItemHandler;
 
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.Level;
@@ -14,8 +12,13 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.SimpleContainer;
+import net.minecraft.world.Container;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
+
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
+import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
 
 import java.util.function.Supplier;
 import java.util.Map;
@@ -35,18 +38,32 @@ public class YapDrukiPage2Menu extends AbstractContainerMenu implements Caldruki
 	public final Player entity;
 	public int x, y, z;
 	private ContainerLevelAccess access = ContainerLevelAccess.NULL;
-	private IItemHandler internal;
+	private final Container inventory;
 	private final Map<Integer, Slot> customSlots = new HashMap<>();
 	private boolean bound = false;
 	private Supplier<Boolean> boundItemMatcher = null;
 	private Entity boundEntity = null;
 	private BlockEntity boundBlockEntity = null;
+	private ItemStack boundItem = null;
+
+	public YapDrukiPage2Menu(int id, Inventory inv) {
+		this(id, inv, new SimpleContainer(0));
+		this.x = (int) inv.player.getX();
+		this.y = (int) inv.player.getY();
+		this.z = (int) inv.player.getZ();
+		access = ContainerLevelAccess.create(inv.player.level(), new BlockPos(x, y, z));
+	}
 
 	public YapDrukiPage2Menu(int id, Inventory inv, FriendlyByteBuf extraData) {
-		super(CaldrukimodModMenus.YAP_DRUKI_PAGE_2.get(), id);
-		this.entity = inv.player;
-		this.world = inv.player.level();
-		this.internal = new ItemStackHandler(0);
+		this(id, inv, resolveContainer(inv, extraData), extraData);
+	}
+
+	private static Container resolveContainer(Inventory inv, FriendlyByteBuf extraData) {
+		return new SimpleContainer(0);
+	}
+
+	public YapDrukiPage2Menu(int id, Inventory inv, Container container, FriendlyByteBuf extraData) {
+		this(id, inv, container);
 		BlockPos pos = null;
 		if (extraData != null) {
 			pos = extraData.readBlockPos();
@@ -55,6 +72,13 @@ public class YapDrukiPage2Menu extends AbstractContainerMenu implements Caldruki
 			this.z = pos.getZ();
 			access = ContainerLevelAccess.create(world, pos);
 		}
+	}
+
+	private YapDrukiPage2Menu(int id, Inventory inv, Container container) {
+		super(CaldrukimodModMenus.YAP_DRUKI_PAGE_2, id);
+		this.entity = inv.player;
+		this.world = inv.player.level();
+		this.inventory = container;
 	}
 
 	@Override
@@ -67,7 +91,7 @@ public class YapDrukiPage2Menu extends AbstractContainerMenu implements Caldruki
 			else if (this.boundEntity != null)
 				return this.boundEntity.isAlive();
 		}
-		return true;
+		return this.inventory.stillValid(player);
 	}
 
 	@Override
@@ -83,5 +107,10 @@ public class YapDrukiPage2Menu extends AbstractContainerMenu implements Caldruki
 	@Override
 	public Map<String, Object> getMenuState() {
 		return menuState;
+	}
+
+	public static void screenInit() {
+		PayloadTypeRegistry.serverboundPlay().register(YapDrukiPage2ButtonMessage.TYPE, YapDrukiPage2ButtonMessage.STREAM_CODEC);
+		ServerPlayNetworking.registerGlobalReceiver(YapDrukiPage2ButtonMessage.TYPE, YapDrukiPage2ButtonMessage::handleData);
 	}
 }

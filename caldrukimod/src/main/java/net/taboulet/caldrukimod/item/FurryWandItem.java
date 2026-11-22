@@ -7,14 +7,13 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.entity.LivingEntity;
 
 public class FurryWandItem extends Item {
-	public FurryWandItem() {
-		super(new Item.Properties().stacksTo(1));
+	public FurryWandItem(Item.Properties properties) {
+		super(properties.stacksTo(1));
 	}
 
 	@Override
-	public boolean hurtEnemy(ItemStack itemstack, LivingEntity entity, LivingEntity sourceentity) {
-		boolean retval = super.hurtEnemy(itemstack, entity, sourceentity);
+	public void hurtEnemy(ItemStack itemstack, LivingEntity entity, LivingEntity sourceentity) {
+		super.hurtEnemy(itemstack, entity, sourceentity);
 		FurryWandLivingEntityIsHitWithItemProcedure.execute(entity);
-		return retval;
 	}
 }
