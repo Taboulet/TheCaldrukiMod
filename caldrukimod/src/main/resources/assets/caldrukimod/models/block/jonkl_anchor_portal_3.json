@@ -1,9 +1,0 @@
-{
-  "parent": "caldrukimod:custom/jonklanchorportalv2",
-  "textures": {
-    "all": "caldrukimod:block/jonklanchorportalv2yellow_animated",
-    "particle": "caldrukimod:block/jonklerportaltexture",
-    "0": "caldrukimod:block/jonklanchorportalv2yellow_animated",
-    "missing": "caldrukimod:block/jonklanchorportalv2yellow_animated"
-  }
-}
