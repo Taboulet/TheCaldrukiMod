@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "caldrukimod:wheat_bread_recipe"
+        "recipes": "caldrukimod:wheat_bread_recipe"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

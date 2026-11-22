@@ -4,21 +4,23 @@ import net.taboulet.caldrukimod.world.inventory.SoundboardNormalMenu;
 import net.taboulet.caldrukimod.network.SoundboardNormalButtonMessage;
 import net.taboulet.caldrukimod.init.CaldrukimodModScreens;
 
-import net.neoforged.neoforge.network.PacketDistributor;
+import net.neoforged.neoforge.client.network.ClientPacketDistributor;
 import net.neoforged.neoforge.client.gui.widget.ExtendedSlider;
 
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.network.chat.Component;
+import net.minecraft.client.renderer.RenderPipelines;
+import net.minecraft.client.input.KeyEvent;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.components.PlainTextButton;
 import net.minecraft.client.gui.components.Checkbox;
 import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
 
-import com.mojang.blaze3d.systems.RenderSystem;
+import com.mojang.blaze3d.platform.InputConstants;
 
 public class SoundboardNormalScreen extends AbstractContainerScreen<SoundboardNormalMenu> implements CaldrukimodModScreens.ScreenAccessor {
 	private final Level world;
@@ -32,24 +34,22 @@ public class SoundboardNormalScreen extends AbstractContainerScreen<SoundboardNo
 	private Button button_empty3;
 	private Button button_empty4;
 	private Button button_empty5;
-	private static final ResourceLocation BACKGROUND = ResourceLocation.parse("caldrukimod:textures/screens/soundboard_normal.png");
-	private static final ResourceLocation IMAGE_0 = ResourceLocation.parse("caldrukimod:textures/screens/buttonjonkler.png");
-	private static final ResourceLocation IMAGE_1 = ResourceLocation.parse("caldrukimod:textures/screens/buttonadrian.png");
-	private static final ResourceLocation IMAGE_2 = ResourceLocation.parse("caldrukimod:textures/screens/buttonenrique.png");
-	private static final ResourceLocation IMAGE_3 = ResourceLocation.parse("caldrukimod:textures/screens/buttonanglegrinder.png");
-	private static final ResourceLocation IMAGE_4 = ResourceLocation.parse("caldrukimod:textures/screens/buttonfar.png");
-	private static final ResourceLocation IMAGE_5 = ResourceLocation.parse("caldrukimod:textures/screens/buttonminimumjonkler.png");
 	private ExtendedSlider Pitch;
+	private static final Identifier BACKGROUND = Identifier.parse("caldrukimod:textures/screens/soundboard_normal.png");
+	private static final Identifier IMAGE_0 = Identifier.parse("caldrukimod:textures/screens/buttonjonkler.png");
+	private static final Identifier IMAGE_1 = Identifier.parse("caldrukimod:textures/screens/buttonadrian.png");
+	private static final Identifier IMAGE_2 = Identifier.parse("caldrukimod:textures/screens/buttonenrique.png");
+	private static final Identifier IMAGE_3 = Identifier.parse("caldrukimod:textures/screens/buttonanglegrinder.png");
+	private static final Identifier IMAGE_4 = Identifier.parse("caldrukimod:textures/screens/buttonfar.png");
+	private static final Identifier IMAGE_5 = Identifier.parse("caldrukimod:textures/screens/buttonminimumjonkler.png");
 
 	public SoundboardNormalScreen(SoundboardNormalMenu container, Inventory inventory, Component text) {
-		super(container, inventory, text);
+		super(container, inventory, text, 176, 166);
 		this.world = container.world;
 		this.x = container.x;
 		this.y = container.y;
 		this.z = container.z;
 		this.entity = container.entity;
-		this.imageWidth = 176;
-		this.imageHeight = 166;
 	}
 
 	@Override
@@ -58,7 +58,7 @@ public class SoundboardNormalScreen extends AbstractContainerScreen<SoundboardNo
 		if (elementType == 1 && elementState instanceof Boolean logicState) {
 			if (name.equals("Autotune")) {
 				if (Autotune.selected() != logicState)
-					Autotune.onPress();
+					Autotune.onPress(null);
 			}
 		}
 		if (elementType == 2 && elementState instanceof Number n) {
@@ -69,48 +69,40 @@ public class SoundboardNormalScreen extends AbstractContainerScreen<SoundboardNo
 	}
 
 	@Override
-	public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-		super.render(guiGraphics, mouseX, mouseY, partialTicks);
-		this.renderTooltip(guiGraphics, mouseX, mouseY);
+	public void extractRenderState(GuiGraphicsExtractor guiGraphics, int mouseX, int mouseY, float partialTicks) {
+		super.extractRenderState(guiGraphics, mouseX, mouseY, partialTicks);
 	}
 
 	@Override
-	protected void renderBg(GuiGraphics guiGraphics, float partialTicks, int mouseX, int mouseY) {
-		RenderSystem.setShaderColor(1, 1, 1, 1);
-		RenderSystem.enableBlend();
-		RenderSystem.defaultBlendFunc();
-		guiGraphics.blit(BACKGROUND, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
-		guiGraphics.blit(IMAGE_0, this.leftPos + 9, this.topPos + 68, 0, 0, 65, 20, 65, 20);
-		guiGraphics.blit(IMAGE_1, this.leftPos + 9, this.topPos + 17, 0, 0, 65, 20, 65, 20);
-		guiGraphics.blit(IMAGE_2, this.leftPos + 96, this.topPos + 17, 0, 0, 65, 20, 65, 20);
-		guiGraphics.blit(IMAGE_3, this.leftPos + 9, this.topPos + 42, 0, 0, 65, 20, 65, 20);
-		guiGraphics.blit(IMAGE_4, this.leftPos + 96, this.topPos + 42, 0, 0, 65, 20, 65, 20);
-		guiGraphics.blit(IMAGE_5, this.leftPos + 96, this.topPos + 68, 0, 0, 65, 20, 65, 20);
-		RenderSystem.disableBlend();
+	public void extractBackground(GuiGraphicsExtractor guiGraphics, int mouseX, int mouseY, float partialTicks) {
+		super.extractBackground(guiGraphics, mouseX, mouseY, partialTicks);
+		guiGraphics.blit(RenderPipelines.GUI_TEXTURED, BACKGROUND, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
+		guiGraphics.blit(RenderPipelines.GUI_TEXTURED, IMAGE_0, this.leftPos + 9, this.topPos + 68, 0, 0, 65, 20, 65, 20);
+		guiGraphics.blit(RenderPipelines.GUI_TEXTURED, IMAGE_1, this.leftPos + 9, this.topPos + 17, 0, 0, 65, 20, 65, 20);
+		guiGraphics.blit(RenderPipelines.GUI_TEXTURED, IMAGE_2, this.leftPos + 96, this.topPos + 17, 0, 0, 65, 20, 65, 20);
+		guiGraphics.blit(RenderPipelines.GUI_TEXTURED, IMAGE_3, this.leftPos + 9, this.topPos + 42, 0, 0, 65, 20, 65, 20);
+		guiGraphics.blit(RenderPipelines.GUI_TEXTURED, IMAGE_4, this.leftPos + 96, this.topPos + 42, 0, 0, 65, 20, 65, 20);
+		guiGraphics.blit(RenderPipelines.GUI_TEXTURED, IMAGE_5, this.leftPos + 96, this.topPos + 68, 0, 0, 65, 20, 65, 20);
 	}
 
 	@Override
-	public boolean keyPressed(int key, int b, int c) {
+	public boolean keyPressed(KeyEvent event) {
+		int key = InputConstants.getKey(event).getValue();
 		if (key == 256) {
 			this.minecraft.player.closeContainer();
 			return true;
 		}
-		return super.keyPressed(key, b, c);
+		return super.keyPressed(event);
 	}
 
 	@Override
-	public boolean mouseDragged(double mouseX, double mouseY, int button, double dragX, double dragY) {
-		return (this.getFocused() != null && this.isDragging() && button == 0) ? this.getFocused().mouseDragged(mouseX, mouseY, button, dragX, dragY) : super.mouseDragged(mouseX, mouseY, button, dragX, dragY);
-	}
-
-	@Override
-	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-		guiGraphics.drawString(this.font, Component.translatable("gui.caldrukimod.soundboard_normal.label_adrian"), 32, 21, -1, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.caldrukimod.soundboard_normal.label_enrique"), 119, 21, -1, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.caldrukimod.soundboard_normal.label_angle_grinder"), 32, 46, -1, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.caldrukimod.soundboard_normal.label_fart"), 119, 47, -1, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.caldrukimod.soundboard_normal.label_syfm"), 119, 72, -1, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.caldrukimod.soundboard_normal.label_text"), 31, 72, -1, false);
+	protected void extractLabels(GuiGraphicsExtractor guiGraphics, int mouseX, int mouseY) {
+		guiGraphics.text(this.font, Component.translatable("gui.caldrukimod.soundboard_normal.label_adrian"), 32, 21, -1, false);
+		guiGraphics.text(this.font, Component.translatable("gui.caldrukimod.soundboard_normal.label_enrique"), 119, 21, -1, false);
+		guiGraphics.text(this.font, Component.translatable("gui.caldrukimod.soundboard_normal.label_angle_grinder"), 32, 46, -1, false);
+		guiGraphics.text(this.font, Component.translatable("gui.caldrukimod.soundboard_normal.label_fart"), 119, 47, -1, false);
+		guiGraphics.text(this.font, Component.translatable("gui.caldrukimod.soundboard_normal.label_syfm"), 119, 72, -1, false);
+		guiGraphics.text(this.font, Component.translatable("gui.caldrukimod.soundboard_normal.label_text"), 31, 72, -1, false);
 	}
 
 	@Override
@@ -120,7 +112,7 @@ public class SoundboardNormalScreen extends AbstractContainerScreen<SoundboardNo
 			int x = SoundboardNormalScreen.this.x;
 			int y = SoundboardNormalScreen.this.y;
 			if (true) {
-				PacketDistributor.sendToServer(new SoundboardNormalButtonMessage(0, x, y, z));
+				ClientPacketDistributor.sendToServer(new SoundboardNormalButtonMessage(0, x, y, z));
 				SoundboardNormalButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
 		}, this.font);
@@ -129,7 +121,7 @@ public class SoundboardNormalScreen extends AbstractContainerScreen<SoundboardNo
 			int x = SoundboardNormalScreen.this.x;
 			int y = SoundboardNormalScreen.this.y;
 			if (true) {
-				PacketDistributor.sendToServer(new SoundboardNormalButtonMessage(1, x, y, z));
+				ClientPacketDistributor.sendToServer(new SoundboardNormalButtonMessage(1, x, y, z));
 				SoundboardNormalButtonMessage.handleButtonAction(entity, 1, x, y, z);
 			}
 		}, this.font);
@@ -138,7 +130,7 @@ public class SoundboardNormalScreen extends AbstractContainerScreen<SoundboardNo
 			int x = SoundboardNormalScreen.this.x;
 			int y = SoundboardNormalScreen.this.y;
 			if (true) {
-				PacketDistributor.sendToServer(new SoundboardNormalButtonMessage(2, x, y, z));
+				ClientPacketDistributor.sendToServer(new SoundboardNormalButtonMessage(2, x, y, z));
 				SoundboardNormalButtonMessage.handleButtonAction(entity, 2, x, y, z);
 			}
 		}, this.font);
@@ -147,7 +139,7 @@ public class SoundboardNormalScreen extends AbstractContainerScreen<SoundboardNo
 			int x = SoundboardNormalScreen.this.x;
 			int y = SoundboardNormalScreen.this.y;
 			if (true) {
-				PacketDistributor.sendToServer(new SoundboardNormalButtonMessage(3, x, y, z));
+				ClientPacketDistributor.sendToServer(new SoundboardNormalButtonMessage(3, x, y, z));
 				SoundboardNormalButtonMessage.handleButtonAction(entity, 3, x, y, z);
 			}
 		}, this.font);
@@ -156,7 +148,7 @@ public class SoundboardNormalScreen extends AbstractContainerScreen<SoundboardNo
 			int x = SoundboardNormalScreen.this.x;
 			int y = SoundboardNormalScreen.this.y;
 			if (true) {
-				PacketDistributor.sendToServer(new SoundboardNormalButtonMessage(4, x, y, z));
+				ClientPacketDistributor.sendToServer(new SoundboardNormalButtonMessage(4, x, y, z));
 				SoundboardNormalButtonMessage.handleButtonAction(entity, 4, x, y, z);
 			}
 		}, this.font);
@@ -165,7 +157,7 @@ public class SoundboardNormalScreen extends AbstractContainerScreen<SoundboardNo
 			int x = SoundboardNormalScreen.this.x;
 			int y = SoundboardNormalScreen.this.y;
 			if (true) {
-				PacketDistributor.sendToServer(new SoundboardNormalButtonMessage(5, x, y, z));
+				ClientPacketDistributor.sendToServer(new SoundboardNormalButtonMessage(5, x, y, z));
 				SoundboardNormalButtonMessage.handleButtonAction(entity, 5, x, y, z);
 			}
 		}, this.font);

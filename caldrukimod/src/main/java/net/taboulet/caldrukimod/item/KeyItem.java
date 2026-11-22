@@ -9,8 +9,8 @@ import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.entity.LivingEntity;
 
 public class KeyItem extends Item {
-	public KeyItem() {
-		super(new Item.Properties().food((new FoodProperties.Builder()).nutrition(1).saturationModifier(0.2f).alwaysEdible().build()));
+	public KeyItem(Item.Properties properties) {
+		super(properties.food((new FoodProperties.Builder()).nutrition(1).saturationModifier(0.2f).alwaysEdible().build()));
 	}
 
 	@Override

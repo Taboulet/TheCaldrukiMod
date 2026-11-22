@@ -3,6 +3,7 @@
   "pools": [
     {
       "rolls": {
+        "type": "minecraft:uniform",
         "min": 1,
         "max": 5
       },
@@ -11,10 +12,11 @@
           "type": "minecraft:item",
           "name": "caldrukimod:so_nana",
           "weight": 4,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
+                "type": "minecraft:uniform",
                 "min": 1,
                 "max": 10
               }
@@ -25,10 +27,11 @@
           "type": "minecraft:item",
           "name": "caldrukimod:so_nmelon",
           "weight": 4,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
+                "type": "minecraft:uniform",
                 "min": 1,
                 "max": 10
               }
@@ -39,10 +42,11 @@
           "type": "minecraft:item",
           "name": "caldrukimod:weird_ahh_crying_face_item",
           "weight": 1,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
+                "type": "minecraft:uniform",
                 "min": 1,
                 "max": 10
               }
@@ -53,6 +57,7 @@
     },
     {
       "rolls": {
+        "type": "minecraft:uniform",
         "min": 1,
         "max": 5
       },
@@ -61,10 +66,11 @@
           "type": "minecraft:item",
           "name": "caldrukimod:so_npple",
           "weight": 4,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
+                "type": "minecraft:uniform",
                 "min": 1,
                 "max": 10
               }
@@ -75,10 +81,11 @@
           "type": "minecraft:item",
           "name": "caldrukimod:so_nrange",
           "weight": 4,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
+                "type": "minecraft:uniform",
                 "min": 1,
                 "max": 10
               }
@@ -89,10 +96,11 @@
           "type": "minecraft:item",
           "name": "caldrukimod:weird_ahh_crying_face_item",
           "weight": 1,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
+                "type": "minecraft:uniform",
                 "min": 1,
                 "max": 10
               }

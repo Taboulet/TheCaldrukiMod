@@ -6,6 +6,6 @@ import net.minecraft.core.component.DataComponents;
 
 public class JonklanchorPropertyValueProviderProcedure {
 	public static double execute(ItemStack itemstack) {
-		return itemstack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getDouble("AnchorTexture");
+		return itemstack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getDoubleOr("AnchorTexture", 0);
 	}
 }

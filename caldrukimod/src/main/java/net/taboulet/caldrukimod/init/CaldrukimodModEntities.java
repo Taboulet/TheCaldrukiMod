@@ -16,6 +16,8 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.Identifier;
 import net.minecraft.core.registries.Registries;
 
 @EventBusSubscriber
@@ -36,7 +38,7 @@ public class CaldrukimodModEntities {
 	public static final DeferredHolder<EntityType<?>, EntityType<GalaxyNoteBossEntity>> GALAXY_NOTE_BOSS = register("galaxy_note_boss",
 			EntityType.Builder.<GalaxyNoteBossEntity>of(GalaxyNoteBossEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3)
 
-					.sized(0.6f, 1.95f));
+					.notInPeaceful().sized(0.6f, 1.95f));
 	public static final DeferredHolder<EntityType<?>, EntityType<WeirdahhcryingfaceentityEntity>> WEIRDAHHCRYINGFACEENTITY = register("weirdahhcryingfaceentity",
 			EntityType.Builder.<WeirdahhcryingfaceentityEntity>of(WeirdahhcryingfaceentityEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3)
 
@@ -44,7 +46,7 @@ public class CaldrukimodModEntities {
 	public static final DeferredHolder<EntityType<?>, EntityType<CaldrukiBossEntity>> CALDRUKI_BOSS = register("caldruki_boss",
 			EntityType.Builder.<CaldrukiBossEntity>of(CaldrukiBossEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3)
 
-					.ridingOffset(-0.6f).sized(0.6f, 1.8f));
+					.ridingOffset(-0.6f).notInPeaceful().sized(0.6f, 1.8f));
 	public static final DeferredHolder<EntityType<?>, EntityType<CaptEntity>> CAPT = register("capt",
 			EntityType.Builder.<CaptEntity>of(CaptEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3)
 
@@ -53,7 +55,7 @@ public class CaldrukimodModEntities {
 	// Start of user code block custom entities
 	// End of user code block custom entities
 	private static <T extends Entity> DeferredHolder<EntityType<?>, EntityType<T>> register(String registryname, EntityType.Builder<T> entityTypeBuilder) {
-		return REGISTRY.register(registryname, () -> (EntityType<T>) entityTypeBuilder.build(registryname));
+		return REGISTRY.register(registryname, () -> (EntityType<T>) entityTypeBuilder.build(ResourceKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(CaldrukimodMod.MODID, registryname))));
 	}
 
 	@SubscribeEvent

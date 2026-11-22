@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "caldrukimod:caldrukium_helmet_recipe"
+        "recipes": "caldrukimod:caldrukium_helmet_recipe"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

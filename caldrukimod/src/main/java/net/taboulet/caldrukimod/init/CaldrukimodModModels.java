@@ -17,6 +17,7 @@ public class CaldrukimodModModels {
 		event.registerLayerDefinition(Modeleviskintruly.LAYER_LOCATION, Modeleviskintruly::createBodyLayer);
 		event.registerLayerDefinition(Modelweirdahhcryingface.LAYER_LOCATION, Modelweirdahhcryingface::createBodyLayer);
 		event.registerLayerDefinition(ModelHamsterdam.LAYER_LOCATION, ModelHamsterdam::createBodyLayer);
+		event.registerLayerDefinition(Modelfurry.LAYER_LOCATION, Modelfurry::createBodyLayer);
 		event.registerLayerDefinition(ModelNew.LAYER_LOCATION, ModelNew::createBodyLayer);
 		event.registerLayerDefinition(Modelgalaxynote.LAYER_LOCATION, Modelgalaxynote::createBodyLayer);
 		event.registerLayerDefinition(Modelcapt.LAYER_LOCATION, Modelcapt::createBodyLayer);

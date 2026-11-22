@@ -14,6 +14,6 @@ import net.minecraft.core.registries.Registries;
 
 public class CaldrukimodModPotions {
 	public static final DeferredRegister<Potion> REGISTRY = DeferredRegister.create(Registries.POTION, CaldrukimodMod.MODID);
-	public static final DeferredHolder<Potion, Potion> HICURSEPOTION = REGISTRY.register("hicursepotion", () -> new Potion(new MobEffectInstance(CaldrukimodModMobEffects.HICURSE, 3600, 0, false, true)));
-	public static final DeferredHolder<Potion, Potion> FURRY_POTION = REGISTRY.register("furry_potion", () -> new Potion(new MobEffectInstance(CaldrukimodModMobEffects.FURRY_EFFECT, 3600, 0, false, true)));
+	public static final DeferredHolder<Potion, Potion> HICURSEPOTION = REGISTRY.register("hicursepotion", () -> new Potion("hicursepotion", new MobEffectInstance(CaldrukimodModMobEffects.HICURSE, 3600, 0, false, true)));
+	public static final DeferredHolder<Potion, Potion> FURRY_POTION = REGISTRY.register("furry_potion", () -> new Potion("furry_potion", new MobEffectInstance(CaldrukimodModMobEffects.FURRY_EFFECT, 3600, 0, false, true)));
 }

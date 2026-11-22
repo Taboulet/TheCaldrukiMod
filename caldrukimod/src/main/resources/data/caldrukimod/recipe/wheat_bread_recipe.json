@@ -5,9 +5,7 @@
     "aaa"
   ],
   "key": {
-    "a": {
-      "item": "minecraft:wheat_seeds"
-    }
+    "a": "minecraft:wheat_seeds"
   },
   "result": {
     "id": "caldrukimod:wheat_bread",

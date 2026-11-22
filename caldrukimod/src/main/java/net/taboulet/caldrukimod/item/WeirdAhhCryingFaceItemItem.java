@@ -9,8 +9,8 @@ import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.entity.LivingEntity;
 
 public class WeirdAhhCryingFaceItemItem extends Item {
-	public WeirdAhhCryingFaceItemItem() {
-		super(new Item.Properties().food((new FoodProperties.Builder()).nutrition(0).saturationModifier(15f).alwaysEdible().build()));
+	public WeirdAhhCryingFaceItemItem(Item.Properties properties) {
+		super(properties.food((new FoodProperties.Builder()).nutrition(0).saturationModifier(15f).alwaysEdible().build()));
 	}
 
 	@Override

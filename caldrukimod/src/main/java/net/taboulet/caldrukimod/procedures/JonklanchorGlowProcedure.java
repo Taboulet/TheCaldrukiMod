@@ -6,6 +6,6 @@ import net.minecraft.core.component.DataComponents;
 
 public class JonklanchorGlowProcedure {
 	public static boolean execute(ItemStack itemstack) {
-		return itemstack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getDouble("AnchorTexture") > 0;
+		return itemstack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getDoubleOr("AnchorTexture", 0) > 0;
 	}
 }

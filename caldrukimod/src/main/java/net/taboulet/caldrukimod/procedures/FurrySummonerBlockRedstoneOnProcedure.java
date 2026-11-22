@@ -4,7 +4,7 @@ import net.taboulet.caldrukimod.init.CaldrukimodModEntities;
 
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.Mth;
@@ -16,14 +16,14 @@ public class FurrySummonerBlockRedstoneOnProcedure {
 		world.setBlock(BlockPos.containing(x, y, z), Blocks.AIR.defaultBlockState(), 3);
 		if (Mth.nextInt(RandomSource.create(), 1, 2) == 1) {
 			if (world instanceof ServerLevel _level) {
-				Entity entityToSpawn = CaldrukimodModEntities.FURRY_BOSS.get().spawn(_level, BlockPos.containing(x, y, z), MobSpawnType.MOB_SUMMONED);
+				Entity entityToSpawn = CaldrukimodModEntities.FURRY_BOSS.get().spawn(_level, BlockPos.containing(x, y, z), EntitySpawnReason.MOB_SUMMONED);
 				if (entityToSpawn != null) {
 					entityToSpawn.setYRot(world.getRandom().nextFloat() * 360F);
 				}
 			}
 		} else {
 			if (world instanceof ServerLevel _level) {
-				Entity entityToSpawn = CaldrukimodModEntities.CAPT.get().spawn(_level, BlockPos.containing(x, y, z), MobSpawnType.MOB_SUMMONED);
+				Entity entityToSpawn = CaldrukimodModEntities.CAPT.get().spawn(_level, BlockPos.containing(x, y, z), EntitySpawnReason.MOB_SUMMONED);
 				if (entityToSpawn != null) {
 					entityToSpawn.setYRot(world.getRandom().nextFloat() * 360F);
 				}

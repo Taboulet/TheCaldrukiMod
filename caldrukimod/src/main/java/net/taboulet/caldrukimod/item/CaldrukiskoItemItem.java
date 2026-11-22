@@ -9,8 +9,8 @@ import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.entity.LivingEntity;
 
 public class CaldrukiskoItemItem extends Item {
-	public CaldrukiskoItemItem() {
-		super(new Item.Properties().food((new FoodProperties.Builder()).nutrition(0).saturationModifier(0f).alwaysEdible().build()));
+	public CaldrukiskoItemItem(Item.Properties properties) {
+		super(properties.food((new FoodProperties.Builder()).nutrition(0).saturationModifier(0f).alwaysEdible().build()));
 	}
 
 	@Override

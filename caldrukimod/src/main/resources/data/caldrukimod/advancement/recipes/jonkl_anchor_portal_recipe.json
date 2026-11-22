@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "caldrukimod:jonkl_anchor_portal_recipe"
+        "recipes": "caldrukimod:jonkl_anchor_portal_recipe"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

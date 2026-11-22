@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "caldrukimod:yap_druki_craft"
+        "recipes": "caldrukimod:yap_druki_craft"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

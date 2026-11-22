@@ -20,7 +20,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.core.registries.BuiltInRegistries;
 
 public class WeirdahhcryingfaceentityEntity extends PathfinderMob {
@@ -47,17 +47,17 @@ public class WeirdahhcryingfaceentityEntity extends PathfinderMob {
 
 	protected void dropCustomDeathLoot(ServerLevel serverLevel, DamageSource source, boolean recentlyHitIn) {
 		super.dropCustomDeathLoot(serverLevel, source, recentlyHitIn);
-		this.spawnAtLocation(new ItemStack(CaldrukimodModItems.WEIRD_AHH_CRYING_FACE_ITEM.get()));
+		this.spawnAtLocation(serverLevel, new ItemStack(CaldrukimodModItems.WEIRD_AHH_CRYING_FACE_ITEM.get()));
 	}
 
 	@Override
 	public SoundEvent getHurtSound(DamageSource ds) {
-		return BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("caldrukimod:ayyy"));
+		return BuiltInRegistries.SOUND_EVENT.getValue(Identifier.parse("caldrukimod:ayyy"));
 	}
 
 	@Override
 	public SoundEvent getDeathSound() {
-		return BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("caldrukimod:ayy-full"));
+		return BuiltInRegistries.SOUND_EVENT.getValue(Identifier.parse("caldrukimod:ayy-full"));
 	}
 
 	public static void init(RegisterSpawnPlacementsEvent event) {

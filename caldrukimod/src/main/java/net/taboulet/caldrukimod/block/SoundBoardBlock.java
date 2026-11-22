@@ -21,8 +21,8 @@ import net.minecraft.core.BlockPos;
 import io.netty.buffer.Unpooled;
 
 public class SoundBoardBlock extends Block {
-	public SoundBoardBlock() {
-		super(BlockBehaviour.Properties.of().sound(SoundType.METAL).strength(3f, 5f));
+	public SoundBoardBlock(BlockBehaviour.Properties properties) {
+		super(properties.sound(SoundType.METAL).strength(3f, 5f));
 	}
 
 	@Override
