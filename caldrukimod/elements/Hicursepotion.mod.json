@@ -1,0 +1,20 @@
+{
+  "_fv": 92,
+  "_type": "potion",
+  "definition": {
+    "potionName": "Potion of Hi Curse",
+    "splashName": "Splash Potion of Hi Curse",
+    "lingeringName": "Lingering Potion of Hi Curse",
+    "arrowName": "Arrow of Hi Curse",
+    "effects": [
+      {
+        "effect": "CUSTOM:Hicurse",
+        "duration": 3600,
+        "infinite": false,
+        "amplifier": 0,
+        "ambient": false,
+        "showParticles": true
+      }
+    ]
+  }
+}

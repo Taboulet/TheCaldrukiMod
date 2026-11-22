@@ -1,0 +1,32 @@
+{
+  "_fv": 92,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "unlockingItems": [
+      "CUSTOM:WheatBread",
+      "CUSTOM:Key"
+    ],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": true,
+    "recipeSlots": [
+      "",
+      "",
+      "",
+      "CUSTOM:WheatBread",
+      "CUSTOM:Key",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "recipeReturnStack": "CUSTOM:Caldrukia",
+    "name": "caldrukia_portal_opener_wheat_bread_recipe",
+    "namespace": "mod"
+  }
+}

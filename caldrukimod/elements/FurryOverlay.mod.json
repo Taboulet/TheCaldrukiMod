@@ -1,0 +1,18 @@
+{
+  "_fv": 92,
+  "_type": "overlay",
+  "definition": {
+    "priority": "NORMAL",
+    "components": [],
+    "baseTexture": "furryoverlaynotfinal.png",
+    "overlayTarget": "Ingame",
+    "displayCondition": "FurryEffectOverlayDisplay",
+    "gridSettings": {
+      "spacingX": 9,
+      "spacingY": 9,
+      "offsetX": 0,
+      "offsetY": 0,
+      "snapOnGrid": false
+    }
+  }
+}

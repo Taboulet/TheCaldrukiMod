@@ -1,0 +1,35 @@
+{
+  "_fv": 92,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "unlockingItems": [
+      "CUSTOM:HamsterDamItem",
+      "CUSTOM:CalzoskiDogItem",
+      "CUSTOM:Adrian",
+      "CUSTOM:Enrique",
+      "CUSTOM:Jonklanchor"
+    ],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      "",
+      "",
+      "CUSTOM:HamsterDamItem",
+      "CUSTOM:Enrique",
+      "CUSTOM:Adrian",
+      "",
+      "CUSTOM:Adrian",
+      "CUSTOM:CalzoskiDogItem",
+      ""
+    ],
+    "recipeReturnStack": "CUSTOM:Jonklanchor",
+    "name": "jonklanchor_recipe",
+    "namespace": "mod"
+  }
+}

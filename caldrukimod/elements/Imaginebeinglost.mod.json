@@ -1,0 +1,20 @@
+{
+  "_fv": 92,
+  "_type": "achievement",
+  "definition": {
+    "achievementName": "Imagine being lost",
+    "achievementDescription": "Craft a MapDruki",
+    "achievementIcon": "CUSTOM:MapDruki",
+    "background": "Default",
+    "disableDisplay": false,
+    "showPopup": true,
+    "announceToChat": true,
+    "hideIfNotCompleted": false,
+    "rewardLoot": [],
+    "rewardRecipes": [],
+    "rewardXP": 0,
+    "achievementType": "task",
+    "parent": "CUSTOM:CaldrukiaAchivement",
+    "triggerxml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><block type=\"advancement_trigger\" deletable=\"false\" x=\"40\" y=\"80\"><next><block type=\"item_in_inventory\"><value name=\"item\"><block type=\"mcitem_all\"><field name=\"value\">CUSTOM:MapDruki</field></block></value></block><shadow type=\"custom_trigger\"></shadow></next></block></xml>"
+  }
+}

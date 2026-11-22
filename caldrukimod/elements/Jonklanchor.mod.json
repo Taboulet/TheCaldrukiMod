@@ -1,0 +1,150 @@
+{
+  "_fv": 92,
+  "_type": "item",
+  "definition": {
+    "renderType": 0,
+    "texture": "jonklanchornormal",
+    "customModelName": "Normal",
+    "guiTexture": "",
+    "customProperties": {
+      "anchoredthingy": "JonklanchorPropertyValueProvider"
+    },
+    "states": [
+      {
+        "renderType": 0,
+        "texture": "jonklanchorused",
+        "customModelName": "Normal",
+        "stateMap": [
+          {
+            "property": {
+              "min": -1.7976931348623157E308,
+              "max": 1.7976931348623157E308,
+              "name": "CUSTOM:anchoredthingy",
+              "type": "number"
+            },
+            "value": 1.0
+          }
+        ]
+      },
+      {
+        "renderType": 0,
+        "texture": "jonklanchorblue",
+        "customModelName": "Normal",
+        "stateMap": [
+          {
+            "property": {
+              "min": -1.7976931348623157E308,
+              "max": 1.7976931348623157E308,
+              "name": "CUSTOM:anchoredthingy",
+              "type": "number"
+            },
+            "value": 2.0
+          }
+        ]
+      },
+      {
+        "renderType": 0,
+        "texture": "jonklanchorgreen",
+        "customModelName": "Normal",
+        "stateMap": [
+          {
+            "property": {
+              "min": -1.7976931348623157E308,
+              "max": 1.7976931348623157E308,
+              "name": "CUSTOM:anchoredthingy",
+              "type": "number"
+            },
+            "value": 3.0
+          }
+        ]
+      },
+      {
+        "renderType": 0,
+        "texture": "jonklanchoryellow",
+        "customModelName": "Normal",
+        "stateMap": [
+          {
+            "property": {
+              "min": -1.7976931348623157E308,
+              "max": 1.7976931348623157E308,
+              "name": "CUSTOM:anchoredthingy",
+              "type": "number"
+            },
+            "value": 4.0
+          }
+        ]
+      },
+      {
+        "renderType": 0,
+        "texture": "jonklanchorwhite",
+        "customModelName": "Normal",
+        "stateMap": [
+          {
+            "property": {
+              "min": -1.7976931348623157E308,
+              "max": 1.7976931348623157E308,
+              "name": "CUSTOM:anchoredthingy",
+              "type": "number"
+            },
+            "value": 5.0
+          }
+        ]
+      }
+    ],
+    "animations": [],
+    "name": "JonklAnchor",
+    "rarity": "COMMON",
+    "creativeTabs": [
+      "CUSTOM:TheCaldrukiMod"
+    ],
+    "stackSize": 1,
+    "enchantability": 0,
+    "useDuration": 0,
+    "toolType": 1.0,
+    "damageCount": 0,
+    "recipeRemainder": "",
+    "destroyAnyBlock": false,
+    "immuneToFire": false,
+    "isPiglinCurrency": false,
+    "repairItems": [],
+    "stayInGridWhenCrafting": false,
+    "damageOnCrafting": false,
+    "enableMeleeDamage": false,
+    "damageVsEntity": 4.0,
+    "attackSpeed": 1.2,
+    "specialInformation": {
+      "fixedValue": []
+    },
+    "glowCondition": {
+      "fixedValue": false,
+      "name": "JonklanchorGlow"
+    },
+    "guiBoundTo": "Jonklanchortest",
+    "openGUIOnRightClick": {
+      "fixedValue": false,
+      "name": "JonklanchorOpenBoundGUIOnRightClick"
+    },
+    "inventorySize": 9,
+    "inventoryStackSize": 99,
+    "onRightClickedInAir": "JonklanchorRightclicked",
+    "enableRanged": false,
+    "shootConstantly": false,
+    "rangedItemChargesPower": false,
+    "projectile": "Arrow",
+    "projectileDisableAmmoCheck": false,
+    "isFood": false,
+    "nutritionalValue": 4,
+    "saturation": 0.3,
+    "eatResultItem": "",
+    "isMeat": false,
+    "isAlwaysEdible": false,
+    "animation": "none",
+    "isMusicDisc": false,
+    "musicDiscMusic": "",
+    "musicDiscDescription": "",
+    "musicDiscLengthInTicks": 100,
+    "musicDiscAnalogOutput": 0,
+    "providedBannerPatterns": [],
+    "attributeModifiers": []
+  }
+}

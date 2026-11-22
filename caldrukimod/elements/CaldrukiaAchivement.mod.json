@@ -1,0 +1,21 @@
+{
+  "_fv": 92,
+  "_type": "achievement",
+  "definition": {
+    "achievementName": "Caldrukia!",
+    "achievementDescription": "Enter Caldrukia for the first time",
+    "achievementIcon": "CUSTOM:DirtDruki",
+    "background": "Default",
+    "disableDisplay": false,
+    "showPopup": true,
+    "announceToChat": true,
+    "hideIfNotCompleted": false,
+    "rewardLoot": [],
+    "rewardRecipes": [],
+    "rewardFunction": "CaldrukiAnchor",
+    "rewardXP": 0,
+    "achievementType": "task",
+    "parent": "CUSTOM:CaldrukiModAchivement",
+    "triggerxml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><block type=\"advancement_trigger\" deletable=\"false\" x=\"40\" y=\"80\"><next><block type=\"dimension_entered\"><field name=\"dimension\">CUSTOM:Caldrukia</field></block><shadow type=\"custom_trigger\"></shadow></next></block></xml>"
+  }
+}
