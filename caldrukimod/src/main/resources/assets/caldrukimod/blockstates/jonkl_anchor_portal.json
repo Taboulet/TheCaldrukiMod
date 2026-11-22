@@ -1,0 +1,94 @@
+{
+  "variants": {
+    "facing=north,jonklanchorcolor=1": {
+      "model": "caldrukimod:block/jonkl_anchor_portal_0"
+    },
+    "facing=north,jonklanchorcolor=2": {
+      "model": "caldrukimod:block/jonkl_anchor_portal_1"
+    },
+    "facing=north,jonklanchorcolor=3": {
+      "model": "caldrukimod:block/jonkl_anchor_portal_2"
+    },
+    "facing=north,jonklanchorcolor=4": {
+      "model": "caldrukimod:block/jonkl_anchor_portal_3"
+    },
+    "facing=north,jonklanchorcolor=5": {
+      "model": "caldrukimod:block/jonkl_anchor_portal_4"
+    },
+    "facing=north,jonklanchorcolor=0": {
+      "model": "caldrukimod:block/jonkl_anchor_portal"
+    },
+    "facing=east,jonklanchorcolor=1": {
+      "model": "caldrukimod:block/jonkl_anchor_portal_0",
+      "y": 90
+    },
+    "facing=east,jonklanchorcolor=2": {
+      "model": "caldrukimod:block/jonkl_anchor_portal_1",
+      "y": 90
+    },
+    "facing=east,jonklanchorcolor=3": {
+      "model": "caldrukimod:block/jonkl_anchor_portal_2",
+      "y": 90
+    },
+    "facing=east,jonklanchorcolor=4": {
+      "model": "caldrukimod:block/jonkl_anchor_portal_3",
+      "y": 90
+    },
+    "facing=east,jonklanchorcolor=5": {
+      "model": "caldrukimod:block/jonkl_anchor_portal_4",
+      "y": 90
+    },
+    "facing=east,jonklanchorcolor=0": {
+      "model": "caldrukimod:block/jonkl_anchor_portal",
+      "y": 90
+    },
+    "facing=south,jonklanchorcolor=1": {
+      "model": "caldrukimod:block/jonkl_anchor_portal_0",
+      "y": 180
+    },
+    "facing=south,jonklanchorcolor=2": {
+      "model": "caldrukimod:block/jonkl_anchor_portal_1",
+      "y": 180
+    },
+    "facing=south,jonklanchorcolor=3": {
+      "model": "caldrukimod:block/jonkl_anchor_portal_2",
+      "y": 180
+    },
+    "facing=south,jonklanchorcolor=4": {
+      "model": "caldrukimod:block/jonkl_anchor_portal_3",
+      "y": 180
+    },
+    "facing=south,jonklanchorcolor=5": {
+      "model": "caldrukimod:block/jonkl_anchor_portal_4",
+      "y": 180
+    },
+    "facing=south,jonklanchorcolor=0": {
+      "model": "caldrukimod:block/jonkl_anchor_portal",
+      "y": 180
+    },
+    "facing=west,jonklanchorcolor=1": {
+      "model": "caldrukimod:block/jonkl_anchor_portal_0",
+      "y": 270
+    },
+    "facing=west,jonklanchorcolor=2": {
+      "model": "caldrukimod:block/jonkl_anchor_portal_1",
+      "y": 270
+    },
+    "facing=west,jonklanchorcolor=3": {
+      "model": "caldrukimod:block/jonkl_anchor_portal_2",
+      "y": 270
+    },
+    "facing=west,jonklanchorcolor=4": {
+      "model": "caldrukimod:block/jonkl_anchor_portal_3",
+      "y": 270
+    },
+    "facing=west,jonklanchorcolor=5": {
+      "model": "caldrukimod:block/jonkl_anchor_portal_4",
+      "y": 270
+    },
+    "facing=west,jonklanchorcolor=0": {
+      "model": "caldrukimod:block/jonkl_anchor_portal",
+      "y": 270
+    }
+  }
+}

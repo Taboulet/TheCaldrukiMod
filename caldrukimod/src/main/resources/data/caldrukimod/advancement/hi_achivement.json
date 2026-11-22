@@ -1,0 +1,30 @@
+{
+  "display": {
+    "icon": {
+      "id": "caldrukimod:hi_wand"
+    },
+    "title": {
+      "translate": "advancements.hi_achivement.title"
+    },
+    "description": {
+      "translate": "advancements.hi_achivement.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "hi_achivement_0": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "caldrukimod:hi_wand"
+          }
+        ]
+      }
+    }
+  },
+  "parent": "caldrukimod:caldrukia_achivement"
+}

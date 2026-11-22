@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "aaa",
+    "aaa",
+    "aaa"
+  ],
+  "key": {
+    "a": {
+      "item": "caldrukimod:jonklanchor"
+    }
+  },
+  "result": {
+    "id": "caldrukimod:jonkl_anchor_portal",
+    "count": 1
+  }
+}

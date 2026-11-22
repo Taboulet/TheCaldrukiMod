@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "caldrukimod:hamster_biome",
+  "features": "caldrukimod:adrian_ore",
+  "step": "underground_ores"
+}
